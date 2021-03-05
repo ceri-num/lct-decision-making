@@ -1,1 +1,2 @@
-# module-DUU
+# Module Decision Under Uncertainty
+
