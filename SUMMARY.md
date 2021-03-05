@@ -2,7 +2,9 @@
 version: uv-mad
 ---
 
-# Outline
+# Table of contents
+
+* [Module Decision Under Uncertainty](README.md)
 
 ## Notions
 
