@@ -19,7 +19,7 @@ section::after { /* Pagination */
     font-weight: bold;
 }
 
-p, li, h4 {
+p, li, h4, code {
     font-size: 22pt;
 }
 
@@ -51,6 +51,10 @@ ul{
     list-style: none;
 }
 
+li{
+    margin-bottom: 14px;
+}
+
 ul li::before {
     content: "\25B6";
     color: var(--color-contrast);
@@ -77,4 +81,8 @@ em{
 
 img{
     width: 100%;
+}
+
+pre{
+   border-left: solid, 1px, blue;
 }

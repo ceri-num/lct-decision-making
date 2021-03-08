@@ -1,0 +1,18 @@
+# System
+*.log
+.vscode
+
+# Latex:
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.pdf
+*.synctex.gz
+*.tex~
+
+# source:
+*.pyc
+*.o

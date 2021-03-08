@@ -78,13 +78,9 @@ $\rightarrow$ requires decomposed model and statistics...
 
 ---
 
-## Introduction - This Course
+## Introduction to Decision Under Uncertainty
 
-### Decision Under Uncertainty
-
-Is an introduction to models and algorithms<br />
-to perform decision-making at a time step *t*<br />
-by considering potential effects.
+#### Is an introduction to models and algorithms to perform decision-making <br /> at a time step *t*, by considering potential effects.
 
 - 19 hours (5 sessions)
 - Mainly as tutorials
@@ -101,40 +97,41 @@ by considering potential effects.
 
 ## Class of problems - Deterministic Planning
 
-is the process that determines *a succession of actions*<br />
-to drive a system from an initial state to a target state.
+Determining *a succession of actions* to drive a system from an initial state to a target state.
 
-![](resources/color-domino.svg)
+![](../figs/color-domino.svg)
 
 **Deterministic case**:
 
-- the effects, by doing an action, from a specific state<br /> is certain.
+- the effects, by doing an action, from a specific state is certain.
+
 ---
 
 ## Class of problems - Deterministic Planning
 
-Is the process that determines *a succession of actions*<br />
-to drive a system from an initial state to a target state.
+Determining *a succession of actions* to drive a system from an initial state to a target state.
 
-![](resources/color-domino-plan.svg)
+![](../figs/color-domino-plan.svg)
 
 **Deterministic case**:
 
-- The effects, by doing an action, from a specific state<br /> is certain.
+- the effects, by doing an action, from a specific state is certain.
+
 ---
 
 ## Class of problems - Determine a Plan
 
 Finding a *path* in a *graph* modeling all possible evolutions
 
-![](resources/domino-graph.svg)
+![](../figs/domino-graph.svg)
+
 ---
 
 ## Class of problems - Plan Optimization
 
 Finding an *optimized* path in a *weighted* Graph
 
-![](resources/domino-graph-2.svg)
+![](../figs/domino-graph2.svg)
 
 ---
 
@@ -142,46 +139,50 @@ Finding an *optimized* path in a *weighted* Graph
 
 Build a *policy*:
 
-- Associate an *action* to perform <br />
-*to each* reachable *state*
+- Associate an *action* to perform *to each* reachable *state*
 
-![](resources/color-domino-policy.svg)
+![](../figs/color-domino-policy.svg)
 
 ---
 
 ## Class of problems - Stokastic Planning
 
-Then the effective succession of actions remains stochastic
+Execute a *policy*:
 
-![](resources/color-domino-policy2.svg)
+- Then, the effective succession of actions remains stochastic
+
+![](../figs/color-domino-policy2.svg)
+
 ---
 
 ## Class of problems - Game theory
 
 *Few entities* control the same system (with different goals)
 
-![](resources/echec.jpg)
+![](../figs/echec.svg)
 
 - Which actions for each entity ?
 - Which consequences ?
+
 ---
 
 ## Class of problems - Game theory
 
-Few entities control the same system<br />
-With different goals.
+*Few entities* control the same system (with different goals)
 
-![](resources/echec_graph.svg)
+![](../figs/echec-graph.svg)
 
-- *Uncertainty*: At last on the actions of the others.
+- *Uncertainty*: At last on the actions of the other players.
+
 ---
 
 ## Class of problems - Control Complex systems
 
 Complex systems:
+
 - A lot of entities in interactions
 
-![](resources/prisonarchitect.jpg)
+![](../figs/prison-architect.svg)
 
 - *Uncertainty*: ...
 
@@ -191,6 +192,7 @@ Complex systems:
 
 <br />
 <br />
+<br />
 
 - **graph** composed of **node** and **edges**
 - **graph** composed of **state** and **action** (State Automata)
@@ -198,24 +200,19 @@ Complex systems:
 - **determinist** versus **uncertain** / **stochastic**
 - **system**, **control** (automation)
 - **Multi-Agent System**, **Decision Making** (AI)
+
 ---
 
 ## Notion of Agent
 
-<div class="center">
 <br />
 <br />
-**"I act therefore I am"**
-<br />
-<br />
-<br />
-</div>
+
+#### "I act therefore I am"
 
 - my actions have an effect on the world
 - **and** I have the choice to act or not
 
-<br />
-<br />
 <br />
 <br />
 <br />
@@ -227,37 +224,29 @@ cf. "BullShit Jobs" - David Graeber (2019)
 or the joy to be cause - Karl Groos (1901)
 
 <!-- Pour approfondir: : broucek francis « the sense of self » 1977 - Klein G. S. « the vital pleasures » 1976.-->
+
 ---
 
 ## Notion of Agent - Simple definition
 
 <br />
 <br />
-<br />
-<div class="center">
-### Entity capable of perception and action<br /> evolving in an environment.
-</div>
+
+**An agent:**
+
+#### An entity capable of perception and action<br /> evolving in an environment.
 
 <br />
-<br />
-<br />
 
-### Question:
+**Question:**
 
-<div class="center">
-### How to choose appropriate action to perform<br /> considering the perception at a each time step ?
-</div>
+#### How to choose appropriate action to perform<br /> considering the perception at a each time step ?
 
-<br />
-<br />
-<br />
 ---
 
 ## Notion of Agent - Simple definition
 
-### Open loop control
-
-![](resources/agent.svg)
+![](../figs/agent.svg)
 
 rarely determinist, mostly uncertain (even stochastic)
 
@@ -267,96 +256,58 @@ rarely determinist, mostly uncertain (even stochastic)
 
 ### Agent:
 
-- defining by a perception-state, goals and a policy to achieve its<br />
-(*BDI* model: Belief - Desire - Intention)
-- with different positions in social structure<br />
-(*AGR* model: Agent - Group - Role )
+- defining by a perception-state, goals and a policy to achieve its goals<br />(*BDI* model: Belief - Desire - Intention)
+- with different positions in social structure<br />(*AGR* model: Agent - Group - Role )
 - capable of communication
 - capable of adaptation (learning)
 - driven by emotions
 - ...
----
 
-## Course notion to acquire
-<br /><br />
-
-<div class="two5">
-  From *reactive control*
-</div>
-<div class="one5">
-  **to**
-</div>
-<div class="two5">
-  *deliberative control*
-</div>
-
-<div class="two5">
-  Immediate response<br />
-  to stimuli
-
-  <br />
-
-  Script:  <br />
-  if .... then ...   <br />
-  else if ...  <br />
-
-</div>
-<div class="one5">
-  <br /><br /><br /><br />
-  **versus**
-</div>
-<div class="two5">
-  model and statistical<br />
-  decision-making
-
-![](resources/domino-graph-2.svg)
-
-</div>
 ---
 
 ## Course notion to acquire
 
-<br /><br /><br /><br />
+From *reactive control* **to** *deliberative control*
+
+- Immediate response to stimuli
+
+```
+Script:
+if .... do ...
+else if ... do ...
+```
+
+**versus**
+
+- Model and statistical decision-making:
+
+---
+
+## Course notion to acquire
+
+<br />
+<br />
 
 ### Decision-making under uncertainty
 
 - Script, Policy and Decision Tree
-- Statistical evolution: Bayesian Network
-- Planning: Markov Decision Process
+- Reinforcement Learning: 
+  - Q-Learning (learn the policy)
+  - Model-Learning (learn the model, compute the policy)
+- Factored Model
+
 ---
 
-## Zombie dice
+## Game: 421
 
-### A Stokastic Dice Game
+![bg right 60%](../figs/421_dice.jpg)
 
-<div class="one2">
-![](resources/zombie_dice.jpeg)
-</div>
+<br />
 
-<div class="one2">
-- Players are Starved Zombies
-- dice are humans
-- Zombies eat human brains
-- and can't take more than 2 shots
-</div>
----
+- Get the best combination
+- by rolling 3 dices
 
-## Zombie dice
+### Goal :
 
-### A Stokastic Dice Game
-
-<div class="two3">
-![](resources/zombie_dice2.png)
-</div>
-
-<div class="one3">
-**Decision:**
-
-- Score or Continue
-
-**Uncertainty:**
-
-- dice selection
-- dice result
-- score evolution
-</div>
+- Optimize the 2 re-roll possibility
+- by choosing dices to roll again.
