@@ -8,7 +8,7 @@ version: uv-mad
 
 ## Notions
 
-* [Decision in AI](notions/intro.md)
+* [Introduction](notions/intro.md)
 * [State, Action and Policy](notions/policy.md)
 * [Reinforcement Learning](notions/reinforcement.md)
 * [Markov Decision Process](notions/mdp.md)
