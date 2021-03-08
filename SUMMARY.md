@@ -4,11 +4,11 @@ version: uv-mad
 
 # Table of contents
 
-* [Module Decision Under Uncertainty](README.md)
+* [Welcome](README.md)
 
 ## Notions
 
-* [Introduction](notions/intro.md)
+* [Decision Under Uncertainty](notions/intro.md)
 * [State, Action and Policy](notions/policy.md)
 * [Reinforcement Learning](notions/reinforcement.md)
 * [Markov Decision Process](notions/mdp.md)

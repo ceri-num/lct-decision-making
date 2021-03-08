@@ -19,7 +19,7 @@ section::after { /* Pagination */
     font-weight: bold;
 }
 
-p, li, h4, code {
+p, li, tr, h4, code {
     font-size: 22pt;
 }
 
@@ -84,5 +84,9 @@ img{
 }
 
 pre{
-   border-left: solid, 1px, blue;
+    border-left: solid, 1px, blue;
+}
+
+td{
+    padding: 7px 14px;
 }
