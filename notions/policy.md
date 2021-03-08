@@ -1,9 +1,11 @@
 ---
-marp: true
+marp: false
 theme: imt
 paginate: true
 backgroundImage: url('../style/bg-imt.svg')
 ---
+
+<!-- link rel="stylesheet" href="../style/imt.css" -->
 
 # States, Actions,<br />and Policies
 
