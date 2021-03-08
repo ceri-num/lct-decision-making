@@ -22,6 +22,12 @@ Then you can download the **421** game (a unique python file)
 
 ## Shared workspace
 
+To work with your peer you have several solution (to notice that you can combine them)
+
+- Sharing screen with **Discord** (one pilot one copilot).
+- Sharing Horizon virtual Machine.
+- Sharing work space with the plugging **LiveShare** of **VSCode** (not sure about it efficiency with virtual machine).
+- Create a commun repository on a git server (github for instance).
 
 ## Play 421
 
