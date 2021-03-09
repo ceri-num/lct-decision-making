@@ -13,6 +13,7 @@ version: uv-mad
 * [Reinforcement Learning](notions/reinforcement.md)
 * [Markov Decision Process](notions/mdp.md)
 * [Factorised Model](notions/dbn.md)
+
 <!-- * [Factorised Learning](notions/id3-algorythm.md) -->
 
 ## Playing with 421
