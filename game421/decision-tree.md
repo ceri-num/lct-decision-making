@@ -20,7 +20,7 @@ Create a new python file by importing the game421 engine, copying the main funct
 Your file must look like:
 
 ```python
-import game421.Engine
+from game421 import Engine
 
 # Default game interface :
 def main():
@@ -39,7 +39,7 @@ class MyPlayer :
 
     def action(self, isValidAction ) :
         print( "Action: " + self.actionStr)
-        return actionStr
+        return self.actionStr
 
 # Activate default interface :
 if __name__ == '__main__':
