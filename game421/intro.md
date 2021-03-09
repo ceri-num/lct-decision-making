@@ -17,17 +17,17 @@ Virtual machines under this configuration is available on IMT-Lille-Douai server
 
 Then you can download the **421** game (a unique python file)
 
-- Download [game421.py](https://raw.githubusercontent.com/ceri-num/module-DUU/master/codes/game421.py)) in your new workspace.
+- Download [game421.py](https://raw.githubusercontent.com/ceri-num/module-DUU/master/codes/game421.py) in your new workspace.
 - Execute the game to test it: `python3 game421.py`
 
 ## Shared workspace
 
-To work with your peer you have several solution (to notice that you can combine them)
+To work with your peer you have several solutions (to notice that you can combine them)
 
 - Sharing screen with **Discord** (one pilot one copilot).
 - Sharing Horizon virtual Machine.
-- Sharing work space with the plugging **LiveShare** of **VSCode** (not sure about it efficiency with virtual machine).
-- Create a commun repository on a git server (github for instance).
+- Sharing work space with the plugging **LiveShare** of **VSCode** (not sure about it efficiency with a virtual machine).
+- Create a common repository on a git server (github for instance).
 
 ## Play 421
 

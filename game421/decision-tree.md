@@ -30,7 +30,7 @@ def main():
 # Agent as a very simple UI
 class MyPlayer :
 
-    def _init_(self):
+    def __init__(self):
         self.actionStr= "keep-keep-keep"
 
     def perceive(self, perceptionStr, reward):
@@ -58,7 +58,7 @@ As in game421 Engine, it is possible to transform the `perseptionStr` into a dic
 
 ```python
 values= [ int(x_str) for x_str in perceptionStr.split("-") ]
-gameState= { "H":values[0],  "D1":values[1],  "D2":values[2],  "D3":values[3] })
+gameState= { "H":values[0],  "D1":values[1],  "D2":values[2],  "D3":values[3] }
 ```
 
 You can try your AI by computing the average score after 10 000 games (do not forget to remove the calls to `print` function).

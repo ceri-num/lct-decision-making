@@ -19,6 +19,7 @@ version: uv-mad
 
 * [Kick-off](game421/intro.md)
 * [Decision-Tree](game421/decision-tree.md)
+* [Decision-Tree Example](game421/decision-tree2.md)
 * [Q-Learning](game421/q-learning.md)
 * [Value-Iteration](game421/value-iteration.md)
 * [Bayesian-network](game421/dbn.md)
