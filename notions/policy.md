@@ -1,5 +1,5 @@
 ---
-marp: false
+marp: true
 theme: imt
 paginate: true
 backgroundImage: url('../style/bg-imt.svg')

@@ -49,4 +49,4 @@ def main():
 
 That requires to increase the *PlayerDT* class with a *score* attribute.
 
-The final example could be downloaded [here](https://raw.githubusercontent.com/ceri-num/module-DUU/master/codes/player421DT.py). Normally the proposed AI as a score arround **263 +/- 3**.
+The final example could be downloaded [here](https://raw.githubusercontent.com/ceri-num/module-DUU/master/codes/player421DT.py). This proposed AI as a score arround **263 +/- 3**.

@@ -13,6 +13,8 @@ Guillaume Lozenguez
 
 [@imt-lille-douai.fr](mailto:guillaume.lozenguez@imt-lille-douai.fr)
 
+[version pdf]()
+
 ![bg](../style/bg-tittle.svg)
 
 ---
@@ -311,3 +313,13 @@ else if ... do ...
 
 - Optimize the 2 re-roll possibility
 - by choosing dices to roll again.
+
+---
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+#### Let's go....
