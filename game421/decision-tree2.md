@@ -1,18 +1,12 @@
 # Decision Tree
 
-The Decition-Tree could simply target a "4-2-1" state.
+A simple example for an Decision-Tree implementation for **421** game.
 
 ## A simple first Decition-Tree
 
-```mermaid
-graph TD;
-    D3((D3)) -- == 1 --> D2((D2));
-    D2 -- == 2 --> D1((D1));
-    D1 -- == 4 --> actKKK>keep-keep-keep];
-    D1 -- else --> actKKR>roll-keep-keep];
-    D2 -- else --> actKRR>roll-roll-keep];
-    D3 -- else --> actRRR>roll-roll-roll];
-```
+The Decition-Tree target a "4-2-1" state.
+
+![](../figs/dt-421.svg)
 
 ## Implementation:
 
