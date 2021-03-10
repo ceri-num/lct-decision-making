@@ -234,18 +234,38 @@ $$Q(s, a) = (1-\alpha)Q(s,a) + \alpha \left(r + \gamma \max_{a'\in A} Q(s', a')\
 
 ## Q-learning : the algorithm
 
-*Input:* state and action spaces: *S*, *A* ; a step engine *perform* ;
+*Input:* state and action spaces: *A* ; a step engine *Perform* ;
 exploration ratio: *$\epsilon$* ; learning rate: *$\alpha$* ; discount factor *$\gamma$*
 
-1. Initialize $Q(s,a)$ to 0 for any couple of $(s, a)$
-2. Read the initial state $s$
+1. Read the initial state $s$
+2. Initialize $Q(s,a)$ to 0 for any action $a$
 3. Repeat until convergence
-   1. at *$\epsilon$* random: get a random $a$ *or* $a$ maximizing $Q(s, a)$
-   2. *perform* $a$ and read the reached state $s'$ and the associated reward $r$
-   3. Update $Q(s,a)$ accordingly to *$\alpha$* and *$\gamma$*
-   4. set $s=\ s'$
+   1. At *$\epsilon$* random: get a random $a$ *or* $a$ maximizing $Q(s, a)$
+   2. *Perform* $a$ and read the reached state $s'$ and the associated reward $r$
+   3. If necessary, add $s'$ to $Q$ ( with value $0$ for any action $a$)
+   4. Update $Q(s,a)$ accordingly to *$\alpha$* and *$\gamma$*
+   5. set $s=\ s'$
 
 *Output:* the **Q-values**.
+
+---
+<!-- ************************************************************** -->
+
+
+## Q-learning : the algorithm
+
+In agent-based programming:
+
+- As an initial step : 
+   1. Initialize $Q$
+- At 'game' start :
+   1. Read the initial state $s$
+- At each itereration :
+   1. Read the reached state $s'$ and the associated reward $r$
+   2. If necessary, add $s'$ to $Q$ (with value $0$ for any action $a$)
+   3. Update $Q(s,a)$ accordingly to *$\alpha$* and *$\gamma$*
+   4. reccord $s=\ s'$
+   5. At *$\epsilon$* random: get a random $a$ *or* $a$ maximizing $Q(s, a)$
 
 ---
 

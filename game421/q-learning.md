@@ -38,17 +38,16 @@ Finally PLayerQ will look like :
 import random
 
 class PlayerQ
-
     def __init__(self):
     	self.Q= {}
 
     def wakeUp(self, initialStateStr, actionSpace )
-        self.state= initialStateStr
+        self.stateStr= initialStateStr
         self.actions= actionSpace
 
     def perceive(self, reachedStateStr, reward )
-	    # self.updateQ( self.state, self.actionStr, reachedStateStr, reward)
-        self.state= reachedStateStr
+	    # update Q( self.stateStr, self.actionStr ) with reachedStateStr, reward
+        self.stateStr= reachedStateStr
 
     def action(self, isValidAction ) : # pure exploration: 
         self.actionStr=  random.choice( self.actions )
@@ -58,12 +57,12 @@ class PlayerQ
         self.score= score
         print( "Game end on score: "+ str(score) )
         print( "Q: " )
-        for( state in Q )
-            print( Q[state] )
+        for( s in Q )
+            print( Q[s] )
 ```
 
 1. First you have to increase **Q** dictionary with a new entrance each time a new state is visited.
-2. Then you require to un-comment and implement a new method *updateQ* that update the **Q** value for the last visited state (`Q[stateStr][actionStr]`)
+2. Then you can implement the update of **Q** value for the last visited state (`Q[stateStr][actionStr]`)
    - To notice that *updateQ* will require another method to select the maximal value in **Q** for a given state.
 3. Now the *action* method can randomly select an exploration or an exploitation action.
    - To notice that *action* will require another method to select the action with the maximal value in **Q** for a given state.
@@ -73,6 +72,8 @@ class PlayerQ
 To notice that in professional condition (if you target to become an engineer in Computing Science), you will rarelly have a decomposition of the tasks to achieve.
 
 You ~~can~~ must test your code at each development step by executing the code for few games and validate that the output is as expected.
+
+5. You can now try to answer how many episodes are required to learn a good enough policy.
 
 ## Going further:
 
