@@ -37,7 +37,7 @@ Finally PLayerQ will look like :
 ```python
 class PlayerQ
 	state= ""
-	qvalue= {}
+	Q= {}
 
 def perceive(self, perceptionStr, reward )
 
@@ -45,8 +45,7 @@ def perceive(self, perceptionStr, reward )
     	self.updateQ( self.state, self.actionStr, perceptionStr, reward)
     self.state= perceptionStr
     #selecte self.actionStr:
-    self.actionStr= self.argMax( self.qvalue[perceptionStr] ) # for the best known action
-    
+    self.actionStr= self.argMax( self.Q[perceptionStr] ) # for the best known action
 ```
 
 
