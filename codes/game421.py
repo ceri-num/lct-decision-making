@@ -11,10 +11,29 @@ def main():
     gameEngine.run( HumanPlayer() )
 
 # Agent as a very simple UI
-class HumanPlayer :
+class AbsAgent :
 
-    def perceive(self, perceptionStr, reward):
-        print( "Perception: "+ perceptionStr  +" with reward : " + str(reward) )
+    def wakeUp(self, initialStateStr, actionSpace):
+        pass
+
+    def perceive(self, reachedStateStr, reward):
+        pass
+
+    def action(self, isValidAction ) :
+        pass
+
+    def kill(self, score):
+        pass
+
+class HumanPlayer(AbsAgent) :
+
+    def wakeUp(self, initialStateStr, actionSpace):
+        print( "Start a new game, possible actions are:" )
+        print( actionSpace )
+        print( "Perception: "+ initialStateStr )
+
+    def perceive(self, reachedStateStr, reward):
+        print( "Perception: "+ reachedStateStr  +" with reward : " + str(reward) )
 
     def action(self, isValidAction ) :
         print( "Action ?")
@@ -22,6 +41,9 @@ class HumanPlayer :
         while not isValidAction( actionStr ) :
             actionStr= input()
         return actionStr
+
+    def kill(self, score):
+        print( "Game end on score: "+ str(score) )
 
 # Game engine :
 class Engine :
@@ -40,12 +62,13 @@ class Engine :
     # Players as classical Agent that can perceive and respond with actions
     def run(self, player):
         self.initialize()
+        player.wakeUp( self.stateStr(), self.allActionsStr() )
         reward= 0.0
-        player.perceive( self.stateStr(), reward )
         while not self.isEnd() :
             action= player.action( self.isActionStr )
             reward= self.step( self.actionFromStr(action) )
             player.perceive( self.stateStr(), reward )
+        player.kill( reward )
 
     # Generate a list of all the possible states
     def allStates(self):
@@ -67,6 +90,11 @@ class Engine :
                     action= { "A1":i1,  "A2":i2, "A3":i3 }
                     allActions.append( action )
         return allActions
+
+    def allActionsStr(self):
+        allActions= self.allActions()
+        allActionStr= [ '-'.join( action.values() ) for action in allActions ]
+        return allActionStr
 
     # Return the current state as a variable dictionary
     def stateDico(self):
