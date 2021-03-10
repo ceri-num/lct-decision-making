@@ -32,6 +32,24 @@ Then modifying a value in **Q** will look like:
 Q["2-6-3-2"]["roll-roll-roll"]= ...
 ```
 
+Finally PLayerQ will look like :
+
+```python
+class PlayerQ
+	state= ""
+	qvalue= {}
+
+def perceive(self, perceptionStr, reward )
+
+	if self.state != "" : 
+    	self.updateQ( self.state, self.actionStr, perceptionStr, reward)
+    self.state= perceptionStr
+    #selecte self.actionStr:
+    self.actionStr= self.argMax( self.qvalue[perceptionStr] ) # for the best known action
+    
+```
+
+
 ## Going further:
 
 1. *PlayerQ* save its learned **Q-values** on a file.
