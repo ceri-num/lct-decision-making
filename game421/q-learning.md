@@ -35,19 +35,44 @@ Q["2-6-3-2"]["roll-roll-roll"]= ...
 Finally PLayerQ will look like :
 
 ```python
+import random
+
 class PlayerQ
-	state= ""
-	Q= {}
 
-def perceive(self, perceptionStr, reward )
+    def __init__(self):
+    	self.Q= {}
 
-	if self.state != "" : 
-    	self.updateQ( self.state, self.actionStr, perceptionStr, reward)
-    self.state= perceptionStr
-    #selecte self.actionStr:
-    self.actionStr= self.argMax( self.Q[perceptionStr] ) # for the best known action
+    def wakeUp(self, initialStateStr, actionSpace )
+        self.state= initialStateStr
+        self.actions= actionSpace
+
+    def perceive(self, reachedStateStr, reward )
+	    # self.updateQ( self.state, self.actionStr, reachedStateStr, reward)
+        self.state= reachedStateStr
+
+    def action(self, isValidAction ) : # pure exploration: 
+        self.actionStr=  random.choice( self.actions )
+        return self.actionStr
+
+    def kill(self, score ) :
+        self.score= score
+        print( "Game end on score: "+ str(score) )
+        print( "Q: " )
+        for( state in Q )
+            print( Q[state] )
 ```
 
+1. First you have to increase **Q** dictionary with a new entrance each time a new state is visited.
+2. Then you require to un-comment and implement a new method *updateQ* that update the **Q** value for the last visited state (`Q[stateStr][actionStr]`)
+   - To notice that *updateQ* will require another method to select the maximal value in **Q** for a given state.
+3. Now the *action* method can randomly select an exploration or an exploitation action.
+   - To notice that *action* will require another method to select the action with the maximal value in **Q** for a given state.
+4. A proper **PlayerQ** class permit users to customize the algorithms parameters $\epsilon$, $\gamma$ ... Let’s do it in the `__init__` method (with default parameters value).
+   - Handle default parameters value in python with [w3schools](https://www.w3schools.com/python/gloss_python_function_default_parameter.asp).
+
+To notice that in professional condition (if you target to become an engineer in Computing Science), you will rarelly have a decomposition of the tasks to achieve.
+
+You ~~can~~ must test your code at each development step by executing the code for few games and validate that the output is as expected.
 
 ## Going further:
 
@@ -55,4 +80,3 @@ def perceive(self, perceptionStr, reward )
 2. *PlayerQ* initialize its **Q-values** by loading a file.
 3. A new *PlayerBestQ* simply play the best action always from a given **Q-values** dictionary (without upgrading **Q**).
 4. You are capable of plotting the sum over **Q** with one point per episode (with [pyplot](https://matplotlib.org/stable/tutorials/introductory/pyplot.html) for instance).
-

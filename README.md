@@ -1,4 +1,4 @@
-# Module Decision Under Uncertainty
+# Decision Under Uncertainty
 
 These pages serve as support for this module of the **UV Model Agent Decision**.
 

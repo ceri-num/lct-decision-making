@@ -4,8 +4,7 @@ version: uv-mad
 
 # Table of contents
 
-* [Welcome](README.md)
-
+* [Decision Under Uncertainty](README.md)
 
 ## Playing with 421
 
@@ -17,9 +16,9 @@ version: uv-mad
 <!-- * [Bayesian-network](game421/dbn.md) -->
 <!-- * [ID3](game421/id3.md) -->
 
-<!--
 ## Playing with ZombieDice
 
+<!--
 * [Agile development](challenge/agile-dev.md)
 * [Evaluation](challenge/evaluation.md)
 -->
