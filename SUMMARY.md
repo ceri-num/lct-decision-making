@@ -6,14 +6,6 @@ version: uv-mad
 
 * [Welcome](README.md)
 
-## Notions
-
-* [Decision Under Uncertainty](notions/intro.md)
-* [State, Action and Policy](notions/policy.md)
-* [Reinforcement Learning](notions/reinforcement.md)
-<!-- * [Markov Decision Process](notions/mdp.md) -->
-<!-- * [Factorised Model](notions/dbn.md) -->
-<!-- * [Factorised Learning](notions/id3-algorythm.md) -->
 
 ## Playing with 421
 

@@ -13,8 +13,6 @@ Guillaume Lozenguez
 
 [@imt-lille-douai.fr](mailto:guillaume.lozenguez@imt-lille-douai.fr)
 
-[version pdf](intro.pdf)
-
 ![bg](../style/bg-tittle.svg)
 
 ---
