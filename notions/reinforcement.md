@@ -256,11 +256,11 @@ exploration ratio: *$\epsilon$* ; learning rate: *$\alpha$* ; discount factor *$
 
 In agent-based programming:
 
-1. As an initial step : 
+- As an initial step : 
    1. Initialize $Q$
-2. At 'game' start :
+- At 'game' start :
    1. Read the initial state $s$
-3. At each itereration :
+- At each itereration :
    1. Read the reached state $s'$ and the associated reward $r$
    2. If necessary, add $s'$ to $Q$ (with value $0$ for any action $a$)
    3. Update $Q(s,a)$ accordingly to *$\alpha$* and *$\gamma$*
