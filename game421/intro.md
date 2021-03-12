@@ -11,7 +11,8 @@ We suggest working under Linux operating system and the editor **Visual Studio C
 
 Virtual machines under this configuration is available on IMT-Lille-Douai servers.
 
-- [mydesktop.imt-lille-douai.fr](https://mydesktop.imt-lille-douai.fr) - use the web client, and the **MAD** machine.
+- [mydesktop.imt-lille-douai.fr](https://mydesktop.imt-lille-douai.fr) - use the web client with school ID (in case of difficulties with your passworld, you can change it again on [MyServices](myservices.imt-lille-douai.fr/) )
+- Launch the **MAD** machine, login and passworld are: adminlnx
 - Open a workspace with Visual Studio Code on a new directory.
 - Execute `python3` command in a terminal then `exit()` to test your configuration.
 
