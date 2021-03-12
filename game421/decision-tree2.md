@@ -25,6 +25,8 @@ The Decition-Tree could take the form of a "if-else" script :
                 self.actionStr= "roll-roll-keep"
         else: 
             self.actionStr= "roll-roll-roll"
+        # Then return the action to the engine:
+        return self.actionStr
 ```
 
 That supose you decompose the perceved game state (String type) into a dictionary:
