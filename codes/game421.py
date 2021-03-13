@@ -8,7 +8,8 @@ import random
 # Default game interface :
 def main():
     gameEngine= Engine()
-    gameEngine.run( HumanPlayer() )
+    player= HumanPlayer()
+    gameEngine.run( player )
 
 # Agent as a very simple UI
 class AbsAgent :
@@ -80,6 +81,10 @@ class Engine :
                         state= { "H":h,  "D1":i1,  "D2":i2,  "D3":i3 }
                         allStates.append( state )
         return allStates
+
+    def allStatesStr(self):
+        allStatesStr= [ '-'.join( [str(v) for v in s.values() ] ) for s in self.allStates() ]
+        return allStatesStr
 
     # Generate a list of all the possible actions
     def allActions(self):

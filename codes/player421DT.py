@@ -2,11 +2,11 @@ from game421 import Engine
 
 # Default game interface :
 def main():
+    player= PlayerDT()
     total= 0
     samples= 10000
     for i in range(samples) :
         gameEngine= Engine()
-        player= PlayerDT()
         gameEngine.run( player )
         total+= player.score
     print( "Average score: " + str( total/samples ) )

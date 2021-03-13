@@ -41,11 +41,11 @@ class PlayerQ
     def __init__(self):
     	self.Q= {}
 
-    def wakeUp(self, initialStateStr, actionSpace )
+    def wakeUp(self, initialStateStr, actionSpace ):
         self.stateStr= initialStateStr
         self.actions= actionSpace
 
-    def perceive(self, reachedStateStr, reward )
+    def perceive(self, reachedStateStr, reward ):
 	    # update Q( self.stateStr, self.actionStr ) with reachedStateStr, reward
         self.stateStr= reachedStateStr
 
@@ -57,8 +57,8 @@ class PlayerQ
         self.score= score
         print( "Game end on score: "+ str(score) )
         print( "Q: " )
-        for( s in Q )
-            print( Q[s] )
+        for s in self.Q :
+            print( self.Q[s] )
 ```
 
 1. First you have to increase **Q** dictionary with a new entrance each time a new state is visited.
