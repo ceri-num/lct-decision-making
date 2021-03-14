@@ -14,16 +14,16 @@ def main():
 # Agent as a very simple UI
 class AbsAgent :
 
-    def wakeUp(self, initialStateStr, actionSpace):
+    def wakeUp( self, initialStateStr ):
         pass
 
-    def perceive(self, reachedStateStr, reward):
+    def perceive( self, reachedStateStr, reward ):
         pass
 
-    def action(self, isValidAction ) :
+    def action( self, isValidAction ) :
         pass
 
-    def kill(self, score):
+    def kill( self, score ):
         pass
 
 class HumanPlayer(AbsAgent) :
