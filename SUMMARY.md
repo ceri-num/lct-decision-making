@@ -18,6 +18,9 @@ version: uv-mad
 
 ## Playing with ZombieDice
 
+* [Kick-off](gameZombies/intro.md)
+* [Expected Player](gameZombies/expected.md)
+
 <!--
 * [Agile development](challenge/agile-dev.md)
 * [Evaluation](challenge/evaluation.md)

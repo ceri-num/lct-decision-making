@@ -4,10 +4,10 @@ import matplotlib.pyplot as plt
 
 # Default game interface :
 def main():
-    stats= { "exploration": [], "average score": [], "average best Q": [] }
-    samples= 2000
-    step= 100
     player= PlayerQ( explorationRatio=0.1, learningRate= 0.1 )
+    stats= { "exploration": [], "average score": [], "average best Q": [] }
+    samples= 500
+    step= 500
     for v in range(step) :
         total= 0
         for i in range(samples) :

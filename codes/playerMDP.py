@@ -5,15 +5,17 @@ import matplotlib.pyplot as plt
 # Default game interface :
 def main():
     # Initialize MDP player:
-    player= PlayerMDP()
-    player.learnModel( Engine() )
-    player.valueIteration()
-    player.printPolicy()
-    player.printStatistics()
+    solver= MDP()
+    solver.learnModel( Engine() )
+    solver.valueIteration()
+    solver.printPolicy()
+    solver.printStatistics()
+
+    player= PiPlayer( solver.policy() )
 
     # Test player policy:
     total= 0
-    samples= 100000
+    samples= 10000
     for i in range(samples) :
         gameEngine= Engine()
         gameEngine.run( player )
@@ -22,28 +24,17 @@ def main():
     print( "average score : " + str( total/samples ) )
 
 # Agent as a very simple UI
-class PlayerMDP :
+class MDP :
 
     # Constructor
     def __init__(self, discountFactor=0.99, epsilon= 0.1 ):
         self.gamma= discountFactor
         self.epsilon= epsilon
+        self.samples= 100
 
-    # Agent life:
-    def wakeUp(self, initialStateStr, actionSpace ):
-        # Reccord initial state:
-        self.stateStr= initialStateStr
-
-    def perceive(self, reachedStateStr, reward ):
-        self.stateStr= reachedStateStr
-
-    def action(self, isValidAction ) : # pure exploration: 
-        self.actionStr= random.choice( self.actions )
-        return self.pi[ self.stateStr ]
-
-    def kill( self, score ):
-        # print( "Game end on score: "+ str(score) )
-        self.score= score
+    # accessor
+    def policy(self):
+        return self.pi
 
     # Markov Decision Processs life:
     def learnModel( self, engine ):
@@ -63,9 +54,8 @@ class PlayerMDP :
         self.transition[s][a]= {}
         self.reward[s][a]= 0.0
         act= engine.actionFromStr( a )
-        samples= 1000
         # Get samples:
-        for i in range(samples) :
+        for i in range(self.samples) :
             engine.setOnStateStr( s )
             self.reward[s][a]+= engine.step( act )
             sp= engine.stateStr()
@@ -75,16 +65,15 @@ class PlayerMDP :
                 self.transition[s][a][sp]+= 1
 
         # Compute statistics:
-        self.reward[s][a]= self.reward[s][a] / samples
+        self.reward[s][a]= self.reward[s][a] / self.samples
         for sp in self.transition[s][a] :
-            self.transition[s][a][sp]= self.transition[s][a][sp] / samples
+            self.transition[s][a][sp]= self.transition[s][a][sp] / self.samples
 
     def valueIteration(self):
         self.pi= { s: self.actions[0] for s in self.transition }
         self.values= { s: 0.0 for s in self.transition }
         maxDiffValue= self.epsilon + 1
-        #while maxDiffValue > self.epsilon :
-        for i in range( 10 ):
+        while maxDiffValue > self.epsilon :
             # for each state
             maxDiffValue= 0.0
             values= { s: 0.0 for s in self.transition }
@@ -126,6 +115,28 @@ class PlayerMDP :
             for a in self.transition[s] :
                 transitionSize+= len( self.transition[s][a] )
         print( "Transition size: "+ str( transitionSize ) )
+
+# Agent as a very simple UI
+class PiPlayer :
+
+    # Constructor
+    def __init__(self, policy ):
+        self.pi= policy
+
+    # Agent life:
+    def wakeUp(self, initialStateStr, actionSpace ):
+        # Reccord initial state:
+        self.stateStr= initialStateStr
+
+    def perceive(self, reachedStateStr, reward ):
+        self.stateStr= reachedStateStr
+
+    def action(self, isValidAction ) :
+        return self.pi[ self.stateStr ]
+
+    def kill( self, score ):
+        # print( "Game end on score: "+ str(score) )
+        self.score= score
 
 # Activate default interface :
 if __name__ == '__main__':

@@ -14,6 +14,7 @@ Presentation of the notions in this modul:
 * [Decision Under Uncertainty](https://raw.githubusercontent.com/ceri-num/module-DUU/master/notions/intro.pdf)
 * [State, Action and Policy](https://raw.githubusercontent.com/ceri-num/module-DUU/master/notions/policy.pdf)
 * [Reinforcement Learning](https://raw.githubusercontent.com/ceri-num/module-DUU/master/notions/reinforcement.pdf)
+* [Reinforcement Learning on 421](https://raw.githubusercontent.com/ceri-num/module-DUU/master/notions/reinforcement2.pdf)
 <!-- * [Markov Decision Process](notions/mdp.md) -->
 <!-- * [Factorised Model](notions/dbn.md) -->
 <!-- * [Factorised Learning](notions/id3-algorythm.md) -->
