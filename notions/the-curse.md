@@ -126,19 +126,4 @@ Labeled data with valid *values*...
 Simulation: a model of the controlled system
 
 
----
-
-## Action refinement at run time
-
-<br />
-
-#### Local computation of the Values and the policy from current state.
-
-- Constrained Value Iteration (from the current state, with a limited horizon)
-- Monte Carlo Approach (based on deep, but random trajectories)
-
-### Requirement:
-
-Simulation: a model of the controlled system
-
 
