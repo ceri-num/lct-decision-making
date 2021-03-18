@@ -1,5 +1,5 @@
 from game421 import Engine
-import random 
+import random, json
 import matplotlib.pyplot as plt
 
 # Default game interface :
@@ -11,8 +11,14 @@ def main():
     solver.printPolicy()
     solver.printStatistics()
 
-    player= PiPlayer( solver.policy() )
+    f = open("policyMDP.json", "w")
+    f.write( json.dumps( solver.policy(), sort_keys=True, indent=2) )
+    f.close()
 
+    f = open("policyMDP.json", "r")
+    player= PiPlayer( json.loads( f.read() ) )
+    f.close()
+ 
     # Test player policy:
     total= 0
     samples= 10000
