@@ -37,6 +37,9 @@ for i in range(demiSample):
     gameEngine.run( players[1], players[0] )
     gameEngine.run( players[0], players[1] )
 
+players[0].go()
+players[1].go()
+
 total= [0, 0]
 
 for i in range(demiSample):
