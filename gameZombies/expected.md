@@ -26,10 +26,12 @@ La confrontation entre vos *AutoPlayers* s'effectuera de la façon suivante:
 Les tests pourront ressembler à ça:
 
 ```python
-from repertoire_grpX.zombiePlayer.py import AutoPlayer as Player1
-from repertoire_grpY.zombiePlayer.py import AutoPlayer as Player2
+#!env python3
+from repertoire_grpX.zombiePlayer import AutoPlayer as Player1
+from repertoire_grpY.zombiePlayer import AutoPlayer as Player2
 from gameZombies2 import Engine
 
+gameEngine= Engine()
 players= [ Player1(), Player2() ]
 demiSample= 5000
 
@@ -44,14 +46,14 @@ total= [0, 0]
 
 for i in range(demiSample):
     gameEngine.run( players[1], players[0] )
-    total[0]+= players.score
-    total[1]+= players.score
+    total[0]+= players[0].score
+    total[1]+= players[0].score
     gameEngine.run( players[0], players[1] )
-    total[0]+= players.score
-    total[1]+= players.score
+    total[0]+= players[0].score
+    total[1]+= players[0].score
 
-print( players[0].students + ": "+ total[0] / demiSample*2 )
-print( players[1].students + ": "+ total[1] / demiSample*2 )
+print( players[0].students + ": " + str( total[0]/(demiSample*2)) )
+print( players[1].students + ": " + str( total[1]/(demiSample*2)) )
 
 if total[0] > total[1] :
     print( "Winner: "+ players[0].students )
