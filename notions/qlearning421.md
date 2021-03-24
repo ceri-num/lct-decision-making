@@ -34,7 +34,6 @@ $$Q(s^t, a) = (1-\alpha)Q(s^t,a) + \alpha \left(r + \gamma \max_{a^*\in A} Q(s^{
 
 - Parrameters:<br />*$\alpha$* - learning rate ; *$\epsilon$* - thexploration-Exploitation ratio ; *$\gamma$* - discount factor
 
-
 ---
 
 ## Q-Learnin: Game 421 (Single PLayer)
