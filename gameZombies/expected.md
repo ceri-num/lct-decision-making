@@ -47,10 +47,10 @@ total= [0, 0]
 for i in range(demiSample):
     gameEngine.run( players[1], players[0] )
     total[0]+= players[0].score
-    total[1]+= players[0].score
+    total[1]+= players[1].score
     gameEngine.run( players[0], players[1] )
     total[0]+= players[0].score
-    total[1]+= players[0].score
+    total[1]+= players[1].score
 
 print( players[0].students + ": " + str( total[0]/(demiSample*2)) )
 print( players[1].students + ": " + str( total[1]/(demiSample*2)) )
