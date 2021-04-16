@@ -5,6 +5,7 @@ version: uv-mad
 # Table of contents
 
 * [Decision Under Uncertainty](README.md)
+* [Chef de projet IA](formation-CPIA.md)
 
 ## Playing with 421
 
