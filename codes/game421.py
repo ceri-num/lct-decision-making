@@ -1,21 +1,34 @@
 #!env python3
 """
-Script MDP 421 
+Script 421 GAME - Guillaume Lozenguez 
 """
-
 import random
 
 # Default game interface :
 def main():
-    gameEngine= Engine()
+    gameEngine= System()
     player= HumanPlayer()
     gameEngine.run( player )
 
 # Agent as a very simple UI
 class AbsAgent :
 
-    def wakeUp( self, initialStateStr ):
-        pass
+    # Object Methods:
+    #---------------
+    def __init__(self, sep="-"):
+        self.separator= sep
+
+    # Agent Methods:
+    #---------------
+
+    def wakeUp( self, initialStateStr, stateDsc, actionSpace ):
+        # I wake up the agent with:
+        #  - an initial state,
+        #  - a description of state varibles
+        #  - the collection of all possible actions
+        self.descriptor= stateDsc
+        self.state= initialStateStr
+        self.score= 0
 
     def perceive( self, reachedStateStr, reward ):
         pass
@@ -23,18 +36,32 @@ class AbsAgent :
     def action( self, isValidAction ) :
         pass
 
-    def kill( self, score ):
-        pass
+    def sleep( self, score ):
+        self.score= score
+
+    # state and action manipulation:
+    #-------------------------------
+
+    def stateStr( self ):
+        return self.state
+    
+    def stateVector( self ):
+        return self.state.split( self.separator )
+
+    def stateDico( self ):
+        return { k:val for k, val in zip( self.descriptor, self.stateVector() ) }
 
 class HumanPlayer(AbsAgent) :
 
-    def wakeUp(self, initialStateStr, actionSpace):
+    def wakeUp( self, initialStateStr, stateDsc, actionSpace ):
+        super().wakeUp( initialStateStr, stateDsc, actionSpace )
         print( "Start a new game, possible actions are:" )
         print( actionSpace )
         print( "Perception: "+ initialStateStr )
 
     def perceive(self, reachedStateStr, reward):
-        print( "Perception: "+ reachedStateStr  +" with reward : " + str(reward) )
+        self.state= reachedStateStr
+        print( "Perception: "+ self.state +" with reward : " + str(reward) )
 
     def action(self, isValidAction ) :
         print( "Action ?")
@@ -43,11 +70,12 @@ class HumanPlayer(AbsAgent) :
             actionStr= input()
         return actionStr
 
-    def kill(self, score):
+    def sleep(self, score):
+        super().sleep( score )
         print( "Game end on score: "+ str(score) )
 
 # Game engine :
-class Engine :
+class System :
 
     # Constructor : set a Horizon and initialize the game
     def __init__( self, horizon=3 ):
@@ -63,13 +91,13 @@ class Engine :
     # Players as classical Agent that can perceive and respond with actions
     def run(self, player):
         self.initialize()
-        player.wakeUp( self.stateStr(), self.allActionsStr() )
+        player.wakeUp( self.stateStr(), ["Horizon", "D1", "D2", "D3"], self.allActionsStr() )
         reward= 0.0
         while not self.isEnd() :
             action= player.action( self.isActionStr )
             reward= self.step( self.actionFromStr(action) )
             player.perceive( self.stateStr(), reward )
-        player.kill( reward )
+        player.sleep( reward )
 
     # Generate a list of all the possible states
     def allStates(self):
