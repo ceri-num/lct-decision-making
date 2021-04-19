@@ -55,7 +55,7 @@ Il est possible de partir de cet exemple qui chasse un *421*:
 import game421 as game
 
 # Agent as a very simple UI
-class MyPlayer(game.AbsPlayer) :
+class MyPlayer(game.AbsAgent) :
 
     def perceive(self, reachedStateStr, reward):
         self.state= reachedStateStr
