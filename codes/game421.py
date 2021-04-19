@@ -7,7 +7,7 @@ import random
 # Default game interface :
 def main():
     gameEngine= System()
-    player= HumanPlayer()
+    player= HumanAgent()
     gameEngine.run( player )
 
 # Agent as a very simple UI
@@ -33,7 +33,7 @@ class AbsAgent :
     def perceive( self, reachedStateStr, reward ):
         pass
 
-    def action( self, isValidAction ) :
+    def decide( self, isValidAction ) :
         pass
 
     def sleep( self, score ):
@@ -51,7 +51,7 @@ class AbsAgent :
     def stateDico( self ):
         return { k:val for k, val in zip( self.descriptor, self.stateVector() ) }
 
-class HumanPlayer(AbsAgent) :
+class HumanAgent(AbsAgent) :
 
     def wakeUp( self, initialStateStr, stateDsc, actionSpace ):
         super().wakeUp( initialStateStr, stateDsc, actionSpace )
@@ -63,7 +63,7 @@ class HumanPlayer(AbsAgent) :
         self.state= reachedStateStr
         print( "Perception: "+ self.state +" with reward : " + str(reward) )
 
-    def action(self, isValidAction ) :
+    def decide(self, isValidAction ) :
         print( "Action ?")
         actionStr= ""
         while not isValidAction( actionStr ) :
@@ -94,7 +94,7 @@ class System :
         player.wakeUp( self.stateStr(), ["Horizon", "D1", "D2", "D3"], self.allActionsStr() )
         reward= 0.0
         while not self.isEnd() :
-            action= player.action( self.isActionStr )
+            action= player.decide( self.isActionStr )
             reward= self.step( self.actionFromStr(action) )
             player.perceive( self.stateStr(), reward )
         player.sleep( reward )

@@ -3,33 +3,73 @@ from enum import IntEnum
 
 # Default game interface :
 def main():
-    gameEngine= Engine()
-    player= HumanPlayer()
+    gameEngine= System()
+    player= HumanAgent()
     gameEngine.run( player )
 
-# Agent as a very simple UI
-class HumanPlayer() :
+# Abstract Agent Based Model
 
-    def __int__( self, name= "bob" ):
-        self.name= name
+class AbsAgent :
 
-    def wakeUp( self, initialStateStr, actionSpace ):
+    # Object Methods:
+    #---------------
+    def __init__(self, sep="-"):
+        self.separator= sep
+
+    # Agent Methods:
+    #---------------
+    def wakeUp( self, initialStateStr, stateDsc, actionSpace ):
+        # I wake up the agent with:
+        #  - an initial state,
+        #  - a description of state varibles
+        #  - the collection of all possible actions
+        self.descriptor= stateDsc
         self.state= initialStateStr
-        print( "Start on: "+ self.state )
-        print( "> Possible actions: "+ str( actionSpace ) )
+        self.score= 0
+
+    def perceive( self, reachedStateStr, reward ):
+        pass
+
+    def decide( self, isValidAction ) :
+        pass
+
+    def sleep( self, score ):
+        self.score= score
+
+    # state and action manipulation:
+    #-------------------------------
+
+    def stateStr( self ):
+        return self.state
     
+    def stateVector( self ):
+        return self.state.split( self.separator )
+
+    def stateDico( self ):
+        return { k:val for k, val in zip( self.descriptor, self.stateVector() ) }
+
+# Agent as a very simple UI
+class HumanAgent(AbsAgent) :
+
+    def wakeUp( self, initialStateStr, stateDsc, actionSpace ):
+        super().wakeUp( initialStateStr, stateDsc, actionSpace )
+        print( "Start a new game, possible actions are:" )
+        print( actionSpace )
+        print( "Perception: "+ initialStateStr )
+
     def perceive(self, reachedStateStr, reward):
         self.state= reachedStateStr
-        print( "Perception: "+ self.state  +" with reward : " + str(reward) )
-    
-    def action(self, isValidAction ) :
+        print( "Perception: "+ self.state +" with reward : " + str(reward) )
+
+    def decide(self, isValidAction ) :
         print( "Action ?")
         actionStr= ""
         while not isValidAction( actionStr ) :
             actionStr= input()
         return actionStr
-    
-    def kill(self, score):
+
+    def sleep(self, score):
+        super().sleep( score )
         print( "Game end on score: "+ str(score) )
 
 # Zombie Game elements:
@@ -89,7 +129,7 @@ class Dice():
     def roll(self):
         self.face= self.random_face()
 
-class Engine :
+class System :
 
     # Instance initialization
     #------------------------
@@ -118,11 +158,14 @@ class Engine :
 
     def run( self, player ):
         self.initialize()
-        player.wakeUp( self.stateStr(), ["go", "stop"] )
+        player.wakeUp(
+            self.stateStr(),
+            [ "Brain", "Shoot", "D1", "D2", "D3", "EASY", "MEDIUM", "HARD" ],
+            ["go", "stop"] )
         stop= False
         while not stop :
             # ask
-            action= player.action( self.valideAction )
+            action= player.decide( self.valideAction )
 
             if action == "go" :
                 self.step()
@@ -143,7 +186,7 @@ class Engine :
 
             player.perceive( self.stateStr(), self.reward )
 
-        player.kill( self.score )
+        player.sleep( self.score )
 
     # Accessor
     #---------
