@@ -1,4 +1,4 @@
-from game421 import Engine
+import game421 as game
 import random 
 import matplotlib.pyplot as plt
 
@@ -8,10 +8,10 @@ def main():
     stats= { "exploration": [], "average score": [], "average best Q": [] }
     samples= 500
     step= 500
+    gameEngine= game.System()
     for v in range(step) :
         total= 0
         for i in range(samples) :
-            gameEngine= Engine()
             gameEngine.run( player )
             total+= player.score
         # Record exploration indicator: the number of visited states 
@@ -39,25 +39,25 @@ class PlayerQ :
         self.alpha= learningRate
         self.Q= {}
 
-    def wakeUp(self, initialStateStr, actionSpace ):
+    def wakeUp( self, initialState, stateDsc, actionSpace ):
         # Reccord initial state:
-        self.stateStr= initialStateStr
+        self.state= initialStateStr
         # Reccord the list of all possible actions:
         self.actions= actionSpace
         # Initialize a new state in Q if necessary:
-        if self.stateStr not in self.Q.keys() :
-            self.Q[self.stateStr]= { a: 0.0 for a in self.actions }
+        if self.state not in self.Q.keys() :
+            self.Q[self.state]= { a: 0.0 for a in self.actions }
 
     def perceive(self, reachedStateStr, reward ):
         # Initialize a new state in Q if necessary:
         if reachedStateStr not in self.Q.keys() :
             self.Q[reachedStateStr]= { a: 0.0 for a in self.actions }
-        # update Q( self.stateStr, self.actionStr ) with reachedStateStr, reward
-        oldValue= self.Q[self.stateStr][self.actionStr]
+        # update Q( self.state, self.actionStr ) with reachedStateStr, reward
+        oldValue= self.Q[self.state][self.actionStr]
         futureGains= self.Q[ reachedStateStr ][ self.actionMax(reachedStateStr) ]
         self.Q[self.stateStr][self.actionStr]= (1 - self.alpha) * oldValue + self.alpha * ( reward + self.gamma * futureGains )
         # Switch the new state:
-        self.stateStr= reachedStateStr
+        self.state= reachedStateStr
 
     def actionMax( self, aState ) : 
         option= random.choice( self.actions )
@@ -66,15 +66,14 @@ class PlayerQ :
                 option= a 
         return option
 
-    def action(self, isValidAction ) : # pure exploration: 
+    def decide(self, isValidAction) : # pure exploration: 
         if random.random() < self.epsilon :
-            self.actionStr= random.choice( self.actions )
+            self.action= random.choice( self.actions )
         else :
-            self.actionStr= self.actionMax( self.stateStr )
+            self.action= self.actionMax( self.stateStr )
+        return self.action
 
-        return self.actionStr
-
-    def kill(self, score ) :
+    def sleep(self, score ) :
         # print( "Game end on score: "+ str(score) )
         self.score= score
 
