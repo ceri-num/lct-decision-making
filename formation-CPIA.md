@@ -62,9 +62,9 @@ class MyPlayer(game.AbsPlayer) :
 
     def decide(self, isValidAction ):
         stateDico= self.stateDico()
-        if stateDico["D1"] == 1 :
+        if stateDico["D3"] == 1 :
             if stateDico["D2"] == 2 :
-                if stateDico["D3"] == 4 :
+                if stateDico["D1"] == 4 :
                     self.action= "keep-keep-keep"
                 else: 
                     self.action= "roll-keep-keep"
