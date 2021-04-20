@@ -4,6 +4,9 @@
 - Mettre en oeuvre un premier algorithme d'apprentissage par renforcement.
 - Comprendre les limites de telles approches et les solutions pour y répondre.
 
+
+[[Moddle Intro. IA](https://ftlv.imt-lille-douai.fr/course/view.php?id=9&section=2)][[Forum](https://ftlv.imt-lille-douai.fr/mod/forum/view.php?id=715)]
+
 ## Introduction à la prise de décision sous incertitude.
 
 - [Support (PDF)](https://raw.githubusercontent.com/ceri-num/module-DUU/master/notions/intro.pdf)

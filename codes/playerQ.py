@@ -37,7 +37,7 @@ class PlayerQ :
         self.epsilon= explorationRatio
         self.gamma= discountFactor
         self.alpha= learningRate
-        self.Q= {}
+        self.Q= {
 
     def wakeUp( self, initialState, stateDsc, actionSpace ):
         # Reccord initial state:
