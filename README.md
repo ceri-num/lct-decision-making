@@ -6,7 +6,6 @@ You will find there a presentation of the used notion, the tutorials and some re
 
 @Autor: [Guillaume Lozenguez](mailto:guillaune.lozenguez@imt-lille-douai.fr)
 
-
 ## Notions
 
 Presentation of the notions in this modul:
