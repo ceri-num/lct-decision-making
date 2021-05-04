@@ -32,11 +32,11 @@ Guillaume Lozenguez
 
 $$Q(s^t, a) = (1-\alpha)Q(s^t,a) + \alpha \left(r + \gamma \max_{a^*\in A} Q(s^{t+1}, a^*)\right)$$
 
-- Parrameters:<br />*$\alpha$* - learning rate ; *$\epsilon$* - thexploration-Exploitation ratio ; *$\gamma$* - discount factor
+- Parrameters:<br />*$\alpha$* : learning rate ; *$\epsilon$* : the Exploration-Exploitation ratio ; *$\gamma$* : discount factor
 
 ---
 
-## Q-Learnin: Game 421 (Single PLayer)
+## Q-Learnin: Game 421 (Single Player)
 
 <br />
 
@@ -53,7 +53,7 @@ $$Q(s^t, a) = (1-\alpha)Q(s^t,a) + \alpha \left(r + \gamma \max_{a^*\in A} Q(s^{
 
 ---
 
-## Q-Learnin: Game 421 (Single PLayer)
+## Q-Learnin: Game 421 (Single Player)
 
 - With **500** steps of **500** games:
 
@@ -122,7 +122,7 @@ $$Q(s^t, a) = (1-\alpha)Q(s^t,a) + \alpha \left(r + \gamma \max_{a^*\in A} Q(s^{
 
 <br />
 
-### A second solution: use expert kownledge
+### A second solution: use expert knowledge
 
 - Drive the exploration with an expert knowledge.
 
@@ -141,4 +141,4 @@ $$Q(s^t, a) = (1-\alpha)Q(s^t,a) + \alpha \left(r + \gamma \max_{a^*\in A} Q(s^{
 <br />
 <br />
 
-#### About learning directly the model...
+#### About learning the model directly...
