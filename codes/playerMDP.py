@@ -1,33 +1,3 @@
-from game421 import Engine
-import random, json
-import matplotlib.pyplot as plt
-
-# Default game interface :
-def main():
-    # Initialize MDP player:
-    solver= MDP()
-    solver.learnModel( Engine() )
-    solver.valueIteration()
-    solver.printPolicy()
-    solver.printStatistics()
-
-    f = open("policyMDP.json", "w")
-    f.write( json.dumps( solver.policy(), sort_keys=True, indent=2) )
-    f.close()
-
-    f = open("policyMDP.json", "r")
-    player= PiPlayer( json.loads( f.read() ) )
-    f.close()
- 
-    # Test player policy:
-    total= 0
-    samples= 10000
-    for i in range(samples) :
-        gameEngine= Engine()
-        gameEngine.run( player )
-        total+= player.score
-        # Record exploration indicator: the number of visited states 
-    print( "average score : " + str( total/samples ) )
 
 # Agent as a very simple UI
 class MDP :
@@ -36,17 +6,17 @@ class MDP :
     def __init__(self, discountFactor=0.99, epsilon= 0.1 ):
         self.gamma= discountFactor
         self.epsilon= epsilon
-        self.samples= 100
 
     # accessor
     def policy(self):
         return self.pi
 
     # Markov Decision Processs life:
-    def learnModel( self, engine ):
+    def learnModel( self, engine, samples= 100 ):
         self.transition= {}
         self.reward= {}
         self.actions= engine.allActionsStr()
+        self.samples= samples
         # For each state s
         allStatesStr= [ '-'.join( [str(v) for v in s.values() ] ) for s in engine.allStates() ]
         for s in allStatesStr :
@@ -61,7 +31,7 @@ class MDP :
         self.reward[s][a]= 0.0
         act= engine.actionFromStr( a )
         # Get samples:
-        for i in range(self.samples) :
+        for i in range( self.samples ) :
             engine.setOnStateStr( s )
             self.reward[s][a]+= engine.step( act )
             sp= engine.stateStr()
@@ -79,6 +49,7 @@ class MDP :
         self.pi= { s: self.actions[0] for s in self.transition }
         self.values= { s: 0.0 for s in self.transition }
         maxDiffValue= self.epsilon + 1
+        self.convergeance= [0.0]
         while maxDiffValue > self.epsilon :
             # for each state
             maxDiffValue= 0.0
@@ -95,7 +66,7 @@ class MDP :
                     maxDiffValue= abs( bestValue - self.values[s]  )
                 values[s]= bestValue
             self.values= values
-            print( maxDiffValue )
+            self.convergeance.append( sum(self.values.values())/len(self.values) )
 
     def BelmanValueOf( self, s, a ):
         expectedGains= 0
@@ -120,29 +91,67 @@ class MDP :
         for s in self.transition.keys() :
             for a in self.transition[s] :
                 transitionSize+= len( self.transition[s][a] )
-        print( "Transition size: "+ str( transitionSize ) )
+        print( "Transition size: "+ str( transitionSize ) + " over " + str(len(self.values)) + " states " )
+        print( "Average Value: "+ str( sum(self.values.values())/len(self.values)  ) )
+        print( "Convergeance: "+ str([round(av, 2) for av in self.convergeance]) )
+
 
 # Agent as a very simple UI
-class PiPlayer :
+class AgentPi :
 
     # Constructor
-    def __init__(self, policy ):
+    def __init__(self, policy): # Dictionnary of action to choose for each state
         self.pi= policy
 
     # Agent life:
-    def wakeUp(self, initialStateStr, actionSpace ):
-        # Reccord initial state:
-        self.stateStr= initialStateStr
+    def wakeUp( self, initialState, stateDsc, actionSpace ):
+        self.state= initialState
 
-    def perceive(self, reachedStateStr, reward ):
-        self.stateStr= reachedStateStr
+    def perceive(self, reachedState, reward ):
+        self.state= reachedState
 
-    def action(self, isValidAction ) :
-        return self.pi[ self.stateStr ]
+    def decide(self, isValidAction) :
+        return self.pi[ self.state ]
 
-    def kill( self, score ):
-        # print( "Game end on score: "+ str(score) )
+    def sleep(self, score ) :
         self.score= score
+
+# Default game interface :
+def main():
+    import game421 as game
+    import time, json
+
+    samples= 100
+
+    # Initialize MDP player:
+    solver= MDP()
+    print( "LearnModel (" + str(samples) + " samples per situations: s, a)" )
+    tic= time.process_time()
+
+    solver.learnModel( game.System(), samples )
+
+    print( "> " + str(round(time.process_time() - tic, 2)) + " seconds" )
+
+    solver.valueIteration()
+    solver.printStatistics()
+
+    f = open("policyMDP.json", "w")
+    f.write( json.dumps( solver.policy(), sort_keys=True, indent=2) )
+    f.close()
+
+    f = open("policyMDP.json", "r")
+    player= AgentPi( json.loads( f.read() ) )
+    f.close()
+
+    # Test player policy:
+    total= 0
+    samples= 1000
+    for i in range(samples) :
+        gameEngine= game.System()
+        gameEngine.run( player )
+        total+= player.score
+        # Record exploration indicator: the number of visited states 
+    print( "Average score : " + str( total/samples ) )
 
 # Activate default interface :
 if __name__ == '__main__':

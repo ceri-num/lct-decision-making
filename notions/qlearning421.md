@@ -108,7 +108,7 @@ $$Q(s^t, a) = (1-\alpha)Q(s^t,a) + \alpha \left(r + \gamma \max_{a^*\in A} Q(s^{
 
 ### A first solution: use dynamic parameters
 
-- Balance **learning rate** and **exploration ratio**<br /> by taking into account known and unknown areas:
+- Balance **learning rate** and **exploration ratio** (or use a stochastic policy)<br /> by taking into account known and unknown areas:
 
 *Typically*: Count the number of performed transitions, for each couple of (state, action)
 
@@ -141,4 +141,4 @@ $$Q(s^t, a) = (1-\alpha)Q(s^t,a) + \alpha \left(r + \gamma \max_{a^*\in A} Q(s^{
 <br />
 <br />
 
-#### Let's play to a more complicated game: Zombie Dice....
+#### About learning directly the model...

@@ -6,7 +6,7 @@ backgroundImage: url('../style/bg-imt.svg')
 ---
 
 # Model-based learning 
-### the other RL technic
+### The other RL technic
 
 <br />
 <br />
@@ -58,6 +58,23 @@ The policy $\pi^*$ maximizing Bellman
 ---
 <!-- --------------------------------------------------------------- -->
 
+## Bellman Equation
+
+### State evaluation for a given policy $\pi$:
+
+$$V^\pi(s)= R(s, a) + \gamma \sum_{s'\in S} T(s,a,s') \times V^\pi(s')$$
+(with $\pi(s) = a$, $s'$ the potential state at the next time step and $\gamma$ the discount factor)
+
+### As a sum of gains:
+
+- The immediate reward: $R(s, a)$
+- The future gains $V^\pi(s')$, proportional to the probability to reach them $T(s,a,s')$
+- with the parameter $\gamma \in [0, 1]$, balancing immediate and future gains
+
+---
+<!-- --------------------------------------------------------------- -->
+
+
 ## Solving MDP: Value Iteration
 
 *Input:* an **MDP:** $\langle S, A, T, R \rangle$ ; precision error: *$\epsilon$* ; discount factor *$\gamma$* ; initial $V(s)$
@@ -67,9 +84,24 @@ For each state $s \in S$
       - Update $\pi(s)$ and $V(s)$ by considering action $a^*$
       - Compute the delta value between the previous and the new $V(s)$
 
+*Output:* an optimal **$\pi^*$** and associated **V-values** ($s'$: state at the next time step).
+
+
+
+---
+<!-- --------------------------------------------------------------- -->
+## Solving MDP: Policy Iteration
+
+*Input:* an **MDP:** $\langle S, A, T, R \rangle$ ; precision error: *$\epsilon$* ; discount factor *$\gamma$* ; initial $V(s)$
+1. Repeat until $\pi(s)$ is stable
+   - Update $V(s)$ at *$\epsilon$* error, for each state $s \in S$
+   - Update $\pi(s)$, for each state $s \in S$
+
 *Output:* an optimal **$\pi^*$** and associated **V-values**.
 
 $$V^\pi(s)= R(s, a) + \gamma \sum_{s'\in S} T(s,a,s') \times V^\pi(s')$$
+
+($s'$: state at the next time step)
 
 ---
 <!-- --------------------------------------------------------------- -->
@@ -90,38 +122,25 @@ player= PiPlayer( solver.policy() )
 - Learning phase: Estimate **t** and **r**:
   - *10 000* simulations for each couple (s, a)
 - Value iteration:
-  - *3* iterations (directed and finit game)
+  - *3* iterations (finit game in $3$ time steps)
 - Average score (100 000 games): **~338**
 
 (To notice: decreasing the learning phase impact the average score)
 
 ---
 <!-- --------------------------------------------------------------- -->
+## In comparison to QLearning results
 
-## The Curse of Dimensionality
+- With **500** steps of **500** games:
 
-### Fonction de Transition:
+![](../figs/q421-vs-mdp.svg)
 
-![](../figs/transition.svg)
-
----
-
-## Le fléau de la dimension
-
-
-### Factored Transition function:
-
-
-![](../figs/dist-trans.svg)
+- *$\alpha$* : 0.1 ; *$\qquad \epsilon$* :  0.1 ; *$\qquad \gamma$* : 0.99
 
 ---
+<!-- --------------------------------------------------------------- -->
 
-## Le fléau de la dimension
-
-
-### Factored Transition function:
-
-![](../figs/dist-BN-trans.svg)
+### Lets play to a more complexe game...
 
 ---
 
@@ -142,17 +161,3 @@ player= PiPlayer( solver.policy() )
 
 ---
 
-## Example: Zombie Dice
-
-
-### Matrice complète
-
-![](../figs/zombie-matrise.svg)
-
----
-
-## Example: Zombie Dice
-
-### Dynamic Bayesian Network (Continue)
-
-![](../figs/zombie-dot.svg)

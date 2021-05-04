@@ -4,39 +4,79 @@ from enum import IntEnum
 # Default game interface :
 def main():
     gameEngine= Engine()
-    player1= HumanPlayer("Bob")
-    player2= HumanPlayer("Lucie")
+    player1= HumanAgent("Bob")
+    player2= SimplePlayer()
     gameEngine.run( player1, player2 )
 
-# Agent as a very simple UI
-class HumanPlayer() :
+# Abstract Agent Based Model
 
-    def __init__( self, name= "Bob" ):
-        self.name= name
+class AbsAgent :
 
-    def wakeUp( self, initialStateStr, actionSpace ):
+    # Object Methods:
+    #---------------
+    def __init__(self, sep="-"):
+        self.separator= sep
+
+    # Agent Methods:
+    #---------------
+    def wakeUp( self, initialStateStr, stateDsc, actionSpace ):
+        # I wake up the agent with:
+        #  - an initial state,
+        #  - a description of state varibles
+        #  - the collection of all possible actions
+        self.descriptor= stateDsc
         self.state= initialStateStr
-        print( self.name + " - start on: "+ self.state )
-        print( "> Possible actions: "+ str( actionSpace ) )
+        self.score= 0
+
+    def perceive( self, reachedStateStr, reward ):
+        pass
+
+    def decide( self, isValidAction ) :
+        pass
+
+    def sleep( self, score ):
+        self.score= score
+
+    # state and action manipulation:
+    #-------------------------------
+
+    def stateStr( self ):
+        return self.state
     
+    def stateVector( self ):
+        return self.state.split( self.separator )
+
+    def stateDico( self ):
+        return { k:val for k, val in zip( self.descriptor, self.stateVector() ) }
+
+# Agent as a very simple UI
+class HumanAgent(AbsAgent) :
+
+    def wakeUp( self, initialStateStr, stateDsc, actionSpace ):
+        super().wakeUp( initialStateStr, stateDsc, actionSpace )
+        print( "Start a new game, possible actions are:" )
+        print( actionSpace )
+        print( "Perception: "+ initialStateStr )
+
     def perceive(self, reachedStateStr, reward):
         self.state= reachedStateStr
-        print( self.name + " - Perception: "+ self.state  +" with reward : " + str(reward) )
-    
-    def action(self, isValidAction ) :
+        print( "Perception: "+ self.state +" with reward : " + str(reward) )
+
+    def decide(self, isValidAction ) :
         print( "Action ?")
         actionStr= ""
         while not isValidAction( actionStr ) :
             actionStr= input()
         return actionStr
-    
-    def kill(self, score):
+
+    def sleep(self, score):
+        super().sleep( score )
         print( "Game end on score: "+ str(score) )
 
 class SimplePlayer:
 
     def __init__( self ):
-        self.told= 0.7
+        self.told= 0.5
 
     def stateDico(self):
         stateVariables= self.state.split("-")
@@ -53,19 +93,25 @@ class SimplePlayer:
             "oponent": int( stateVariables[10] ),
         }
 
-    def wakeUp( self, initialStateStr, actionSpace ):
+    def wakeUp( self, initialStateStr, stateDsc, actionSpace ):
+        # I wake up the agent with:
+        #  - an initial state,
+        #  - a description of state varibles
+        #  - the collection of all possible actions
+        self.descriptor= stateDsc
         self.state= initialStateStr
-    
+        self.score= 0
+
     def perceive(self, reachedStateStr, reward):
         self.state= reachedStateStr
     
-    def action(self, isValidAction ) :
+    def decide(self, isValidAction):
         stDico= self.stateDico()
         if stDico["brain"] < 1 or random.random() < self.told :
             return "go"
         return "stop"
 
-    def kill(self, score):
+    def sleep(self, score):
         self.score= score
 
 # Zombie Game elements:
@@ -167,25 +213,27 @@ class Engine :
             self.switchPlayer()
 
         self.initializeTurn()
-        self.player.perceive( self.stateStr(), -10.0 )
-        self.player.kill( self.score )
+        self.player.perceive( self.stateStr(), -1 )
+        self.player.sleep( self.score )
 
         self.switchPlayer()
-        self.player.perceive( self.stateStr(), 10.0 )
-        self.player.kill( self.score )
+        self.player.perceive( self.stateStr(), self.score )
+        self.player.sleep( self.score )
 
     def turn( self, first ):
         self.initializeTurn()
 
         if first :
-            self.player.wakeUp( self.stateStr(), ["go", "stop"] )
+            self.player.wakeUp( self.stateStr(),
+                [ "Brain", "Shoot", "D1", "D2", "D3", "EASY", "MEDIUM", "HARD" ],
+                ["go", "stop"] )
         else :
             self.player.perceive( self.stateStr(), 0.0 )
 
         stop= False
         while not stop :
             # ask
-            action= self.player.action( self.valideAction )
+            action= self.player.decide( self.valideAction )
 
             if action == "go" :
                 self.step()

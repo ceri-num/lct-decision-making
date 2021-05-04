@@ -2,37 +2,6 @@ import game421 as game
 import random 
 import matplotlib.pyplot as plt
 
-# Default game interface :
-def main():
-    player= AgentQ( explorationRatio=0.1, learningRate= 0.1 )
-    stats= { "exploration": [], "average score": [], "average best Q": [] }
-    samples= 500
-    step= 500
-    gameEngine= game.System()
-    for v in range(step) :
-        total= 0
-        # Perfrom `samples` games, by reccording the reached score:
-        for i in range(samples) :
-            gameEngine.run( player )
-            total+= player.score
-        # Annalyse the qvalue object after `samples` games:
-        # Record exploration indicator: the number of visited states:
-        sizeQ= len(player.qvalues)
-        stats["exploration"].append( sizeQ )
-        # Record the average score:
-        sumQ= 0
-        for s in player.qvalues :
-            aStar= player.bestAction(s)
-            sumQ+= player.qvalues[s][aStar]
-        stats["average score"].append( total/samples )
-        # Record the average best Q value for each state:
-        stats["average best Q"].append( sumQ/sizeQ )
-
-    for elt in stats :
-        plt.plot( stats[elt] )
-        plt.ylabel( elt )
-        plt.show()
-
 # Agent as a very simple UI
 class AgentQ :
 
@@ -62,7 +31,7 @@ class AgentQ :
         # Switch the new state:
         self.state= reachedState
 
-    def decide(self, isValidAction) : # pure exploration: 
+    def decide(self, isValidAction) :
         if random.random() < self.epsilon :
             self.action= random.choice( self.actions )
         else :
@@ -90,6 +59,37 @@ class AgentQ :
         print( "Q: " )
         for s in self.qvalues :
             print( s + ": " + str( self.qvalues[s] ) )
+
+# Default game interface :
+def main():
+    player= AgentQ( explorationRatio=0.1, learningRate= 0.1 )
+    stats= { "exploration": [], "average score": [], "average best Q": [] }
+    samples= 100
+    step= 1000
+    gameEngine= game.System()
+    for v in range(step) :
+        total= 0
+        # Perfrom `samples` games, by reccording the reached score:
+        for i in range(samples) :
+            gameEngine.run( player )
+            total+= player.score
+        # Annalyse the qvalue object after `samples` games:
+        # Record exploration indicator: the number of visited states:
+        sizeQ= len(player.qvalues)
+        stats["exploration"].append( sizeQ )
+        # Record the average score:
+        sumQ= 0
+        for s in player.qvalues :
+            aStar= player.bestAction(s)
+            sumQ+= player.qvalues[s][aStar]
+        stats["average score"].append( total/samples )
+        # Record the average best Q value for each state:
+        stats["average best Q"].append( sumQ/sizeQ )
+
+    for elt in stats :
+        plt.plot( stats[elt] )
+        plt.ylabel( elt )
+        plt.show()
 
 # Activate default interface :
 if __name__ == '__main__':
