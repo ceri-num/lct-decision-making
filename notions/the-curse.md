@@ -18,6 +18,23 @@ Guillaume Lozenguez
 
 ![bg](../style/bg-tittle.svg)
 
+
+---
+
+## System Difficulty
+
+### Directly correlated to the state space
+
+**The number of states:** the Cartesian product of variable domains <br /> (minus some unreachable states)
+
+- **421 game:** $3$ dice-$6$ at the horizon $3$: $\left( 3 \times 6^3 = 648 \right)$
+- **ZombieDice:** <br />$3$ dice in $3$ stocks and $2$ scores: $\left( 4^3\times7\times5\times4\times14\times4 = 501 760\right)$
+- **GO:** $3$ possibilities over $19^2$ positions $\left( 3^{19\times19} \equiv 10^{172} \right)$
+
+### Then the branching:
+
+**The number of possible actions and actions' outcomes.**
+
 ---
 
 ## With a Classical 32-card game
@@ -32,98 +49,94 @@ Probability to play 2 times the same distribution in a human life is very close 
 
 ---
 
-## Decision Making
+## The notion of complexity (Go)
 
-### Is about controlling linked variables:
+GO: $10^{170}$ positions, $10^{600}$ games (chess: $10^{120}$ games)
 
-- Learning correlation
-- Optimize trajectories
-
-
-### Matematically: 
-
-- Manipulate Cartesian Product (Set Theory)
-- Estimate functions
-- Exploring large graph
+![](../figs/jeugo.svg)
 
 ---
 
-## Dealing with large State Space
+## The notion of complexity (Go)
 
 <br />
-<br />
-<br />
-<br />
 
-#### Reduce the state space
+**A classical $3$ GHz computer:** $3\times10^9$ op. per second
+$\rightarrow$ $~ 2.6 \times 10^{14}$ op. a day $\rightarrow$ $~ 10^{17}$ op. a year
 
-#### Work locally
+**Enumerating all games:** $O(n)$ with $n=10^{600}$: arround $10^{583}$ years.
+$\rightarrow$ requires decomposed model and statistics...
 
-#### A combination of these 2 solutions
+**Sun life:** arround $10^{30}$ years
 
 ---
 
-## A Complete Decision Architecture
+### The root problem: handle large systems
 
 <br />
 <br />
 <br />
 
-![](../figs/global-decision-arch.svg)
+#### A first basic solution: reduce the state space.
+
+---
+## State reduction in QLearning
+
+### Project the states in a space with reduced dimension
+
+![](../figs/qlearning-arch.svg)
+
+By mitigate the negative impact on the resulting built policy.
+
+---
+## State reduction in QLearning
+
+### A classical unsupervised learning problem
+
+- Group similar states :
+  * close state (in the transition succession)
+  * similar action outcome
+
+### Potentially: a supervised learning problem
+
+- Group similar states :
+  * similar Value (suppose to have some valued state)
+  * similar action outcome
 
 ---
 
-## A Complete Decision Architecture
+## With a geometric approach
+
+### Principal Component Analysis (PCA)
+
+Searching the hyper-plan that better separate the data, in a given dimension.
+
+### K-means
+
+Searching the optimal *k* center positions that better group the data together.
 
 <br />
 <br />
 <br />
+<br />
+<br />
 
-![](../figs/decision-arch.svg)
+- Work well with 'linear state transitions' and different states density.
+- Suppose a data set (trace)
 
 ---
 
-## State reduction (or identification) 
+## Based on state variable prevalence
 
-### Approach:
+### Decision Tree
 
-Distance based approach:
+**Nodes:** variables ; **Edges:** assignment ; **leaf:** group of states
 
-- Principal Component Annalysis (**PCA**) (+ Discretization)
-- Clustering: **k-means**, Simple Vector Machine (**SVM**)
+![](../figs/decision-tree-grp.svg)
 
-Discrete approach:
-
-- Decision-Tree (ID3 algorithm family)
-
-### Goals:
-
-**Macro-States** merge states with supposed similar values.
+- Expert based or learned structure ([ID3 algorithm](https://en.wikipedia.org/wiki/ID3_algorithm))
 
 ---
 
-## Deep-Learning-based Decision Architecture
-
-![](../figs/deep-decision-arch.svg)
-
-### Requirement:
-
-Labeled data with valid *values*...
-
----
-
-## Action refinement at run time
-
-<br />
-
-#### Local computation of the Values and the policy from current state.
-
-- Constrained Value Iteration (from the current state, with a limited horizon)
-- Monte Carlo Approach (based on deep, but random trajectories)
-
-### Requirement:
-
-Simulation: a model of the controlled system
-
-
+#### State reduction in ZombieDice
 

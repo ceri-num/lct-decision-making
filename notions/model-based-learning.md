@@ -159,5 +159,3 @@ player= PiPlayer( solver.policy() )
  - They try to catch humans <br /> three at a time.
  - Humans are dice <br /> with probability to fight back.
 
----
-

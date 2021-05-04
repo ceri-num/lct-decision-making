@@ -27,7 +27,7 @@ Guillaume Lozenguez
 <br />
 <br />
 
-- Iterative update on (State, Action) interest.
+- Iterative update on **(state, action)** evaluation.
 - Q-value equation:
 
 $$Q(s^t, a) = (1-\alpha)Q(s^t,a) + \alpha \left(r + \gamma \max_{a^*\in A} Q(s^{t+1}, a^*)\right)$$
