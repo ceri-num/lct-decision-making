@@ -5,7 +5,14 @@ version: uv-mad
 # Table of contents
 
 * [Decision Under Uncertainty](README.md)
-* [Chef de projet IA](formation-CPIA.md)
+
+## Formation - Chef de projet IA
+
+* [Introduction](cpia/1-intro-CPIA.md)
+* [Qlearning sur le 421](cpia/2-apr-au%20421.md)
+* [La convergence](cpia/3-convergeance.md)
+* [Le fléau](cpia/4-the-curse.md)
+* [Passer à l'échelle](cpia/5-scalling.md)
 
 ## Playing with 421
 
