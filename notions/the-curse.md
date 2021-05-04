@@ -27,9 +27,9 @@ Guillaume Lozenguez
 
 **The number of states:** the Cartesian product of variable domains <br /> (minus some unreachable states)
 
-- **421 game:** $3$ dice-$6$ at the horizon $3$: $\left( 3 \times 6^3 = 648 \right)$
-- **ZombieDice:** <br />$3$ dice in $3$ stocks and $2$ scores: $\left( 4^3\times7\times5\times4\times14\times4 = 501 760\right)$
-- **GO:** $3$ possibilities over $19^2$ positions $\left( 3^{19\times19} \equiv 10^{172} \right)$
+- **421 game:** $3$ dice-$6$ at the horizon $3$: $\left( 3 \times 6^3 = 648 \right)$ but $168$ effectives.
+- **ZombieDice:** <br />$3$ dice-$3$ in $3$ stocks and $2$ scores: $\left( 4^3\times7\times5\times4\times4(\times14) = 35 840\right)$
+- **GO:** $3$ possibilities over $19\times19$ positions $\left( 3^{19\times19} \equiv 10^{172} \right)$
 
 ### Then the branching:
 
