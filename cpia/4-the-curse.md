@@ -6,8 +6,9 @@ Tenter d'appliquer QLearning sur le jeu [ZombieDice](../gameZombies/intro.md).
 
 1. Appréhender le jeu en jouant.
 2. Lancer QLearning avec des paramètres cohérents...
+3. chercher à accélérer l'apprentissage.
 
-Astuce: charger et décharger dans un fichier:
+Astuce: il est possible de sauver et recharger simplement un dictionnaire avec `json`
 
 ```python
 import json
@@ -16,7 +17,7 @@ f.write( json.dumps( qvalues, sort_keys=True, indent=2) )
 f.close()
 
 f = open("qvalues.json", "r")
-qvalues= json.loads( f.read() )
+qvalues= AgentPi( json.loads( f.read() ) )
 f.close()
 ```
 
