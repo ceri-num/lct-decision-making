@@ -153,6 +153,23 @@ Model complex system from local dependencies
 
 ![](../figs/SimpleBayesNet-wikipedia.svg)
 
+
+---
+
+## Bayesian Network:
+
+### Efficient in temporal prediction 
+
+![](../figs/dynamic-BN-1.svg)
+
+---
+
+## Dynamic Bayesian Network:
+
+### Factored representation of variable evolution
+
+![](../figs/dynamic-BN-2.svg)
+
 ---
 
 ## Example: 421

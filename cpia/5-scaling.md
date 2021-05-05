@@ -44,7 +44,7 @@ Attention, l'état est complété avec les scores des deux joueurs, et la foncti
 
 ## Support PDF
 
-* [Scaling](https://raw.githubusercontent.com/ceri-num/module-DUU/master/notions/scalling.pdf)
+* [Scaling](https://raw.githubusercontent.com/ceri-num/module-DUU/master/notions/scaling.pdf)
 
 
 ## Mettre en pratique :
