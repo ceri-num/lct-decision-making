@@ -11,6 +11,7 @@ class AgentQ :
         self.gamma= discountFactor
         self.alpha= learningRate
         self.qvalues= {}
+        self.name= "Qlearner"
 
     # Agent interfase:
     def wakeUp( self, initialState, stateDsc, actionSpace ):

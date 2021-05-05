@@ -77,6 +77,7 @@ class SimplePlayer:
 
     def __init__( self ):
         self.told= 0.5
+        self.name= "SimpleAI"
 
     def stateDico(self):
         stateVariables= self.state.split("-")
@@ -171,7 +172,7 @@ class Dice():
     def roll(self):
         self.face= self.random_face()
 
-class Engine :
+class System :
 
     # Instance initialization
     #------------------------
