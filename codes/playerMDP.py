@@ -1,3 +1,40 @@
+# Default game interface :
+def main():
+    import game421 as game
+    import time, json
+
+    samples= 1000
+
+    # Initialize MDP player:
+    solver= MDP()
+    print( "LearnModel (" + str(samples) + " samples per configuration: s, a)" )
+    tic= time.process_time()
+
+    solver.learnModel( game.System(), samples )
+
+    print( "> " + str(round(time.process_time() - tic, 2)) + " seconds" )
+
+    solver.valueIteration()
+    solver.printStatistics()
+
+    f = open("policyMDP.json", "w")
+    f.write( json.dumps( solver.policy(), sort_keys=True, indent=2) )
+    f.close()
+
+    f = open("policyMDP.json", "r")
+    player= AgentPi( json.loads( f.read() ) )
+    f.close()
+
+    # Test player policy:
+    total= 0
+    samples= 1000
+    for i in range(samples) :
+        gameEngine= game.System()
+        gameEngine.run( player )
+        total+= player.score
+        # Record exploration indicator: the number of visited states 
+    print( "Average score : " + str( total/samples ) )
+
 
 # Agent as a very simple UI
 class MDP :
@@ -19,12 +56,14 @@ class MDP :
         self.samples= samples
         # For each state s
         allStatesStr= [ '-'.join( [str(v) for v in s.values() ] ) for s in engine.allStates() ]
+        self.logFile= open('transition.log', 'w')
         for s in allStatesStr :
             self.transition[s]= {}
             self.reward[s]= {}
             # For each action a
             for a in engine.allActionsStr() :
                 self.learnTransition(engine, s, a)
+        self.logFile.close()
 
     def learnTransition(self, engine, s, a ):
         self.transition[s][a]= {}
@@ -32,9 +71,16 @@ class MDP :
         act= engine.actionFromStr( a )
         # Get samples:
         for i in range( self.samples ) :
+            #step:
             engine.setOnStateStr( s )
-            self.reward[s][a]+= engine.step( act )
+            r= engine.step( act )
             sp= engine.stateStr()
+
+            # report:
+            self.logFile.write( s +" "+ a +" "+ sp + " "+ str(r) +"\n" )
+
+            # learn:
+            self.reward[s][a]+= r
             if sp not in self.transition[s][a] :
                 self.transition[s][a][sp]= 1
             else : 
@@ -115,43 +161,6 @@ class AgentPi :
 
     def sleep(self, score ) :
         self.score= score
-
-# Default game interface :
-def main():
-    import game421 as game
-    import time, json
-
-    samples= 100
-
-    # Initialize MDP player:
-    solver= MDP()
-    print( "LearnModel (" + str(samples) + " samples per situations: s, a)" )
-    tic= time.process_time()
-
-    solver.learnModel( game.System(), samples )
-
-    print( "> " + str(round(time.process_time() - tic, 2)) + " seconds" )
-
-    solver.valueIteration()
-    solver.printStatistics()
-
-    f = open("policyMDP.json", "w")
-    f.write( json.dumps( solver.policy(), sort_keys=True, indent=2) )
-    f.close()
-
-    f = open("policyMDP.json", "r")
-    player= AgentPi( json.loads( f.read() ) )
-    f.close()
-
-    # Test player policy:
-    total= 0
-    samples= 1000
-    for i in range(samples) :
-        gameEngine= game.System()
-        gameEngine.run( player )
-        total+= player.score
-        # Record exploration indicator: the number of visited states 
-    print( "Average score : " + str( total/samples ) )
 
 # Activate default interface :
 if __name__ == '__main__':
