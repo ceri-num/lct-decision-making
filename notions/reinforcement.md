@@ -224,7 +224,7 @@ the **Q-values** evaluate each action performed from each state:
 
 $$ Q : S \times A  \rightarrow \mathbb{R}, \qquad Q(s,\ a) \text{ is the value of doing } a \text{ from } s $$
 
-and, a **Q-value** is updated iteratively from succession of: $\langle s,\ a,\ s',\ r(s, a, s') \rangle$
+and, a **Q-value** is updated iteratively from succession of: $\langle s,\ a,\ s',\ r\rangle$
 
 $$Q(s, a) = (1-\alpha)Q(s,a) + \alpha \left(r + \gamma \max_{a'\in A} Q(s', a')\right)$$
 
@@ -271,11 +271,12 @@ In agent-based programming:
 
 ## Q-learning : the main equation
 
-$$Q(s^t, a) = (1-\alpha)Q(s^t,a) + \alpha \left(r + \gamma \max_{a^*\in A} Q(s^{t+1}, a^*)\right)$$
+### Update Q each time a tuple $\langle s^t, a, s^{t+1}, r \rangle$ is read
+
+$$\mathit{newQ}(s^t, a) = (1-\alpha)Q(s^t,a) + \alpha \left(r + \gamma \max_{a'\in A} Q(s^{t+1}, a')\right)$$
 
 - $Q : S\times A \rightarrow \mathbb{R}$ : the value function we build.
-- $\alpha$ : the learning rate
-- $\epsilon$ : the Exploration-Exploitation ratio
+- $\alpha$ : the learning rate, $\qquad \epsilon$ : the Exploration-Exploitation ratio
 - $\gamma$ : the discount factor
 
 ### The known optimal policy:
