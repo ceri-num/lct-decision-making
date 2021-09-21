@@ -1,4 +1,6 @@
 # Default game interface :
+from tqdm import tqdm as processBar
+
 def main():
     import game421 as game
     import time, json
@@ -27,14 +29,13 @@ def main():
 
     # Test player policy:
     total= 0
-    samples= 1000
+    samples= 10000
     for i in range(samples) :
         gameEngine= game.System()
         gameEngine.run( player )
         total+= player.score
         # Record exploration indicator: the number of visited states 
     print( "Average score : " + str( total/samples ) )
-
 
 # Agent as a very simple UI
 class MDP :
@@ -49,7 +50,7 @@ class MDP :
         return self.pi
 
     # Markov Decision Processs life:
-    def learnModel( self, engine, samples= 100 ):
+    def learnModel( self, engine, samples= 1000 ):
         self.transition= {}
         self.reward= {}
         self.actions= engine.allActionsStr()
@@ -57,7 +58,7 @@ class MDP :
         # For each state s
         allStatesStr= [ '-'.join( [str(v) for v in s.values() ] ) for s in engine.allStates() ]
         self.logFile= open('transition.log', 'w')
-        for s in allStatesStr :
+        for s in processBar(allStatesStr) :
             self.transition[s]= {}
             self.reward[s]= {}
             # For each action a
