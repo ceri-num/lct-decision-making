@@ -23,23 +23,39 @@ Guillaume Lozenguez
 
 ## System Difficulty
 
-### Directly correlated to the state space
+### Directly correlated to the state space:
 
-**The number of states:** the Cartesian product of variable domains <br /> (minus some unreachable states)
+**The number of states:** the Cartesian product of variable domains $|S|$ <br /> (minus some unreachable states)
 
 - **421 game:** $3$ dice-$6$ at the horizon $3$: $\left( 3 \times 6^3 = 648 \right)$ but $168$ effectives.
-- **ZombieDice:** <br />$3$ dice-$3$ in $3$ stocks and $2$ scores: $\left( 4^3\times7\times5\times4\times4(\times14) = 35 840\right)$
-- **GO:** $3$ possibilities over $19\times19$ positions $\left( 3^{19\times19} \equiv 10^{172} \right)$
+
+### Then the branching:
+
+### Finnally the number of games:
+
+---
+
+## System Difficulty
+
+### Directly correlated to the state space
+
+**The number of states:** $|S|$
 
 ### Then the branching:
 
 **The number of possible actions and actions' outcomes.**
 
+- **421 game:** $2^3$ actions,  $6^r$ action outcomes ($r$, the number of rolled dice). 
+
+### Finnally the number of games:
+
+**The number of all possible succesion of states** until reaching an end.<br /> Potentially $|S|^h$ ($h$ the horizon).
+
 ---
 
-## With a Classical 32-card game
+## Reminder over Combinatorics
 
-Possible distribution *$32!= \quad 2.6 \times 10^{35}$*
+**With a Classical 32-card game:** Possible distribution *$32!= \quad 2.6 \times 10^{35}$*
 
 ![](../figs/32cartes.svg)
 
@@ -49,40 +65,18 @@ Probability to play 2 times the same distribution in a human life is very close 
 
 ---
 
-## The notion of complexity (Go)
-
-GO: $10^{170}$ positions, $10^{600}$ games (chess: $10^{120}$ games)
-
-![](../figs/jeugo.svg)
-
----
-
-## The notion of complexity (Go)
-
-<br />
-
-**A classical $3$ GHz computer:** $3\times10^9$ op. per second
-$\rightarrow$ $~ 2.6 \times 10^{14}$ op. a day $\rightarrow$ $~ 10^{17}$ op. a year
-
-**Enumerating all games:** $O(n)$ with $n=10^{600}$: arround $10^{583}$ years.
-$\rightarrow$ requires decomposed model and statistics...
-
-**Sun life:** arround $10^{30}$ years
-
----
-
 ### The root problem: handle large systems
 
 <br />
 <br />
 <br />
 
-#### A first basic solution: reduce the state space.
+#### A first basic solution: reduce the state space definition
 
 ---
 ## State reduction in QLearning
 
-### Project the states in a space with reduced dimension
+### Project the states in a smallest space (dimention and size)
 
 ![](../figs/qlearning-arch.svg)
 
@@ -91,17 +85,37 @@ By mitigate the negative impact on the resulting built policy.
 ---
 ## State reduction in QLearning
 
+### Project the states in a smallest space (dimention and size)
+
+![](../figs/state-space.svg)
+
+- From evaluated observations.
+
+---
+## State reduction in QLearning
+
+### Project the states in a smallest space (dimention and size)
+
+![](../figs/state-space-cluster.svg)
+
+- Group together similar states.
+
+---
+## State reduction in QLearning
+
 ### A classical unsupervised learning problem
 
 - Group similar states :
   * close state (in the transition succession)
-  * similar action outcome
+  * similar reward distributions.
 
 ### Potentially: a supervised learning problem
 
 - Group similar states :
-  * similar Value (suppose to have some valued state)
+  * similar Value
   * similar action outcome
+
+ (suppose to have some valued states)
 
 ---
 
@@ -134,9 +148,36 @@ Searching the optimal *k* center positions that better group the data together.
 
 ![](../figs/decision-tree-grp.svg)
 
-- Expert based or learned structure ([ID3 algorithm](https://en.wikipedia.org/wiki/ID3_algorithm))
+- Expert based Decision tree or learned ([ID3 algorithm](https://en.wikipedia.org/wiki/ID3_algorithm))
 
 ---
 
-#### State reduction in ZombieDice
+## Based on state variable prevalence
 
+### Decision Tree
+
+***(Example for 421 game)***
+
+![](../figs/decision-tree-421.svg)
+
+---
+
+## Learning: an iterative process:
+
+<br />
+<br />
+<br />
+
+- **1** - Define a first state reduction $\mathit{red}_0(s)$ with a first $Q_0$ estimation
+- **2** - Optimise $Q_i$ and learn a behavior accordingly to $\mathit{red}_i(s)$
+- **3** - Generate a new reduction $\mathit{red}_{i+1}(s)$ (more accurate)
+- **4** - Propagate value from $Q_i$ to $Q_{i+1}$ 
+- **5** - goto **2**
+
+---
+
+### Let's go
+
+#### Trying state reduction in ZombieDice
+
+<!-- **ZombieDice:** <br />$3$ dice-$3$ in $3$ stocks (and $2$ scores:) $\left( 4^3\times7\times5\times4\times4\ (\times 2 \times 14) = 35 840\right)$ -->
