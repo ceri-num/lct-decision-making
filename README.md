@@ -15,3 +15,13 @@ Presentation of the notions in this modul:
 * [Reinforcement Learning](https://raw.githubusercontent.com/ceri-num/module-DUU/master/notions/reinforcement.pdf)
 * [Q-Learning on 421](https://raw.githubusercontent.com/ceri-num/module-DUU/master/notions/qlearning421-old.pdf)
 * [The Curse of Dimentionality](https://raw.githubusercontent.com/ceri-num/module-DUU/master/notions/the-curse-old.pdf)
+
+Avec un usage intencif de marp (pluggin VisualCode)
+
+Ou standalone: [marp-cli](https://github.com/marp-team/marp-cli) installé en global.
+
+Exemple d'usage:
+
+```bash
+marp --theme style/imt.css --pdf notions/the-curse.md --allow-local-files
+```
