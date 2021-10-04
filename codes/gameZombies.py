@@ -176,6 +176,7 @@ class System :
                 self.reward= self.brain - self.score
                 self.score= self.brain
                 self.stock= [ 0, 0, 0 ]
+                self.shot= 3
                 stop= True
                 
             elif self.shot > 2 :
