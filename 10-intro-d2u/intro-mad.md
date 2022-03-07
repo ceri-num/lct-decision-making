@@ -104,11 +104,15 @@ $\rightarrow$ requires decomposed model and statistics...
 
 ---
 
-1. Introduction
-2. Class of problems
-3. The notion of Agent
-4. Decision Making Process of an Agent
-5. An Agent for the 421 games
+![bg](../style/bg-toc.svg)
+
+<br/>
+
+1. **Introduction**
+1. **Class of problems**
+1. **The notion of Agent**
+1. **Decision Making Process of an Agent**
+1. **An Agent for the 421 games**
 
 ---
 
