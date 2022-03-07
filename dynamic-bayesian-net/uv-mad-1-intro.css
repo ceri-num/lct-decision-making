@@ -1,0 +1,33 @@
+#boss_jpg {
+  width: 400px;
+}
+#goban_jpg{
+  width: 400px;
+}
+#jeugo_jpg{
+  width: 500px;
+}
+#color-domino_svg,
+#color-domino-plan_svg{
+  width: 500px;
+}
+#domino-graph_svg,
+#domino-graph-2_svg{
+  width: 800px;
+}
+#color-domino-policy_svg,
+#color-domino-policy2_svg{
+  width: 600px;
+}
+#echec_jpg{
+  width: 400px;
+}
+#echec_graph_svg{
+  width: 800px;
+}
+#agent_svg{
+    width: 800px;
+}
+#zombie_dice2_png{
+  width: 450px;
+}

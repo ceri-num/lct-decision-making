@@ -1,0 +1,317 @@
+\documentclass[a4paper, 10pt]{article}
+
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{eurosym} % \oe{} ...
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{paralist}
+\usepackage{listings}
+\usepackage{color}
+
+\lstset{language=Java, frame=shadowbox, rulesepcolor=\color{black}}
+
+\geometry{hmargin=1.5cm, vmargin=2cm }
+\pagestyle{fancy}
+\setlength\parindent{0pt}
+
+\lhead{IMT Lille Douai -- UV-MAD} \lfoot{G.L.}
+\rhead{TD/TP 01 - Décisions sous incertitude}
+\rfoot{Page : \thepage/\pageref{LastPage}}
+\cfoot{} \chead{}
+
+\begin{document}
+\author{IMT Lille Douai -- UV-MAD}
+\date{}
+\title{\Large{\textbf{TD/TP 01 - Décisions sous incertitude \\ Prise en main de Zombie Dice}}}
+\maketitle
+\thispagestyle{fancy}
+
+\section*{Nom(s) et prénom(s): \_\_\_\_\_\_\_\_\_\_\_\_\_\_ $\quad$ \_\_\_\_\_\_\_\_\_\_\_\_\_\_}
+
+\bigskip
+
+\section{Prise en main et compréhension}
+
+Comprendre le jeu \emph{Zombie Dice} et son implémentation:
+\begin{itemize}[$\bigcirc$]
+\item Se connecter et cloner \url{https://https://bitbucket.org/Num-ILD/pyzombie}
+\item Regarder le code et faire quelques parties pour comprendre les règles.
+\item Représenter schématiquement les classes du projet sous forme d'un diagramme de classes.
+
+\url{https://fr.wikipedia.org/wiki/Diagramme_de_classes}
+
+\url{https://fr.wikipedia.org/wiki/UML\_\%28informatique\%29}
+
+L'idée consiste à dessiner une boîte pour chaque classe dans le programme avec son nom et les méthodes principales puis de lier les classes entre elles, s'il existe des connexions (typiquement : un attribut de la classe A et une instance de la classe B).
+
+\medskip
+\begin{lstlisting}[caption={Diagramme de classes}]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.
+\end{lstlisting}
+
+\end{itemize}
+
+\section{Première \emph{IA}}
+\'Ecrire une première intelligence artificielle (IA) qui décrit des règles d'action sous forme d'un Script simple. Dans un premier temps l'IA se contentera de toujours jouer puis développera un comportement plus complexe composé d'une cascade de \emph{if..then..else}:
+
+\begin{itemize}[$\bigcirc$]
+\item Dans un nouveau fichier \emph{Python}, créer une nouvelle classe \emph{ScriptIA} héritan de \emph{Player}.
+\item Implémenter la méthode \emph{act} de façon à ce qu'elle retourne toujours la chaine de caractère ``play''.
+\item Copier et modifier le script \emph{pyzombie} de façon à ce qu'un \emph{Player} \emph{ScriptIA} remplace un des joueurs.
+Lancer le jeu.
+\item Modifier votre IA avec un script simple pour qu'elle ait un comportement un minimum cohérent.
+Récupérer les informations nécessaires via les méthodes d'acces aux variable \emph{game} passée en paramètre.
+\end{itemize}
+
+
+\section{L'arbre de décision}% à une politique}
+
+  Il est possible de représenter des règles d'action sous la forme d'un arbre de décision.
+Un arbre de décision définit une structure permettant de descendre jusqu'à l'action qui sera choisie par l'agent.
+La succession définit les tests sur les valeurs des variables de l'état.
+
+\url{https://fr.wikipedia.org/wiki/Arbre\_de\_d\%C3\%A9cision}
+
+Les feuilles de l'arbre (n\oe{}uds sans descendant) représentent une décision (ici ``play'' ou ``score''). Les autres n\oe{}uds reprennent une variable et orientent la descente dans une branche de l'arbre en fonction de la valeur de cette variable.
+
+\begin{itemize}[$\bigcirc$]
+\item Quel est l'arbre de décision correspondant au script simple suivant:
+\begin{lstlisting}[caption={Script 2 variables}]
+if game.brain() > 0 :
+  if agme.shot() == 0 :
+    return "play"
+  else :
+    return "score"
+else :
+  return "play"
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Arbre de Decision}]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.
+\end{lstlisting}
+
+\item Cette IA simple repose sur deux variables d'état: le nombre de cerveaux mangés et le nombre de balles prises. En considérant qu'il est possible de manger au maximum $13$ cerveaux et de prendre $3$ balles, l'IA est définie par un maximum de combien d'états (les états non inatteignables sont tout de même comptabilisés dans le nombre d'états) ?
+
+\medskip
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+
+\end{itemize}
+
+
+\section{Des arbres de décision plus complets}% à une politique}
+
+  Un état de l'agent joueur représente une affectation complète de toutes les variables décrivant l'agent dans son environnement à un instant $\mathit{t}$.
+  Si on rapporte la notion d'états aux arbres de décision, le nombre d'états correspond au nombre maximum de feuilles que peut contenir l'arbre.
+
+  L'arbre de décision permet de factoriser les choix d'action en regroupant ensemble les états qui conduisent à la même décision pour une même conjonction de valeurs variables.
+  Dans \emph{ZombieDice} par exemple, la variable \emph{brain} qui comptabilise le nombre de cerveaux mangés est prédominante. La variable \emph{brain} égale à $0$ va systématiquement impliquer de jouer (pourquoi scorer un score nul ?).
+
+  Poser les bases pour permettre la génération d'IA consiste, dans un premier temps, à bien identifier ce qu'est l'état du système à contrôler et donc l'ensemble des variables et les domaines de variation (ensemble des valeurs que peut prendre chaque variable).
+
+\begin{itemize}[$\bigcirc$]
+\item Lister l'ensemble des variables que vous identifiez appartenir à l'état du jeu, permettant à un joueur de prendre une décision.
+Établir les domaines de variation.
+
+\medskip
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\medskip
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\medskip
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\medskip
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\medskip
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\medskip
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\medskip
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\medskip
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\medskip
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\medskip
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\medskip
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\medskip
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\medskip
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\medskip
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\medskip
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\medskip
+
+\item Sans tenir compte des dépendances qui existent entre ces variables, l'agent joueur est défini par un maximum de combien d'états ? (Donner le calcul et le résultat.)
+
+\medskip
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\medskip
+
+\item Proposer un arbre de décision sur un minimum de $3$ niveaux.
+
+%\item Pour chaque feuille de vos arbres, indiquer combien d'états sont représentés.
+
+\newpage
+
+\begin{lstlisting}[caption={Votre Arbre de Decision}]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.
+\end{lstlisting}
+
+\item Implémenter l'arbre précédent sur un nouveau PNJ (\emph{TreeIA}).
+
+\end{itemize}
+
+\section{Tournoi (optionnel)}
+
+  Dans la mesure où plusieurs IA heuristiques sont proposées. Le plus simple pour les évaluer consiste à les faire s'affronter (évaluation empirique).
+
+  \begin{itemize}[$\bigcirc$]
+
+   \item Implémenter la nouvelle IA que vous avez proposée.
+
+   \item Modifier le main de façon à faire jouer les deux IAs l'une contre l'autre en alternant le premier joueur (100 parties successives pour chacune des IAs en premier joueur)
+
+   \item Relever et afficher différentes statistiques (\% des parties gagnées, minimum, moyenne et maximum sur les nombres de cerveaux mangés...)
+
+  \end{itemize}
+
+\end{document}

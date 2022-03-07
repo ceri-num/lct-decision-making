@@ -1,6 +1,11 @@
-# Decision Under Uncertainty
+# Distributed Decision Under Uncertainty
 
-These pages serve as support for this module of the **UV Model Agent Decision**.
+These pages serve as support for the lecture **D2-U2** apparing in differents module:
+
+- UV Model Agent Decision - **UV-MAD**
+- Project - Artificial Intelligence and Optimization - **FA-PAIO**
+- Introduction of RL for Health Science
+- AI for Manadgers
 
 You will find there a presentation of the used notion, the tutorials and some resources to process them.
 
@@ -8,13 +13,30 @@ You will find there a presentation of the used notion, the tutorials and some re
 
 ## Notions
 
-Presentation of the notions in this modul:
+Presentation of the notions in this lecture:
 
-* [Decision Under Uncertainty](https://raw.githubusercontent.com/ceri-num/module-DUU/master/notions/intro.pdf)
-* [State, Action and Policy](https://raw.githubusercontent.com/ceri-num/module-DUU/master/notions/policy.pdf)
-* [Reinforcement Learning](https://raw.githubusercontent.com/ceri-num/module-DUU/master/notions/reinforcement.pdf)
-* [Q-Learning on 421](https://raw.githubusercontent.com/ceri-num/module-DUU/master/notions/qlearning421-old.pdf)
-* [The Curse of Dimentionality](https://raw.githubusercontent.com/ceri-num/module-DUU/master/notions/the-curse-old.pdf)
+- 1.0-Introduction - Decision Under Uncertainty
+  * State, Action and Policy
+- 2.0-reinforcement - Reinforcement Learning
+  * Q-Learning on 421 game.
+  * 21-results on 421.
+- 3.0-Combinatorial - The Curse of Dimentionality
+  * groupping similar states together
+  * Dimention reduction - Principal Component Annalisis
+  * Clustering - k-means
+  * Factoring - Decision Tree.  
+- 4.0-Learning Structure
+- 5.0-Model-Based Decision Making
+  * MDP
+  * Factored MDP -> Bayesian Network
+  * Learn the model
+  * Solving large MDP
+- 6.0-Distributed Decision Making
+
+
+
+
+
 
 Avec un usage intencif de marp (pluggin VisualCode)
 

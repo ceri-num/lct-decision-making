@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="text/css" http-equiv="Content-Style-Type"/>
+<meta content="pandoc" name="generator"/>
+<title></title>
+<style type="text/css">code{white-space: pre;}</style>
+<link href="/home/guillaume/0meta/share/style/slides.css" rel="stylesheet" type="text/css"/>
+<link href="./TD03-Horizon.css" rel="stylesheet" type="text/css"/>
+</head>
+<body></body>
+<article>
+<header>
+<h1 id="decision-under-uncertainty">Decision Under Uncertainty</h1>
+<h3 id="planning">Planning</h3>
+<h3 id="uv---mad">UV - MAD</h3>
+<p>Guillaume Lozenguez <br/> <a href="mailto:Guillaume%20Lozenguez">at imt-lille-douai.fr</a></p>
+</header>
+<section>
+<h2 id="recap">Recap:</h2>
+<h3 id="st-state-definition">1st, state definition</h3>
+<ul>
+<li><p>A collection of variables</p></li>
+<li><p>Each variables defined in a domain</p></li>
+</ul>
+<h3 id="problem-complexity-search-space">Problem complexity: Search space</h3>
+<ul>
+<li><p>Number of states (by combining domains)</p></li>
+<li><p>Number of succession of states</p></li>
+</ul>
+</section>
+<section>
+<h2 id="recap-1">Recap:</h2>
+<h3 id="nd-a-plan-or-policy">2nd, A plan or policy</h3>
+<ul>
+<li><p>Action to perform in each state</p></li>
+<li><p>Potentially modeled as a decision tree</p></li>
+</ul>
+<h3 id="how-modeling-successions-of-actions">How modeling successions of actions ?</h3>
+</section>
+<section>
+<h2 id="recap-2">Recap:</h2>
+<h3 id="problem-variables-evolution-could-be-uncertain">Problem: variables' evolution could-be uncertain</h3>
+<ul>
+<li><strong>Bayesian Network</strong>: model variables' dependency.</li>
+</ul>
+<p>Require to define conditional distributions (matrices)</p>
+<ul>
+<li><strong>Dynamic Bayesian Network</strong>: for variables with discrete time evolution</li>
+</ul>
+<h3 id="providing-a-transition-function">Providing a transition function</h3>
+<ul>
+<li>Reachable states at time <em>t+1</em> weighted with probabilities</li>
+</ul>
+</section>
+<section>
+<h2 id="on-zombiedice">On ZombieDice</h2>
+<ul>
+<li><p><em>Bayesian Network</em></p></li>
+<li><p><em>Transition Function</em></p></li>
+</ul>
+</section>
+<section>
+<h2 id="optimizing-decision-making">Optimizing Decision Making:</h2>
+<h3 id="bellman-equation-finit-horizon">Bellman Equation (finit horizon):</h3>
+<p><br/><span class="math display"><em>a</em><sup>*</sup> = <em>a</em><em>r</em><em>g</em><em>m</em><em>a</em><em>x</em><sub><em>a</em></sub><em>V</em><sup><em>h</em></sup>(<em>s</em>, <em>a</em>)=<em>r</em>(<em>s</em>, <em>a</em>)+∑<sub><em>s</em>′</sub><em>t</em>(<em>s</em>, <em>a</em>, <em>s</em>′)<em>V</em><sup><em>h</em> − 1</sup>(<em>s</em>′)</span><br/></p>
+<ul>
+<li><span class="math inline"><em>t</em>(<em>s</em>, <em>a</em>, <em>s</em>′)</span>: transition function</li>
+<li><span class="math inline"><em>r</em>(<em>s</em>, <em>a</em>)</span>: reward function</li>
+</ul>
+<p><br/></p>
+<p><br/></p>
+<h3 id="markov-decision-process-tuple-s-a-t-r">Markov Decision Process: Tuple: <strong>S, A, t, r</strong></h3>
+</section>
+<section>
+<h2 id="solving-mdp">Solving MDP:</h2>
+<h3 id="short-term-horizon-algorithm">Short term horizon algorithm:</h3>
+<p>At each time step:</p>
+<ul>
+<li>Evaluate all reachable states</li>
+<li>But on a restricted horizon</li>
+</ul>
+<h3 id="monte-carlo-algorithm">Monte-Carlo algorithm:</h3>
+<p>randomized search in constrained times</p>
+<p>At each time step:</p>
+<ul>
+<li>Deep evaluation of state evolutions</li>
+<li>Limited in random trajectories</li>
+</ul>
+<h3 id="optimal-solving">Optimal Solving</h3>
+<p>Offline exploration of every evolution trajectories</p>
+</section>
+<section>
+<h2 id="td03-decision-making">TD03: Decision Making</h2>
+<ul>
+<li><p>From WillDie3 (correction of Dinamic Bayesian Network implementation for zombie dice)</p></li>
+<li><p>Optimize decision-making at horizon "1"</p></li>
+</ul>
+<p>(compare immediate gains to probable gains)</p>
+<ul>
+<li>Optimize decision under a given horizon <em>n</em></li>
+</ul>
+<p>(recursive value function)</p>
+<ul>
+<li>Deeper horizon but with randomized evolution exploration</li>
+</ul>
+</section></article></html>

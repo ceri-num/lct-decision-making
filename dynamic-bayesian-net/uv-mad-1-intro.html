@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="text/css" http-equiv="Content-Style-Type"/>
+<meta content="pandoc" name="generator"/>
+<title></title>
+<style type="text/css">code{white-space: pre;}</style>
+<link href="/home/guillaume/0meta/share/style/slides.css" rel="stylesheet" type="text/css"/>
+<link href="./uv-mad-1-intro.css" rel="stylesheet" type="text/css"/>
+</head>
+<body></body>
+<article>
+<header>
+<h1 id="decision-under-uncertainty">Decision Under Uncertainty</h1>
+<h3 id="an-introduction">An introduction</h3>
+<h3 id="uv---mad">UV - MAD</h3>
+<p>Guillaume Lozenguez <br/> <a href="mailto:Guillaume%20Lozenguez">at imt-lille-douai.fr</a></p>
+</header>
+<section>
+<h2 id="last-improvement-in-artificial-intelligence">Last improvement in Artificial Intelligence</h2>
+<ul>
+<li><em>Nov. 2007</em>, Carnegie-Mellon gagne le Darpa Urban Challenge (<span class="math inline">2<em>M</em>$</span>)</li>
+</ul>
+<div class="figure">
+<img id="boss_jpg" src="resources/boss.jpg"/>
+</div>
+<ul>
+<li><em>Oct. 2015</em>, Victory of d' over professional player</li>
+</ul>
+<div class="figure">
+<img id="goban_jpg" src="resources/goban.jpg"/>
+</div>
+<p>GO: <span class="math inline">10<sup>170</sup></span> positions, <span class="math inline">10<sup>600</sup></span> games (chess: <span class="math inline">10<sup>120</sup></span> games)</p>
+</section>
+<section>
+<h2 id="last-improvement-in-artificial-intelligence-1">Last improvement in Artificial Intelligence</h2>
+<p>In France:</p>
+<ul>
+<li><em>March 2018</em>, Rapport Villani <br/> <a href="http://www.aiforhumanity.fr">www.aiforhumanity.fr</a></li>
+</ul>
+</section>
+<section>
+<h2 id="return-to-the-notion-of-complexity-go">Return to the notion of complexity (Go)</h2>
+<p>GO: <span class="math inline">10<sup>170</sup></span> positions, <span class="math inline">10<sup>600</sup></span> games (chess: <span class="math inline">10<sup>120</sup></span> games)</p>
+<div class="figure">
+<img id="jeugo_jpg" src="resources/jeugo.jpg"/>
+</div>
+<p>A classical <span class="math inline">3</span> GHz computer: <span class="math inline">3 × 10<sup>9</sup></span> op. per second <br/> <span class="math inline">→</span> <span class="math inline"> 2.6 × 10<sup>14</sup></span> op. a day <span class="math inline">→</span> <span class="math inline"> 10<sup>17</sup></span> op. a year</p>
+<p>Enumerating all games <span class="math inline"><em>O</em>(<em>n</em>)</span> with <span class="math inline"><em>n</em> = 10<sup>600</sup></span>: arround <span class="math inline">10<sup>583</sup></span> years. <br/> <span class="math inline">→</span> requires decomposed model and statistics...</p>
+<!--   (Durée de vie de notre univers: $10^30$ années) -->
+</section>
+<section>
+<h2 id="introduction---this-course">Introduction - This Course</h2>
+<h3 id="decision-under-uncertainty-1">Decision Under Uncertainty</h3>
+<p>Is an introduction to models and algorithms<br/> to perform decision-making at a time step <em>t</em><br/> by considering potential effects.</p>
+<ul>
+<li>19 hours (5 sessions)</li>
+<li>Mainly as tutorials</li>
+<li>A simple dice game as a playground</li>
+</ul>
+</section>
+<section>
+<h2 id="contents">Contents</h2>
+<div class="contents">
+<ul>
+<li>Introduction</li>
+<li>Class of problems</li>
+<li>The notion of Agent</li>
+<li>Decision Making Process of an agent</li>
+</ul>
+</div>
+</section>
+<section>
+<h2 id="class-of-problems---deterministic-planning">Class of problems - Deterministic Planning</h2>
+<p>is the process that determines <em>a succession of actions</em><br/> to drive a system from an initial state to a target state.</p>
+<div class="figure">
+<img id="color-domino_svg" src="resources/color-domino.svg"/>
+</div>
+<p><strong>Deterministic case</strong>:</p>
+<ul>
+<li>the effects, by doing an action, from a specific state<br/> is certain.</li>
+</ul>
+</section>
+<section>
+<h2 id="class-of-problems---deterministic-planning-1">Class of problems - Deterministic Planning</h2>
+<p>Is the process that determines <em>a succession of actions</em><br/> to drive a system from an initial state to a target state.</p>
+<div class="figure">
+<img id="color-domino-plan_svg" src="resources/color-domino-plan.svg"/>
+</div>
+<p><strong>Deterministic case</strong>:</p>
+<ul>
+<li>The effects, by doing an action, from a specific state<br/> is certain.</li>
+</ul>
+</section>
+<section>
+<h2 id="class-of-problems---determine-a-plan">Class of problems - Determine a Plan</h2>
+<p>Finding a <em>path</em> in a <em>graph</em> modeling all possible evolutions</p>
+<div class="figure">
+<img id="domino-graph_svg" src="resources/domino-graph.svg"/>
+</div>
+</section>
+<section>
+<h2 id="class-of-problems---plan-optimization">Class of problems - Plan Optimization</h2>
+<p>Finding an <em>optimized</em> path in a <em>weighted</em> Graph</p>
+<div class="figure">
+<img id="domino-graph-2_svg" src="resources/domino-graph-2.svg"/>
+</div>
+</section>
+<section>
+<h2 id="class-of-problems---stokastic-planning">Class of problems - Stokastic Planning</h2>
+<p>Build a <em>policy</em>:</p>
+<ul>
+<li>Associate an <em>action</em> to perform <br/> <em>to each</em> reachable <em>state</em></li>
+</ul>
+<div class="figure">
+<img id="color-domino-policy_svg" src="resources/color-domino-policy.svg"/>
+</div>
+</section>
+<section>
+<h2 id="class-of-problems---stokastic-planning-1">Class of problems - Stokastic Planning</h2>
+<p>Then the effective succession of actions remains stochastic</p>
+<div class="figure">
+<img id="color-domino-policy2_svg" src="resources/color-domino-policy2.svg"/>
+</div>
+</section>
+<section>
+<h2 id="class-of-problems---game-theory">Class of problems - Game theory</h2>
+<p><em>Few entities</em> control the same system (with different goals)</p>
+<div class="figure">
+<img id="echec_jpg" src="resources/echec.jpg"/>
+</div>
+<ul>
+<li>Which actions for each entity ?</li>
+<li>Which consequences ?</li>
+</ul>
+</section>
+<section>
+<h2 id="class-of-problems---game-theory-1">Class of problems - Game theory</h2>
+<p>Few entities control the same system<br/> With different goals.</p>
+<div class="figure">
+<img id="echec_graph_svg" src="resources/echec_graph.svg"/>
+</div>
+<ul>
+<li><em>Uncertainty</em>: At last on the actions of the others.</li>
+</ul>
+</section>
+<section>
+<h2 id="class-of-problems---control-complex-systems">Class of problems - Control Complex systems</h2>
+<p>Complex systems: - A lot of entities in interactions</p>
+<div class="figure">
+<img id="prisonarchitect_jpg" src="resources/prisonarchitect.jpg"/>
+</div>
+<ul>
+<li><em>Uncertainty</em>: ...</li>
+</ul>
+</section>
+<section>
+<h2 id="vocabulary">Vocabulary</h2>
+<p><br/> <br/></p>
+<ul>
+<li><strong>graph</strong> composed of <strong>node</strong> and <strong>edges</strong></li>
+<li><strong>graph</strong> composed of <strong>state</strong> and <strong>action</strong> (State Automata)</li>
+<li><strong>planning</strong>: finding a valid succession of <strong>actions</strong></li>
+<li><strong>determinist</strong> versus <strong>uncertain</strong> / <strong>stochastic</strong></li>
+<li><strong>system</strong>, <strong>control</strong> (automation)</li>
+<li><strong>Multi-Agent System</strong>, <strong>Decision Making</strong> (AI)</li>
+</ul>
+</section>
+<section>
+<h2 id="notion-of-agent">Notion of Agent</h2>
+<div class="center">
+<p><br/> <br/> <strong>"I act therefore I am"</strong> <br/> <br/> <br/></p>
+</div>
+<ul>
+<li>my actions have an effect on the world</li>
+<li><strong>and</strong> I have the choice to act or not</li>
+</ul>
+<p><br/> <br/> <br/> <br/> <br/> <br/></p>
+<p>cf. "BullShit Jobs" - David Graeber (2019) (p.132-133 fr. in version )</p>
+<p>or the joy to be cause - Karl Groos (1901)</p>
+<!-- Pour approfondir: : broucek francis « the sense of self » 1977 - Klein G. S. « the vital pleasures » 1976.-->
+</section>
+<section>
+<h2 id="notion-of-agent---simple-definition">Notion of Agent - Simple definition</h2>
+<br/> <br/> <br/>
+<div class="center">
+<h3 id="entity-capable-of-perception-and-action-evolving-in-an-environment.">Entity capable of perception and action<br/> evolving in an environment.</h3>
+</div>
+<p><br/> <br/> <br/></p>
+<h3 id="question">Question:</h3>
+<div class="center">
+<h3 id="how-to-choose-appropriate-action-to-perform-considering-the-perception-at-a-each-time-step">How to choose appropriate action to perform<br/> considering the perception at a each time step ?</h3>
+</div>
+<p><br/> <br/> <br/></p>
+</section>
+<section>
+<h2 id="notion-of-agent---simple-definition-1">Notion of Agent - Simple definition</h2>
+<h3 id="open-loop-control">Open loop control</h3>
+<div class="figure">
+<img id="agent_svg" src="resources/agent.svg"/>
+</div>
+<p>rarely determinist, mostly uncertain (even stochastic)</p>
+</section>
+<section>
+<h2 id="notion-of-agent---complementary-notions">Notion of Agent - Complementary Notions</h2>
+<h3 id="agent">Agent:</h3>
+<ul>
+<li>defining by a perception-state, goals and a policy to achieve its<br/> (<em>BDI</em> model: Belief - Desire - Intention)</li>
+<li>with different positions in social structure<br/> (<em>AGR</em> model: Agent - Group - Role )</li>
+<li>capable of communication</li>
+<li>capable of adaptation (learning)</li>
+<li>driven by emotions</li>
+<li>...</li>
+</ul>
+</section>
+<section>
+<h2 id="course-notion-to-acquire">Course notion to acquire</h2>
+<p><br/><br/></p>
+<div class="two5">
+<p>From <em>reactive control</em></p>
+</div>
+<div class="one5">
+<p><strong>to</strong></p>
+</div>
+<div class="two5">
+<p><em>deliberative control</em></p>
+</div>
+<div class="two5">
+<p>Immediate response<br/> to stimuli</p>
+<p><br/></p>
+<p>Script: <br/> if .... then ... <br/> else if ... <br/></p>
+</div>
+<div class="one5">
+<p><br/><br/><br/><br/> <strong>versus</strong></p>
+</div>
+<div class="two5">
+<p>model and statistical<br/> decision-making</p>
+<div class="figure">
+<img id="domino-graph-2_svg" src="resources/domino-graph-2.svg"/>
+</div>
+</div>
+</section>
+<section>
+<h2 id="course-notion-to-acquire-1">Course notion to acquire</h2>
+<p><br/><br/><br/><br/></p>
+<h3 id="decision-making-under-uncertainty">Decision-making under uncertainty</h3>
+<ul>
+<li>Script, Policy and Decision Tree</li>
+<li>Statistical evolution: Bayesian Network</li>
+<li>Planning: Markov Decision Process</li>
+</ul>
+</section>
+<section>
+<h2 id="zombie-dice">Zombie dice</h2>
+<h3 id="a-stokastic-dice-game">A Stokastic Dice Game</h3>
+<div class="one2">
+<div class="figure">
+<img id="zombie_dice_jpeg" src="resources/zombie_dice.jpeg"/>
+</div>
+</div>
+<div class="one2">
+<ul>
+<li>Players are Starved Zombies</li>
+<li>dice are humans</li>
+<li>Zombies eat human brains</li>
+<li>and can't take more than 2 shots</li>
+</ul>
+</div>
+</section>
+<section>
+<h2 id="zombie-dice-1">Zombie dice</h2>
+<h3 id="a-stokastic-dice-game-1">A Stokastic Dice Game</h3>
+<div class="two3">
+<div class="figure">
+<img id="zombie_dice2_png" src="resources/zombie_dice2.png"/>
+</div>
+</div>
+<div class="one3">
+<p><strong>Decision:</strong></p>
+<ul>
+<li>Score or Continue</li>
+</ul>
+<p><strong>Uncertainty:</strong></p>
+<ul>
+<li>dice selection</li>
+<li>dice result</li>
+<li>score evolution</li>
+</ul>
+</div>
+</section></article></html>

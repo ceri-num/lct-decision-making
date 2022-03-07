@@ -1,0 +1,257 @@
+\documentclass[a4paper, 10pt]{article}
+
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{paralist}
+\usepackage{listings}
+\usepackage{color}
+
+\lstset{language=Java, frame=shadowbox, rulesepcolor=\color{black}}
+
+\geometry{hmargin=1.5cm, vmargin=2cm }
+\pagestyle{fancy}
+\setlength\parindent{0pt}
+
+\lhead{\'Ecole des Mines de Douai -- Mineur MAD} \lfoot{G.L.}
+\rhead{DS - décisions séquentielles -- Année 2015/2016}
+\rfoot{Page : \thepage/\pageref{LastPage}}
+\cfoot{} \chead{}
+
+\begin{document}
+\author{\'Ecole des Mines de Douai -- FI 1A -- Mineur MAD}
+\date{05.01.2016}
+\title{\Large{\textbf{DS - décisions séquentielles 2015/2016 \\ YAM'S}}}
+\maketitle
+\thispagestyle{fancy}
+
+%\section*{Nom(s) et prénom(s): \_\_\_\_\_\_\_\_\_\_\_\_\_\_ $\quad$ \_\_\_\_\_\_\_\_\_\_\_\_\_\_}
+
+\bigskip
+
+%Le barème est purement indicatif et sera ajusté lors de la correction.
+
+%\bigskip
+
+%\section*{Yam's}
+
+Le Yam's est un jeu proche d'un poker aux dés. On va s'intéresser ici à une version simplifiée du jeu.
+
+\smallskip
+
+Deux joueurs s'affrontent en cherchant à effectuer des combinaisons de $5$ dés sur la base de trois lancers maximum. Chaque combinaison rapporte un certain nombre de points en fonction de la difficulté de la réaliser.
+
+\smallskip
+
+À tour de rôle, chaque joueur prend possession de $5$ dés classiques ($6$ faces numérotées de $1$ à $6$) et les lance. Il peut ensuite, à $2$ reprises, sélectionner autant de dés qu'il le souhaite pour les relancer. Si le joueur actif décide de s'arrêter ou s'il a effectué ses $3$ lancers, les points obtenus sont ajoutés à son score et les dés passent à son adversaire. 
+
+\smallskip
+
+On considère les combinaisons suivantes : 
+
+\smallskip
+
+\begin{center}
+   \begin{tabular}{|c|c|c|}
+    \hline
+    Combinaisons & Description & Points \\
+    \hline
+    Full & $3$ dés identiques + $2$ dés identiques & $30$ + somme des dés \\
+    \hline
+    Carré & $4$ dés identiques & $40$ + somme des dés \\
+    \hline
+    Petite suite & Suite de $4$ dés & $45$ \\
+    \hline
+    Grande suite & Suite de $5$ dés & $50$ \\
+    \hline
+    Yam's & $5$ dés identiques & $50$ + somme des dés \\
+    \hline
+    Rien & aucune des combinaisons précédentes & $0$ \\
+    \hline
+  \end{tabular}
+
+\end{center}
+
+\smallskip
+
+Le joueur gagnant est le joueur qui somme le plus de points après $4$ rounds.
+
+\smallskip
+
+Exemple d'un round :
+
+\smallskip
+
+le joueur-$1$, en premier lancer, obtient $2$ dés un, $1$ dés deux $1$ dés trois et $1$ dés quatre. Il décide de relancer le dés un en visant la grande suite. Il obtient quatre qu'il relance pour six. Avec $1$ dés un, $1$ dés deux $1$ dés trois, $1$ dés quatre et $1$ dés six il marque $45$ points pour une petite suite.
+
+\smallskip
+
+Au tour du jureur-$2$, le lancer donne $1$ un, $1$ trois et $3$ cinq. Le joueur-$2$ garde les cinq et relance les deux autres dés. Il obtient $2$ un et préfère s'arrêter là avec un \emph{Full} pour $47$ points ($30 + 3\times 5 + 2$).
+
+\smallskip
+
+Le jeu continue pour $3$ autres rounds.
+
+
+\subsection*{Question 1}% (2 points)}
+
+  Énumérez toutes les variables utiles à la prise de décision, à savoir, relancer un certain nombre de dés. Donner leurs domaines de variation.  
+
+
+\subsection*{Question 2}% (2 points)}
+  
+  Quel est le nombre d'états du système sur la base des variables énumérées ? (donnez surtout le calcul)
+
+  
+\subsection*{Question 3}% (3 points)}
+  
+  On étudiera un script (donné plus loin) décrivant une \emph{Intelligence Artificielle} (\emph{IA}-$1$) qui cherche à constituer un Yam's de $6$, $5$ ou $4$.
+
+  Ce script s'appuie sur trois m\'ethodes : 
+  \begin{itemize}
+   \item $\mathit{nb}(x)$ : retourne le nombre de dés avec une face visible égale à x.
+   \item $\mathit{relancerSauf}(x)$ : retourne le jeu de dés après avoir relancé tous les dés sauf les dés x. 
+   \item $\mathit{relancerTout}()$ : retourne le jeu de dés après avoir relancé tous les dés.
+  \end{itemize}
+  
+  \newpage
+  
+  \begin{lstlisting}[caption={Script IA-1}]
+  if( nb(6) > 0 && nb(6) >= nb(5) )
+  {
+    if( nb(6) >= nb(4) )
+      return relancerSauf(6);
+    else
+      return relancerSauf(4);
+  }
+  else
+  {
+    if( nb(5) != 0 && nb(5) >= nb(4) )
+      return relancerSauf(5);
+    else
+    {
+      if( nb(4) >= 0 )
+	return relancerSauf(4);
+      else
+	return relancerTout();
+    }
+  }
+  \end{lstlisting}
+  
+  Traduisez ce script en un arbre de décision (en s'appuyant sur les méthodes $\mathit{nb}(x)$, $\mathit{relancerSauf}(x)$ et $\mathit{relancerTout}()$).
+
+  \subsection*{Question 4}% (4 point)}
+  
+  On souhaite mettre en place une \emph{Intelligence Artificielle} empirique (\emph{IA}-$2$) qui teste $n$ fois chaque lancer possible et qui sélectionne le lancer qui semble en moyenne le plus intéressant.
+  
+  On possède pour aider à cela deux méthodes :
+  
+  \begin{itemize}
+  \item $\mathit{relancer}( \mathit{iSelection} )$ : retourne le jeu de dés après avoir relancé une sélection de dés identifiée par $\mathit{iSelection}$. par exemple : $\mathit{iSelection}= 0$: aucun dé relancé ; $\mathit{iSelection}= 1$: le premier dé relancé ; $\mathit{iSelection}= 2$: le second dé relancé ; $\mathit{iSelection}= 3$: les deux premiers dés relancés ; etc. 
+  \item $\mathit{score}( \mathit{jeu} )$ : qui retourne le score pour un jeu de dés donnés.
+  \end{itemize}
+  
+  \begin{enumerate}[(a)]
+   \item Combien y a-t-il d'action de relance possible ? (relatif au domaine de variation pour \emph{iSelection})
+   \item Proposer un script pour \emph{IA}-$2$. (écrire le script en pseudo-code, c'est à dire, sans se soucier de la rigueur requise pour un langage en particulier (Java, phyton, C++, etc.).
+  \end{enumerate}
+
+  \subsection*{Question 5}% (4 points)}
+  
+   Sur la base des variables d'état définies question $1$ et $2$, définissez un réseau bayésien permettant de calculer les probabilités de gain de score lors d'un lancer. (Ne pas donner les tableaux associés aux n\oe{}uds.)
+  
+  \subsection*{Question 6}% (2 points)}
+  
+  Qu'est-ce qui manque au réseau bayésien précédent pour en faire un réseau bayésien dynamique ?
+ 
+  \subsection*{Question 7}% (3 points)}
+  
+  Soit un n\oe{}ud bayésien (\emph{relance-1}) exprimant la relation de probabilité entre la main moins $1$ dé et chaque combinaison possible (\emph{Full},  \emph{Carré}, etc.). Ce n\oe{}ud permet de calculer la probabilité d'obtenir une combinaison si le joueur relance $1$ dé.
+  
+  \begin{enumerate}[(a)]
+    \item Définir le tableau relatif à ce n\oe{}ud en se limitant à des dés à deux faces ($1$ ou $2$) et les combinaisons \emph{Full},  \emph{Carré}, \emph{Yam's} ou \emph{Rien}. Notez qu'il y a en entré, seulement cinq jeux possibles de $4$ dés : $0$ dé un et $4$ dés deux ; $1$ dé un et $3$ dés deux ; $2$ dés un et $2$ dés deux ; $3$ dés un et $1$ dé deux ; $4$ dés un et $0$ dé deux.
+
+    \item En considérant la distribution de probabilité suivante sur un jeu à $4$ dés de $2$ faces, quelle est la probabilité d'avoir un full ? (donner le calcul et le résultat)
+    
+    \begin{center}
+     \small
+    \begin{tabular}{|r|c|c| c|c|c|}
+      \hline
+      jeu de $4$ dés & $0$ dé $1$, $4$ dés $2$ & $1$ dé $1$, $3$ dés $2$ & $2$ dés $1$, $2$ dés $2$ & $3$ dés $1$, $1$ dé $2$ & $4$ dés $1$, $0$ dé $2$ \\
+      \hline
+      probabilité & 0.1 & 0.3 & 0.3 & 0.15 & 0.15 \\
+      \hline
+    \end{tabular}
+    
+    \end{center}
+
+  \end{enumerate}
+
+  \newpage
+  
+  \section*{Correction}% (3 points)}
+  
+    \begin{enumerate}[Q1]
+     \item (3)
+      \begin{itemize}
+       \item main : $6^5 = 7776$
+       \item relance : $[0, 2] : 3$
+       \item joueur : $2$
+       \item diff. score : $ (50+6*5) * 2 = 160$
+       \item round restant : $[0, 3] : 4$
+      \end{itemize}
+
+     \item (2) Multiplication des variables énumérés. ($6^5\times3\times2\times160\times4 = 2,986\times 10^7$)
+     \item (3) Arbre
+     \item (4) 
+     
+      \begin{enumerate}[a]
+      \item (1) $2^5= 32$
+      \item (3) 
+      \begin{lstlisting}[caption={Script IA-1}]
+int select= 0;
+float bestAvgScore=0;
+for( i in [0, 32[ )
+{
+    float avgScore= 0;
+    for( j in [0, n[ )
+      avgScore+= score( relancer(i) );
+    avgScore/= n;
+    
+    if ( avgScore > bestAvgScore )
+      select= i;
+}
+return relancer(select);
+      \end{lstlisting}
+      \end{enumerate}
+	
+     \item (4) Reseaux bayesien
+     \item (2) Dédoubler les variables, un jeux représenatnt le temps $t$ un jeux représentant le temps $t+1$.
+     \item (4) 
+      
+      \begin{enumerate}[a]
+      \item (2)
+     \small
+    \begin{tabular}{|r|c|c| c|c|c|}
+      \hline
+      & $2222$ & $1222$ & $1122$ & $1112$ & $1111$ \\
+      \hline
+      Full  & $0  $ & $0.5$ & $1$ & $0.5$ & $0   $ \\
+      Carré & $0.5$ & $0.5$ & $0$ & $0.5$ & $0.5 $ \\
+      Yam's & $0.5$ & $0  $ & $0$ & $0  $ & $0.5 $ \\
+      Rien  & $0  $ & $0  $ & $0$ & $0  $ & $0   $ \\
+      \hline
+    \end{tabular}
+    
+      \item (2) $ P_{\mathit{Full}}= 0.1\times0 + 0.3\times0.5 + 0.3\times1 + 0.15\times0.5 + 0.15\times0 = 0,525$
+      \end{enumerate}
+    \end{enumerate}
+
+    Note sur 12.
+    
+\end{document}
