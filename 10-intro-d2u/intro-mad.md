@@ -20,8 +20,9 @@ Guillaume Lozenguez
 ## Last improvement in Artificial Intelligence
 
 - *Nov. 2007*, Carnegie-Mellon win the Darpa Urban Challenge ($2M\$$)
+- *Oct. 2015*, First release of Tesla Autopilot
 
-![right](../figs/boss.svg)
+![](../figs/boss.svg)
 
 - *Oct. 2015*, Victory of d'**AlphaGo** over professional player
 
@@ -37,6 +38,20 @@ Guillaume Lozenguez
 In France:
 
 - *March 2018*, Rapport Villani - [www.aiforhumanity.fr](http://www.aiforhumanity.fr) -
+
+---
+
+## Our topic: Autonomous Decision Making
+
+<br/>
+<br/>
+<br/>
+
+- Model the capability of actions
+- Learn action interest
+- Optimize policies of actions
+- Handle large problem with optimization techniques 
+
 
 ---
 
@@ -68,13 +83,13 @@ $\rightarrow$ requires decomposed model and statistics...
 
 <br />
 
-#### How to compute ~~optimal~~ appropriate responces<br />to control dynamical systems ?
+#### How to compute ~~optimal~~ appropriate responses<br />to control dynamic systems ?
 
 **Knowing that:**
 
 - Model could require very large exploration
 - We potentially do not have the model
-- Evolution are generally uncertain
+- Evolutions are generally uncertain
 
 ---
 
@@ -84,14 +99,16 @@ $\rightarrow$ requires decomposed model and statistics...
 
 - 19 hours (5 sessions)
 - Mainly as tutorials
-- Simple dice games as a playground
+  * Simple dice games as a playground
+  * Strategic 2-players games
 
 ---
 
 1. Introduction
 2. Class of problems
 3. The notion of Agent
-4. Decision Making Process of an agent
+4. Decision Making Process of an Agent
+5. An Agent for the 421 games
 
 ---
 
@@ -133,6 +150,9 @@ Finding an *optimized* path in a *weighted* Graph
 
 ![](../figs/domino-graph2.svg)
 
+
+- Tipically: _Finding the shortest path from `A` to `B`_
+
 ---
 
 ## Class of problems - Stokastic Planning
@@ -155,9 +175,9 @@ Execute a *policy*:
 
 ---
 
-## Class of problems - Game theory
+## Class of problems - Game Theory
 
-*Few entities* control the same system (with different goals)
+*Few entities* (players) control a system (with different goals)
 
 ![](../figs/echec.svg)
 
@@ -172,19 +192,34 @@ Execute a *policy*:
 
 ![](../figs/echec-graph.svg)
 
-- *Uncertainty*: At last on the actions of the other players.
+- *Uncertainty*: At least on the actions of the other players.
+
+---
+
+## Class of problems - Game theory
+
+Difficulty:
+
+- The _size_ of the system
+  * The number of variables describing the system
+- The branching possibilities 
+  * The number of both actions and outcomes possibilities
+  * Stochastic interactions
+- The observability
+  * Typically the goals and actions or possibility of actions of the opponents
+- The number of players
 
 ---
 
 ## Class of problems - Control Complex systems
 
-Complex systems:
+The Grail : **Control Complex Systems**
 
 - A lot of entities in interactions
 
 ![](../figs/prison-architect.svg)
 
-- *Uncertainty*: ...
+_An entity:_an autonomous sub-system with its own goals and capabilities (an agent)
 
 ---
 
@@ -195,10 +230,11 @@ Complex systems:
 <br />
 
 - **graph** composed of **node** and **edges**
-- **graph** composed of **state** and **action** (State Automata)
+- **State Automata** composed of **state** and **action**
 - **planning**: finding a valid succession of **actions**
+- **policy**: An **action** response to ever reachable situation (**state**)
 - **determinist** versus **uncertain** / **stochastic**
-- **system**, **control** (automation)
+- **system**, **control** (automation science)
 - **Multi-Agent System**, **Decision Making** (AI)
 
 ---
@@ -256,45 +292,38 @@ rarely determinist, mostly uncertain (even stochastic)
 
 ### Agent:
 
-- defining by a perception-state, goals and a policy to achieve its goals<br />(*BDI* model: Belief - Desire - Intention)
+- Defining by a perception-state, goals and a policy to achieve its goals<br />(*BDI* model: Belief - Desire - Intention)
 - with different positions in social structure<br />(*AGR* model: Agent - Group - Role )
-- capable of communication
-- capable of adaptation (learning)
-- driven by emotions
+- Capable of communication
+- Capable of adaptation (learning)
+- Driven by emotions
 - ...
 
+
 ---
 
-## Course notion to acquire
+## Notion of Agent - rational Agent
 
-From *reactive control* **to** *deliberative control*
+![](../figs/agent.svg)
 
-- Immediate response to stimuli
+An Agent: is an entity 
 
-```
-Script:
-if .... do ...
-else if ... do ...
-```
-
-**versus**
-
-- Model and statistical decision-making:
+- capable of **perceiving** and **acting** in its environment
+- and driven toward its **goals**.
 
 ---
 
 ## Course notion to acquire
 
-<br />
 <br />
 
 ### Decision-making under uncertainty
 
-- Script, Policy and Decision Tree
-- Reinforcement Learning: 
-  - Q-Learning (learn the policy)
-  - Model-Learning (learn the model, compute the policy)
-- Factored Model
+- **Policy** as Script and Decision Tree
+- Theoretical basis: **Markov Decision Process**
+- The simplest algorithmic response: **Reinforcement Learning** 
+- **The curse of Dimentionallity**
+- Divide and Rule: **clustered** and **factored** model
 
 ---
 
@@ -319,5 +348,12 @@ else if ... do ...
 <br />
 <br />
 <br />
+---
+
+## Game: 421
+
+1. Understand the game
+2. Implement your first AI
+3. Think with Decision-Tree
 
 #### Let's go....
