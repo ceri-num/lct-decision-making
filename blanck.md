@@ -11,7 +11,7 @@ backgroundImage: url('../style/bg-imt.svg')
 
 Guillaume Lozenguez
 
-[@imt-lille-douai.fr](mailto:guillaume.lozenguez@imt-lille-douai.fr)
+[@imt-nord-europe.fr](mailto:guillaume.lozenguez@imt-nord-europe.fr)
 
 ![bg](../style/bg-tittle.svg)
 
