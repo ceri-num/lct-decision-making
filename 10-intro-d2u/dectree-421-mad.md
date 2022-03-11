@@ -80,8 +80,7 @@ else:
 ### A Tree:
 
  - is a directed graph structure (with **Nodes**  and **Oriented Edges**),
- - connected, 
- - with no loop  and a unique path from any 2 nodes.
+ - connected, with no loop  and a unique path from any 2 nodes.
  
 ![](../figs/decision-tree-grp.svg)
 
@@ -91,7 +90,7 @@ else:
 
 ### A Decision Tree
 
-**Nodes:** variables ; **Edges:** assignment ; **leaf:** group of states
+**Nodes:** variables ; **Edges:** assignment ; **leaf:** group of states / actions
 
 ![](../figs/decision-tree-grp.svg)
 
@@ -99,15 +98,20 @@ else:
 
 ---
 
+## Scripted Policy as Decision Tree
+
+
+![](../figs/decision-tree2.svg)
+
+- $\pi( 2, False, 42 )$ = **Action-4**
+
+---
+
 ## Based on state variable prevalence
 
 ### Decision Tree (421):
 
-![](../figs/decision-tree-421.svg)
-
----
-
-## An Implementation of Decision Tree
+![width:50%](../figs/decision-tree-421.svg)
 
 
 Score: **222** (vs **160** for random)

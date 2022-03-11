@@ -9,12 +9,20 @@ backgroundImage: url('../style/bg-imt.svg')
 
 ### A classical method of<br />Reinforcement Learning
 
-Guillaume Lozenguez
+Guillaume.Lozenguez
 
-[@imt-lille-douai.fr](mailto:guillaume.lozenguez@imt-lille-douai.fr)
+[@imt-nord-europe.fr](mailto:guillaume.lozenguez@imt-nord-europe.fr)
 
 ![bg](../style/bg-tittle.svg)
 
+---
+
+![bg](../style/bg-toc.svg)
+
+<br/>
+
+1. **A teoritical framework: Markov Decision Process**
+2. **On the go, model free learning**
 
 ---
 
@@ -116,8 +124,18 @@ The policy $\pi^*$ maximizing Bellman
 
 ### 2 approaches
 
-- **model-based:** Learn the model, then compute the optimal policy.
+- **model-based:** Learn the model ($T$, $R$), and compute a policy.
 - **model-free:** Learn the policy directly.
+
+---
+<!-- --------------------------------------------------------------- -->
+
+![bg](../style/bg-toc.svg)
+
+<br/>
+
+1. **A teoritical framework: Markov Decision Process**
+2. **On the go, model free learning**
 
 ---
 <!-- --------------------------------------------------------------- -->
@@ -256,16 +274,16 @@ exploration ratio: *$\epsilon$* ; learning rate: *$\alpha$* ; discount factor *$
 
 In agent-based programming:
 
-- As an initial step : 
+- As an initial step (**wakeUp**) : 
    1. Initialize $Q$
-- At 'game' start :
-   1. Read the initial state $s$
-- At each itereration :
+   2. Initialize state $s$ and action $a$ variables.
+- At each itereration (**perceive**):
    1. Read the reached state $s'$ and the associated reward $r$
    2. If necessary, add $s'$ to $Q$ (with value $0$ for any action $a$)
    3. Update $Q(s,a)$ accordingly to *$\alpha$* and *$\gamma$*
    4. reccord $s=\ s'$
-   5. At *$\epsilon$* random: get a random $a$ *or* $a$ maximizing $Q(s, a)$
+- taking decisions (**decide**):
+   1. At *$\epsilon$* random: get a random $a$ *or* $a$ maximizing $Q(s, a)$
 
 ---
 
@@ -371,4 +389,4 @@ $\mathit{argmax}\ Q$ | $\downarrow$ | $\rightarrow$ | $\uparrow$ |
 <br />
 <br />
 
-#### Let's go....
+#### Let's go on 421 game....
