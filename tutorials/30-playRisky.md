@@ -28,7 +28,7 @@ And that it, you are ready to develop our onw player.
 ## State Space
 
 Before to initialize a Q-Learning method, the idea is to define the state space, in a way it is possible to use it as keys in Q-Value dictionary.
-We propose a string of tuples of 3 values, one tuple per tabletop cell. The values represent respectively, `0 or 1` if the cell is owned by the player, `X` the strenght of the unit on the cell and `0 or 1` if the units already moved from the last `sleep` action.
+We propose a string of tuples of 3 values, one tuple per tabletop cell. The values represent respectively, `0 or 1` if the cell is owned by the player, `X` the strength of the unit on the cell and `0 or 1` if the units already moved from the last `sleep` action.
 
 - Add a new method to your player `stateStr()` in a way it builds a list of tuples initialized on "0-0-0" for each node.
 Then change the value of the tuple, for each piece in the tabletop.
@@ -47,7 +47,6 @@ def stateStr(self):
 ```
 
 - Print the state value at the beginning of `decide method`. You also can change the heritance from `hg.PlayerVerbode` to `hg.Player` to minimize the printed information.
-
 
 
 ## Apply Q-Learning
