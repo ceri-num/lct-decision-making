@@ -48,6 +48,7 @@ def stateStr(self):
 
 - Print the state value at the beginning of `decide method`. You also can change the heritance from `hg.PlayerVerbode` to `hg.Player` to minimize the printed information.
 
+<!--pageBreak-->
 
 ## Apply Q-Learning
 

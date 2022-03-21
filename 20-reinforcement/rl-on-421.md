@@ -49,6 +49,27 @@ $$Q(s^t, a) = (1-\alpha)Q(s^t,a) + \alpha \left(r + \gamma \max_{a'\in A} Q(s^{t
 
 - *$\alpha$*: $0.1$ ; *$\epsilon$* : $0.1$ ; *$\gamma$* : $0.99$ ;
 
+
+---
+
+## Drawing plot in Python: pyplot
+
+Codes: 
+
+```python
+import matplotlib.pyplot as plt
+
+...
+
+plt.plot( values )
+plt.ylabel( "mean of the y value" )
+plt.show()
+```
+
+<br />
+
+- Where `values` is a list of values in $\Reals$
+
 ---
 
 ## Q-Learning: the basics
