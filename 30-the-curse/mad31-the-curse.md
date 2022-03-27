@@ -1,6 +1,6 @@
 ---
 marp: true
-theme: default
+theme: imt
 paginate: true
 backgroundImage: url('../style/bg-imt.svg')
 ---
@@ -14,17 +14,6 @@ Guillaume Lozenguez
 [@imt-nord-europe.fr](mailto:guillaume.lozenguez@imt-nord-europe.fr)
 
 ![bg](../style/bg-tittle.svg)
-
----
-
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```​
-
 
 ---
 
@@ -63,7 +52,7 @@ graph TD;
 
 ### Then the branching:
 
-### Finnally the number of games:
+### Finally, the number of games:
 
 ---
 
@@ -79,9 +68,9 @@ graph TD;
 
 - **421 game:** $2^3$ actions,  $6^r$ action outcomes ($r$, the number of rolled dice). 
 
-### Finnally the number of games:
+### Finally, the number of games:
 
-**The number of all possible succesion of states** until reaching an end.<br /> $|Branching|^h$ ($h$ the horizon) Potentially $|S|^h$ ($h$ the horizon).
+**The number of all possible succession of states** until reaching an end.<br /> $|Branching|^h$ ($h$ the horizon) Potentially $|S|^h$ ($h$ the horizon).
 
 ---
 
@@ -101,11 +90,11 @@ Probability to play 2 times the same distribution in a human life is very close 
 
 A strategic game over $12$ cells to conquer by 2 armies: State Space: ~_$(4*30)^{12}$_
 
-#### Exloration / average end / average Q Values
+#### Exploration / average End / average Q Values
 
 ![](../figs/risky-qlearning.svg)
 
-- [python code]() (10000 parties, un point toute les 10 partes)
+- [python code](https://bitbucket.org/imt-mobisyst/lecture-d2u/raw/master/resources/gameRisky-playerQ.py) (10000 games, one point each 10 games)
 
 ---
 
@@ -120,7 +109,7 @@ A strategic game over $12$ cells to conquer by 2 armies: State Space: ~_$(4*30)^
 ---
 ## State reduction in QLearning
 
-### Project the states in a smallest space (dimention and size)
+### Project the states in a smallest space (dimension and size)
 
 ![](../figs/qlearning-arch.svg)
 
@@ -144,16 +133,16 @@ By mitigate the negative impact on the resulting built policy.
 
 ## Geometry Reduction
 
-- Consider that **close** states are simular.
-- Based on the asumption that: _it is possible to define a distance between States_
-- By using regular discretisation or adaptative clustering
+- Consider that **close** states are similar.
+- Based on the assumption that: _it is possible to define a distance between States_
+- By using regular discretization or adaptative clustering
 
 ![](../figs/state-space-grid.svg)
 
 
 ---
 
-## Reduce the dimension - (Principal Conponent Analysis)
+## Reduce the dimension - (Principal Component Analysis)
 
 #### Searching the hyper-plan that better separate the data, in a given dimension.
 
@@ -217,7 +206,7 @@ Python scikit-learn module: **sklearn.cluster.KMeans**
 
 <br />
 
-Factorized methode: Based on state variable prevalence
+Factorized method: Based on state variable prevalence
 
 - Decision tree (Again) **Nodes:** variables ; **Edges:** assignment ; **leaf:** group of states
 
@@ -253,22 +242,24 @@ def state(self):
 
 ![](../figs/game421-DecTreeQ.svg)
 
+- python code: [Decision Tree Q-Learning](https://bitbucket.org/imt-mobisyst/lecture-d2u/raw/master/resources/game421-playerDT.py) - [plotting](https://bitbucket.org/imt-mobisyst/lecture-d2u/raw/master/resources/plotstat.py) 
+
 ---
 
 ## Decision Tree Conclusion...
 
 ### Conclusion:
 
-Its is all about define the appropriate variable prevalence (Decision Tree Structure)
+It is all about defining the appropriate variable prevalence (Decision Tree Structure)
 
 ### Learn the structure:
 
-- Expert based Decision tree or learned ([ID3 algorithm](https://en.wikipedia.org/wiki/ID3_algorithm))
-- Again on python scikit learn: ([modules tree](https://scikit-learn.org/stable/modules/tree.html))
+- Expert based Decision Trees or learned ([ID3 algorithm](https://en.wikipedia.org/wiki/ID3_algorithm))
+- Again on python scikit learn: ([module tree](https://scikit-learn.org/stable/modules/tree.html))
 
 ### But...
 
-The evaluation of the structure of the tree is performed by deadly execution of Q-Learning !
+The evaluation of the structure of the tree is performed by<br /> deadly execution of Q-Learning !
 
 
 ---
@@ -283,6 +274,34 @@ The evaluation of the structure of the tree is performed by deadly execution of 
 4. **Quid of the set of actions**
    - The need of SuperAction
 
+---
+
+## Dealing with combinatorial actions
+
+<br />
+
+### The same strategy: Decomposition
+
+- Group together 'similar' actions > _SuperAction_
+- Geometric or decomposed technic
+- Learn Q-Value over _SuperActions_
+
+
+---
+
+## Dealing with combinatorial actions
+
+<br />
+
+At decision steps:
+
+### From superaction to local action
+
+Choose one of the actions of the SuperAction:
+
+- randomly
+- with the use of an heuristic.
+- The 'best' one accordingly to the reached next state...
 
 ---
 
@@ -295,7 +314,6 @@ The evaluation of the structure of the tree is performed by deadly execution of 
 3. **State Decomposition**
 4. **Quid of the set of actions**
 
-
 ---
 
 ## Apply Decomposition in Risky game
@@ -304,5 +322,20 @@ The evaluation of the structure of the tree is performed by deadly execution of 
 <br />
 <br />
 
-_My advise:_ start small and grow...
+_My advice:_ 
 
+- Think iterative: the last increase initializes the next learning phase.
+- Start small and grow...
+
+
+---
+
+## Before to go:
+
+**The actual killing strategy:** (AlphaGo)
+
+#### Deep-Learning-based Decision Architecture
+
+![](../figs/deep-decision-arch.svg)
+
+DNN (a all-in-one decomposition and evaluation technic) + Monte-Carlo Search
