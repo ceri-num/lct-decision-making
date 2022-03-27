@@ -1,10 +1,9 @@
 ---
 marp: true
-theme: imt
+theme: default
 paginate: true
 backgroundImage: url('../style/bg-imt.svg')
 ---
-
 
 # The Curse of<br />Dimensionality
 
@@ -15,6 +14,17 @@ Guillaume Lozenguez
 [@imt-nord-europe.fr](mailto:guillaume.lozenguez@imt-nord-europe.fr)
 
 ![bg](../style/bg-tittle.svg)
+
+---
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```​
+
 
 ---
 
@@ -209,44 +219,56 @@ Python scikit-learn module: **sklearn.cluster.KMeans**
 
 Factorized methode: Based on state variable prevalence
 
-- Decision tree (Again)
-
-### Decision Tree
-
-**Nodes:** variables ; **Edges:** assignment ; **leaf:** group of states
+- Decision tree (Again) **Nodes:** variables ; **Edges:** assignment ; **leaf:** group of states
 
 ![](../figs/decision-tree-grp.svg)
-
-- Expert based Decision tree or learned ([ID3 algorithm](https://en.wikipedia.org/wiki/ID3_algorithm))
-**Nodes:** variables ; **Edges:** assignment ; **leaf:** group of states
-
-![](../figs/decision-tree-grp.svg)
-
-- Expert based Decision tree or learned ([ID3 algorithm](https://en.wikipedia.org/wiki/ID3_algorithm))
 
 
 ---
 
-## State-Space Decomposition
+## Decision Tree On 421 Q-Learning
 
-<br />
+Simply reduce the state definition to 6 states...
 
-Factorized methode: Based on state variable prevalence
+```Python
+def state(self):
+   if self.turn == 0 :
+      return 'end'
+   if self.dices[2] == 1 :
+      if self.dices[1] == 2 :
+            if self.dices[0] == 4 :
+               return "4-2-1"
+            return "X-2-1"
+      if self.dices[1] == 1 :
+            return "X-1-1"
+      return "X-X-1"
+   return "X-X-X"
+```
 
-- Decision tree (Again)
+---
 
-### Decision Tree
+## Decision Tree On 421 Q-Learning
 
-**Nodes:** variables ; **Edges:** assignment ; **leaf:** group of states
+### Results:
 
-![](../figs/decision-tree-grp.svg)
+![](../figs/game421-DecTreeQ.svg)
+
+---
+
+## Decision Tree Conclusion...
+
+### Conclusion:
+
+Its is all about define the appropriate variable prevalence (Decision Tree Structure)
+
+### Learn the structure:
 
 - Expert based Decision tree or learned ([ID3 algorithm](https://en.wikipedia.org/wiki/ID3_algorithm))
-**Nodes:** variables ; **Edges:** assignment ; **leaf:** group of states
+- Again on python scikit learn: ([modules tree](https://scikit-learn.org/stable/modules/tree.html))
 
-![](../figs/decision-tree-grp.svg)
+### But...
 
-- Expert based Decision tree or learned ([ID3 algorithm](https://en.wikipedia.org/wiki/ID3_algorithm))
+The evaluation of the structure of the tree is performed by deadly execution of Q-Learning !
 
 
 ---
@@ -261,6 +283,7 @@ Factorized methode: Based on state variable prevalence
 4. **Quid of the set of actions**
    - The need of SuperAction
 
+
 ---
 
 ![bg](../style/bg-toc.svg)
@@ -271,4 +294,15 @@ Factorized methode: Based on state variable prevalence
 2. **Geometric reduction**
 3. **State Decomposition**
 4. **Quid of the set of actions**
+
+
+---
+
+## Apply Decomposition in Risky game
+
+<br />
+<br />
+<br />
+
+_My advise:_ start small and grow...
 
