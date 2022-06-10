@@ -1,15 +1,21 @@
-# Decision Tree
+# 421 - Decision Tree
 
-The idea now is to hack the game engine implementation to propose our own autonomous player.
+The idea is to hack the 421 game to propose our own autonomous player.
+
+The game is reachable on _replit.com_.
+
+[https://replit.com/teams/join/uwiarllynbhxlxftwgdkvfvwywrxrsvx-ChefProjetIA22](https://replit.com/teams/join/uwiarllynbhxlxftwgdkvfvwywrxrsvx-ChefProjetIA22)
 
 ## Understand the code
 
-Open *game421.py* file and identify the two main classes 
-The first one **Player** implements a HumanUI player modeled as a simple agent (with perception and action).
-The second one **Engine** implement the *421* game.
-The method **run** permits to launch and play a game with a player.
+Open *playerSimple.py* file and identify the two main classes 
+The first one **PlayerHuman** implements a HumanUI player modeled as a simple agent (with perception and action).
+It is based on **PlayerRandom** implementing a autonomous player returning a random action for each perceptive state of the game.
 
-From this town classes, a simple 2 lines main function is used to launch the game with a human player.
+From these 2 classes, a simple main script is used to launch the game with a human or random player.
+
+- Play few games to be sure to understand the game mechanism.
+
 
 ## Generate your own Player
 
@@ -20,42 +26,37 @@ Create a new python file by importing the game421 engine, copying the main funct
 Your file must look like:
 
 ```python
-from game421 import Engine
-
-# Default game interface :
-def main():
-    gameEngine= Engine()
-    gameEngine.run( MyPlayer() )
-
 # Agent as a very simple UI
-class MyPlayer :
+class MyPlayer() :
 
     def __init__(self):
-        self.actionStr= "keep-keep-keep"
+        self.results= []
 
-    def wakeUp( self, initialStateStr, actionSpace ):
-        print( "Perception: "+ initialStateStr )
+    # AI interface :
+    def wakeUp(self, numberOfPlayers, playerId, tabletop):
+        self.scores= [ 0 for i in range(numberOfPlayers) ]
+        self.id= playerId
+        self.model= tabletop
 
-    def perceive(self, reachedStateStr, reward):
-        print( "Perception: "+ perceptionStr  +" with reward : " + str(reward) )
+    def perceive(self, turn, scores, pieces):
+        self.turn= turn
+        self.reward= scores[ self.id ] - self.scores[ self.id ]
+        self.scores= scores
+        self.dices= pieces
 
-    def action(self, isValidAction ):
-        self.actionStr= "keep-keep-keep"
-        print( "Action: " + self.actionStr)
-        return self.actionStr
-
-    def kill( self, score )
-        print( "Game end on score: "+ str(score) )
-        self.score= score
+    def decide(self):
+      return 'keep-keep-keep'
+    
+    def sleep(self, result):
+      print( f'--- {str(result)}' )
+      self.results.append(result)
 
 # Activate default interface :
 if __name__ == '__main__':
     main()
 ```
 
-Try your very simple player implementation.
-
-## Player protocol
+### Player protocol
 
 The player protocol followed by a game start by waking-up a player (method *wakeUp*).
 This step informs the player about its initial state and the possible actions during the game.
@@ -64,17 +65,17 @@ The reached game situation is composed of a game state and a gained reward (or c
 The methods *action()* then *perceive()* are called until the player reached a final state.
 Then at the end of the game, the player is virtually killed to inform in that the game end for him.
 
-## Developping a first AI.
+### Developing a first AI
 
 Now you are ready to propose your first AI.
 
-The idea is to first draw the decision tree you want to implement and then implement it as a *if-then-else* script.
+The idea is to first draw the decision tree you want to implement and then implement it as a *if-then-else* script based on `self.dices` value list and `self.turn` value.
 
-As in game421 Engine class, it is possible to transform the `reachedStateStr` into a dictionary like this:
+For convenience in 421 game, it is possible to build a state as a dictionary like this:
 
 ```python
-values= [ int(x_str) for x_str in reachedStateStr.split("-") ]
-gameState= { "H":values[0],  "D1":values[1],  "D2":values[2],  "D3":values[3] }
+state= { "H":self.turn,  "D1":self.dices[0],  "D2":self.dices[1],  "D3":self.dices[2] }
 ```
 
-You can try your AI by computing the average score after 10 000 games (do not forget to remove the calls to `print` function).
+You can try your AI by computing the average score after 1000 games (do not forget to remove the calls to `print` function).
+
