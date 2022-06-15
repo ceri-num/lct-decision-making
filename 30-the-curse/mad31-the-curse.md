@@ -33,7 +33,7 @@ Guillaume Lozenguez
 <br/>
 
 1. **The Curse of Dimensionality**
-   - Example With Risky
+   - Example With 2 player 421
 2. Geometric reduction
 3. State Decomposition
 4. Quid of the set of actions
@@ -86,15 +86,18 @@ Probability to play 2 times the same distribution in a human life is very close 
 
 ---
 
-## Learning Risky game
+## Learning 2-players-421
+<br />
 
-A strategic game over $12$ cells to conquer by 2 armies: State Space: ~_$(4*30)^{12}$_
+### State space ?
 
-#### Exploration / average End / average Q Values
+<br />
 
-![](../figs/risky-qlearning.svg)
+### Branching ?
 
-- [python code](https://bitbucket.org/imt-mobisyst/lecture-d2u/raw/master/resources/gameRisky-playerQ.py) (10000 games, one point each 10 games)
+<br />
+
+### First results...
 
 ---
 
@@ -316,7 +319,7 @@ Choose one of the actions of the SuperAction:
 
 ---
 
-## Apply Decomposition in Risky game
+## Apply Decomposition in 2 player 421
 
 <br />
 <br />

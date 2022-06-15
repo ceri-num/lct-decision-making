@@ -51,6 +51,28 @@ class PlayerPi :
 
     def perceive(self, turn, scores, pieces):
         self.state= f'{turn}-{pieces[0]}-{pieces[1]}-{pieces[2]}'
+        print(f'{self.state}-{scores}' )
+
+    def decide(self) :
+        print(f'{self.pi[ self.state ]}' )
+        return self.pi[ self.state ]
+
+    def sleep(self, score ) :
+        self.score= score
+
+# Player as a very simple UI
+class PlayerBadPi :
+
+    # Constructor
+    def __init__(self, policy): # Dictionnary of action to choose for each state
+        self.pi= policy
+
+    # Agent life:
+    def wakeUp(self, numberOfPlayers, playerId, tabletop):
+        self.state= '0-0-0-0'
+
+    def perceive(self, turn, scores, pieces):
+        self.state= f'1-{pieces[0]}-{pieces[1]}-{pieces[2]}'
 
     def decide(self) :
         return self.pi[ self.state ]

@@ -7,7 +7,7 @@ from gameSingle421 import Game as GameSingle
 
 class Game(GameSingle) :
 
-    def __init__( self, horizon=6 ):
+    def __init__( self, horizon=3 ):
         self.horizon= horizon
         self.initialize()
 
@@ -44,8 +44,8 @@ class Game(GameSingle) :
                 scores[2]= self.score( self.state )
             
             #End of game:
-            player1.perceive( 999, scores, self.dices() )
-            player2.perceive( 999, scores, self.dices() )
+            player1.perceive( 99, scores, self.dices() )
+            player2.perceive( 99, scores, self.dices() )
             score1= 0
             if scores[1] > scores[2] :
                 score1= 1
