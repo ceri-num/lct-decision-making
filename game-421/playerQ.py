@@ -42,7 +42,7 @@ class PlayerQ() :
         # Define the new state
         newState= str(turn)+'-'+str(pieces[0])+'-'+str(pieces[1])+'-'+str(pieces[2])
         if newState not in self.qvalues :
-            self.qvalues[newState]= { "keep-keep-keep": 0.0 }
+            self.qvalues[newState]= { "keep-keep-keep": -1.0 }
         # Update the old state (if state != '')
         if self.state != '' :
             if self.action not in self.qvalues[self.state] :
