@@ -26,6 +26,25 @@ Guillaume Lozenguez
 3. **Let's play a more Complicated game**
 
 ---
+<!-- --------------------------------------------------------------- -->
+
+
+## Hypotesis: it's Markovian
+
+#### The system to control <br /> matches a Markov Decision Process
+
+**MDP:** $\langle S, A, T, R \rangle$:
+
+*S :* set of system's states
+*A :* set of possible actions
+*T :* S × A × S → [0, 1] : transitions
+*R :* S × A → R : cost/rewards
+
+![bg right 100%](../figs/MDP.svg)
+
+#### We do have _S_ and _A_ <br /> but not _t_ and _r_
+
+---
 
 ## Q-Learning: the basics
 
@@ -38,6 +57,19 @@ $$Q(s^t, a) = (1-\alpha)Q(s^t,a) + \alpha \left(r + \gamma \max_{a'\in A} Q(s^{t
 
 - Few parameters:<br /> *$\alpha$* learning rate ; *$\epsilon$* Exploration-Exploitation ratio and *$\gamma$* discount factor.  
 
+---
+
+## Q-Learning: for instance
+<br >
+
+- Reaching *4-2-1* at *h-1* from *6-2-1* at *h-2* by doing *roll-keep-keep*.
+
+$$Q(\text{2-6-2-1},\ \text{r-k-k}) = (1-\alpha)Q(\text{2-6-2-1},\ \text{r-k-k}) + \alpha \left(r + \gamma \max_{a'\in A} Q(\text{1-4-2-1},\ a')\right)$$
+
+
+$$Q(\text{2-6-2-1},\ \text{r-k-k}) = (1-\alpha)\ 40.0 + \alpha \left( 0.0 + 80.0 \right) \quad (a' = \text{keep}^3)$$
+
+- With *$\alpha$* learning rate at _0.1_, $Q(\text{2-6-2-1},\ \text{r-k-k})$ is now equals to _44_
 
 ---
 
@@ -386,4 +418,4 @@ Luky for us, in application, most of the transitions are null (ie. imposible),<b
 
 1. Back to Q-Learning on 421
 2. Model-Based Learning
-3. **Let's play a more complexe game**
+3. **Let's learn the Solo421 model**

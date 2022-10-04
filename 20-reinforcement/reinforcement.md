@@ -38,9 +38,9 @@ The probabilistic evolution depends on the performed action.
 
 $$T : S \times A \times S \rightarrow [0, 1]$$
 
-$T(s_t,\ a,\ s_{t+1})$ return the probability to reach $s_{t+1}$ by doing $a$ from $s_t$:
+$T(s^t,\ a,\ s^{t+1})$ return the probability to reach $s^{t+1}$ by doing $a$ from $s^t$:
 
-$$T(s_t,\ a,\ s_{t+1}) = P(s_{t+1} | s_t,  a)$$
+$$T(s^t,\ a,\ s^{t+1}) = P(s^{t+1} | s^t,  a)$$
 
 ---
 <!-- --------------------------------------------------------------- -->
@@ -53,7 +53,7 @@ Require to evaluate the interest of each action on the system evolution:
 
 $$R : S \times A  \times S \rightarrow \mathbb{R}$$
 
-$$R(s_t,\ a,\ s_{t+1}) \text{ is the reward by reaching } s_{t+1} \text{ from doing } a \text{ in } s_t $$
+$$R(s^t,\ a,\ s^{t+1}) \text{ is the reward by reaching } s^{t+1} \text{ from doing } a \text{ in } s^t $$
 
 **OR**, in a simplified version:
 
@@ -71,7 +71,7 @@ $$\pi(s): \ \text{the action to perform is } s$$
 
 - *Bellman Equation* :
 
-$$V^\pi(s)= R(s, a) + \gamma \sum_{s'\in S} T(s,a,s') \times V^\pi(s')$$
+$$V^\pi(s)= R(s^t, a) + \gamma \sum_{s^{t+1}\in S} T(s^t,\ a,\ s^{t+1}) \times V^\pi(s^{t+1})$$
 $$\text{with :} \ a=\pi(s) \text{ and } \gamma \in [0, 1[ \text{ the discount factor (typically 0.99)}$$
 
 ---
