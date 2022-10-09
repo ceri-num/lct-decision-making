@@ -189,6 +189,7 @@ Searching the optimal *k* center positions that better group the data together.
 Python scikit-learn module: **sklearn.cluster.KMeans**
 
 <br />
+<br />
 
 - Work well with 'linear state transitions' and different states density.
 - Suppose a data set (trace) ideally with proper values
@@ -226,11 +227,11 @@ Factorized method: Based on state variable prevalence
 
 ## Decision Tree On 421 Q-Learning
 
-Reduce the state definition to 6 states...
+Simply reduce the state definition to 6 states...
 
-```python
+```Python
 def state(self):
-   if self.horizon == 0 :
+   if self.turn == 0 :
       return 'end'
    if self.dices[2] == 1 :
       if self.dices[1] == 2 :

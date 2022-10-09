@@ -24,7 +24,20 @@ Guillaume Lozenguez
 1. **The Curse of Dimensionality**
 2. **Geometric Reduction**
 3. **State Decomposition**
-4. **Quid of the Action Space**
+4. **Quid of ...**
+
+---
+
+## Before to go...
+
+<br />
+
+**Some Reminders on the Background here**
+
+- **Statistical Automata**
+- **Dynamic Programming** (simplifying a complicated problem by breaking it down into simpler sub-problems in a recursive manner)
+   - Bellman and it's equation 
+- **Agent Based Modeling** - **Event-Driven Programming**
 
 ---
 
@@ -36,8 +49,7 @@ Guillaume Lozenguez
    - Example With 2 player 421
 2. Geometric Reduction
 3. State Decomposition
-4. Quid of the Action Space
-
+4. Quid of ...
 
 
 ---
@@ -137,7 +149,7 @@ By mitigate the negative impact on the resulting built policy.
    - Reduce the dimension (PCA)
    - Clustering (K-means)
 3. State Decomposition
-4. Quid of the Action Space
+4. Quid of ...
 
 ---
 
@@ -189,6 +201,7 @@ Searching the optimal *k* center positions that better group the data together.
 Python scikit-learn module: **sklearn.cluster.KMeans**
 
 <br />
+<br />
 
 - Work well with 'linear state transitions' and different states density.
 - Suppose a data set (trace) ideally with proper values
@@ -206,7 +219,7 @@ Python scikit-learn module: **sklearn.cluster.KMeans**
 3. **State-Space Decomposition**
    - Decision Tree (Again)
    - Example With 421
-4. Quid of the Action Space
+4. Quid of ...
 
 
 ---
@@ -221,16 +234,23 @@ Factorized method: Based on state variable prevalence
 
 ![](../figs/decision-tree-grp.svg)
 
+---
+
+## Decision Tree On 421 Q-Learning
+
+<figure>
+<img height="460" src="../figs/decision-tree-421.svg" />
+<figure>
 
 ---
 
 ## Decision Tree On 421 Q-Learning
 
-Reduce the state definition to 6 states...
+Simply reduce the state definition to _7_ states...
 
 ```python
 def state(self):
-   if self.horizon == 0 :
+   if self.turn == 0 :
       return 'end'
    if self.dices[2] == 1 :
       if self.dices[1] == 2 :
@@ -251,7 +271,7 @@ def state(self):
 
 ![](../figs/game421-DecTreeQ.svg)
 
-- python code: [Decision Tree Q-Learning](https://bitbucket.org/imt-mobisyst/lecture-d2u/raw/master/resources/game421-playerQ.py) - [plotting](https://bitbucket.org/imt-mobisyst/lecture-d2u/raw/master/resources/plotstat.py) 
+<!-- python code: [Decision Tree Q-Learning](https://bitbucket.org/imt-mobisyst/lecture-d2u/raw/master/resources/game421-playerQ.py) - [plotting](https://bitbucket.org/imt-mobisyst/lecture-d2u/raw/master/resources/plotstat.py) -->
 
 ---
 
@@ -280,8 +300,9 @@ The evaluation of the structure of the tree is performed by<br /> deadly executi
 1. The Curse of Dimensionality
 2. Geometric reduction
 3. State Decomposition
-4. **Quid of the set of actions**
-   - The need of SuperAction
+4. **Quid of ...**
+   - the Actions Space
+   - the deep-learning
 
 ---
 
@@ -312,6 +333,22 @@ Choose one of the actions of the SuperAction:
 - with the use of an heuristic.
 - The 'best' one accordingly to the reached next state...
 
+
+---
+
+## Deep-Learning in decition making
+
+<br />
+
+**Deep-Learning an efficient tool:**
+
+![](../figs/deep-learning.svg)
+
+**If samples are availlable...**
+
+
+- Cf. Deep-Reinforcment Learning.
+
 ---
 
 ![bg](../style/bg-toc.svg)
@@ -321,11 +358,11 @@ Choose one of the actions of the SuperAction:
 1. **The Curse of Dimensionality**
 2. **Geometric reduction**
 3. **State Decomposition**
-4. **Quid of the set of actions**
+4. **Quid...**
 
 ---
 
-## Apply Decomposition in 2 player 421
+## Apply Decomposition in Risky
 
 <br />
 <br />
@@ -335,16 +372,3 @@ _My advice:_
 
 - Think iterative: the last increase initializes the next learning phase.
 - Start small and grow...
-
-
----
-
-## Before to go:
-
-**The actual killing strategy:** (AlphaGo)
-
-#### Deep-Learning-based Decision Architecture
-
-![](../figs/deep-decision-arch.svg)
-
-DNN (a all-in-one decomposition and evaluation technic) + Monte-Carlo Search
