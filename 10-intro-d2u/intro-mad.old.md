@@ -5,7 +5,7 @@ paginate: true
 backgroundImage: url('../style/bg-imt.svg')
 ---
 
-# Projet Int. Art.<br />and Optimization
+# Decision Under<br />Uncertainty
 
 ### An introduction
 
@@ -30,16 +30,28 @@ Guillaume Lozenguez
 
 ---
 
+## Last improvement in Artificial Intelligence
+
+<br />
+<br />
+
+In France:
+
+- *March 2018*, Rapport Villani - [www.aiforhumanity.fr](http://www.aiforhumanity.fr) -
+
+---
+
 ## Our topic: Autonomous Decision Making
+
+<br/>
+<br/>
+<br/>
 
 - Model the capability of actions
 - Learn action interest
-- Model dynamic systems and plan
-- Plan paths of actions
+- Optimize policies of actions
 - Handle large problem with optimization techniques 
 
-
-###
 
 ---
 
@@ -48,6 +60,7 @@ Guillaume Lozenguez
 GO: $10^{170}$ positions, $10^{600}$ games (chess: $10^{120}$ games)
 
 ![](../figs/jeugo.svg)
+
 
 ---
 
@@ -59,10 +72,10 @@ GO: $10^{170}$ positions, $10^{600}$ games (chess: $10^{120}$ games)
 $\rightarrow$ $~ 2.6 \times 10^{14}$ op. a day $\rightarrow$ $~ 10^{17}$ op. a year
 
 
-**Enumerating all games:** $O(n)$ with $n=10^{600}$: around $10^{583}$ years.
+**Enumerating all games:** $O(n)$ with $n=10^{600}$: arround $10^{583}$ years.
 $\rightarrow$ requires decomposed model and statistics...
 
-**Sun life:** around $10^{30}$ years
+**Sun life:** arround $10^{30}$ years
 
 ---
 
@@ -76,21 +89,30 @@ $\rightarrow$ requires decomposed model and statistics...
 
 - Model could require very large exploration
 - We potentially do not have the model
-- Evolution is generally uncertain
+- Evolutions are generally uncertain
 
 ---
 
 ## Introduction to Decision Under Uncertainty
 
-<br />
-<br />
-<br />
-<br />
+#### Is an introduction to models and algorithms to perform decision-making <br /> at a time step *t*, by considering potential effects.
 
-1. Introduction
-2. Class of problems (not class of complexity)
-3. The notion of Agent
-4. Decision Making Process
+- 19 hours (5 sessions)
+- Mainly as tutorials
+  * Simple dice games as a playground
+  * Strategic 2-players games
+
+---
+
+![bg](../style/bg-toc.svg)
+
+<br/>
+
+1. **Introduction**
+1. **Class of problems**
+1. **The notion of Agent**
+1. **Decision Making Process of an Agent**
+1. **An Agent for the 421 games**
 
 ---
 
@@ -102,7 +124,7 @@ Determining *a succession of actions* to drive a system from an initial state to
 
 **Deterministic case**:
 
-- The effects, by doing an action, from a specific state is certain.
+- the effects, by doing an action, from a specific state is certain.
 
 ---
 
@@ -114,7 +136,7 @@ Determining *a succession of actions* to drive a system from an initial state to
 
 **Deterministic case**:
 
-- The effects, by doing an action, from a specific state is certain.
+- the effects, by doing an action, from a specific state is certain.
 
 ---
 
@@ -124,8 +146,6 @@ Finding a *path* in a *graph* modeling all possible evolutions
 
 ![](../figs/domino-graph.svg)
 
-*Class of Complexity:* NP Hard (i.e. Non Polynomial over the number of nodes)
-
 ---
 
 ## Class of problems - Plan Optimization
@@ -133,6 +153,9 @@ Finding a *path* in a *graph* modeling all possible evolutions
 Finding an *optimized* path in a *weighted* Graph
 
 ![](../figs/domino-graph2.svg)
+
+
+- Tipically: _Finding the shortest path from `A` to `B`_
 
 ---
 
@@ -156,9 +179,9 @@ Execute a *policy*:
 
 ---
 
-## Class of problems - Game theory
+## Class of problems - Game Theory
 
-*Few entities* control the same system (with different goals)
+*Few entities* (players) control a system (with different goals)
 
 ![](../figs/echec.svg)
 
@@ -173,36 +196,34 @@ Execute a *policy*:
 
 ![](../figs/echec-graph.svg)
 
-- *Uncertainty*: At last on the actions of the other players.
+- *Uncertainty*: At least on the actions of the other players.
+
+---
+
+## Class of problems - Game theory
+
+Difficulty:
+
+- The _size_ of the system
+  * The number of variables describing the system
+- The branching possibilities 
+  * The number of both actions and outcomes possibilities
+  * Stochastic interactions
+- The observability
+  * Typically the goals and actions or possibility of actions of the opponents
+- The number of players
 
 ---
 
 ## Class of problems - Control Complex systems
 
-Complex systems:
+The Grail : **Control Complex Systems**
 
 - A lot of entities in interactions
 
 ![](../figs/prison-architect.svg)
 
-- *Uncertainty*: ...
-
----
-
-## Class of problems - Other components
-
-- Sequential vs Simultaneous
-- Finit or infinite horison
-- Multi-action per turn
-- Complete observation
-   * Informations are hidden
-   * Different information over actors (players)
-   * Require a memory
-- Cooperative
-- ...
-
-
-<!-- Classifier des jeux... -->
+_An entity:_an autonomous sub-system with its own goals and capabilities (an agent)
 
 ---
 
@@ -213,12 +234,12 @@ Complex systems:
 <br />
 
 - **graph** composed of **node** and **edges**
-- **graph** composed of **state** and **action** (State Automata)
+- **State Automata** composed of **state** and **action**
 - **planning**: finding a valid succession of **actions**
+- **policy**: An **action** response to ever reachable situation (**state**)
 - **determinist** versus **uncertain** / **stochastic**
-- **system**, **control** (automation)
-- **multi-agent system**, **decision-making** (AI)
-- **observability**
+- **system**, **control** (automation science)
+- **Multi-Agent System**, **Decision Making** (AI)
 
 ---
 
@@ -242,7 +263,7 @@ cf. "BullShit Jobs" - David Graeber (2019)
 
 or the joy to be cause - Karl Groos (1901)
 
-<!-- Pour approfondir: : Broucek Francis « the sense of self » 1977 - Klein G. S. « the vital pleasures » 1976.-->
+<!-- Pour approfondir: : broucek francis « the sense of self » 1977 - Klein G. S. « the vital pleasures » 1976.-->
 
 ---
 
@@ -275,53 +296,42 @@ rarely determinist, mostly uncertain (even stochastic)
 
 ### Agent:
 
-- defining by a perception state, goals and a policy to achieve its goals<br />(*BDI* model: Belief - Desire - Intention)
+- Defining by a perception-state, goals and a policy to achieve its goals<br />(*BDI* model: Belief - Desire - Intention)
 - with different positions in social structure<br />(*AGR* model: Agent - Group - Role )
-- capable of communication
-- capable of adaptation (learning)
-- driven by emotions
+- Capable of communication
+- Capable of adaptation (learning)
+- Driven by emotions
 - ...
 
----
-
-## Course notions
-
-From *reactive control* **to** *deliberative control*
-
-- Immediate response to stimuli
-
-```
-Script:
-if .... do ...
-else if ... do ...
-```
-
-**versus**
-
-- Model-based decision-making
-  * with an opponent
-  * and non-trivial optimization
 
 ---
 
-## Course notions
+## Notion of Agent - rational Agent
+
+![](../figs/agent.svg)
+
+An Agent: is an entity 
+
+- capable of **perceiving** and **acting** in its environment
+- and driven toward its **goals**.
+
+---
+
+## Course notion to acquire
 
 <br />
 
-### Decision-making under uncertainty (with me)
+### Decision-making under uncertainty
 
-- Script, Policy and Decision Tree
-- Reinforcement Learning: 
-  - Q-Learning (learn the policy)
-  - Model-Learning (learn the model, compute the policy)
-- Factored Model
-
-### Game theory and adversarial technic
-### Combinatorial Optimization technic
+- **Policy** as Script and Decision Tree
+- Theoretical basis: **Markov Decision Process**
+- The simplest algorithmic response: **Reinforcement Learning** 
+- **The curse of Dimentionallity**
+- Divide and Rule: **clustered** and **factored** model
 
 ---
 
-## Today Game: 421
+## Game: 421
 
 ![bg right 60%](../figs/421_dice.jpg)
 
@@ -342,5 +352,12 @@ else if ... do ...
 <br />
 <br />
 <br />
+---
+
+## Game: 421
+
+1. Understand the game
+2. Implement your first AI
+3. Think with Decision-Tree
 
 #### Let's go....

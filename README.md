@@ -2,10 +2,9 @@
 
 These pages serve as support for the lecture **D2-U2** apparing in differents module:
 
-- UV Model Agent Decision - **UV-MAD**
-- Project - Artificial Intelligence and Optimization - **FA-PAIO**
+- UV Model Agent Decision - **uv-mad**
+- Project - Artificial Intelligence and Optimization - **fa-paio**
 - Introduction of RL for Health Science
-- AI for Manadgers
 
 You will find there a presentation of the used notion, the tutorials and some resources to process them.
 
@@ -32,11 +31,6 @@ Presentation of the notions in this lecture:
   * Learn the model
   * Solving large MDP
 - 6.0-Distributed Decision Making
-
-
-
-
-
 
 Avec un usage intencif de marp (pluggin VisualCode)
 

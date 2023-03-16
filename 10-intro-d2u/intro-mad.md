@@ -4,6 +4,7 @@ theme: imt
 paginate: true
 backgroundImage: url('../style/bg-imt.svg')
 ---
+<!-- -------------------------------------------------- -->
 
 # Decision Under<br />Uncertainty
 
@@ -16,6 +17,7 @@ Guillaume Lozenguez
 ![bg](../style/bg-tittle.svg)
 
 ---
+<!-- -------------------------------------------------- -->
 
 ## Last improvement in Artificial Intelligence
 
@@ -29,6 +31,7 @@ Guillaume Lozenguez
 ![](../figs/goban.svg)
 
 ---
+<!-- -------------------------------------------------- -->
 
 ## Last improvement in Artificial Intelligence
 
@@ -40,6 +43,7 @@ In France:
 - *March 2018*, Rapport Villani - [www.aiforhumanity.fr](http://www.aiforhumanity.fr) -
 
 ---
+<!-- -------------------------------------------------- -->
 
 ## Our topic: Autonomous Decision Making
 
@@ -54,6 +58,7 @@ In France:
 
 
 ---
+<!-- -------------------------------------------------- -->
 
 ## The notion of complexity (Go)
 
@@ -63,6 +68,7 @@ GO: $10^{170}$ positions, $10^{600}$ games (chess: $10^{120}$ games)
 
 
 ---
+<!-- -------------------------------------------------- -->
 
 ## The notion of complexity (Go)
 
@@ -72,12 +78,13 @@ GO: $10^{170}$ positions, $10^{600}$ games (chess: $10^{120}$ games)
 $\rightarrow$ $~ 2.6 \times 10^{14}$ op. a day $\rightarrow$ $~ 10^{17}$ op. a year
 
 
-**Enumerating all games:** $O(n)$ with $n=10^{600}$: arround $10^{583}$ years.
+**Enumerating all games:** $O(n)$ with $n=10^{600}$: around $10^{583}$ years.
 $\rightarrow$ requires decomposed model and statistics...
 
-**Sun life:** arround $10^{30}$ years
+**Sun Life:** around $10^{30}$ years
 
 ---
+<!-- -------------------------------------------------- -->
 
 ## Decision Making Problem
 
@@ -87,11 +94,12 @@ $\rightarrow$ requires decomposed model and statistics...
 
 **Knowing that:**
 
-- Model could require very large exploration
-- We potentially do not have the model
 - Evolutions are generally uncertain
+- We potentially do not have the model
+- Generate the model could require very large exploration
 
 ---
+<!-- -------------------------------------------------- -->
 
 ## Introduction to Decision Under Uncertainty
 
@@ -103,147 +111,40 @@ $\rightarrow$ requires decomposed model and statistics...
   * Strategic 2-players games
 
 ---
+<!-- -------------------------------------------------- -->
 
 ![bg](../style/bg-toc.svg)
 
 <br/>
 
 1. **Introduction**
-1. **Class of problems**
-1. **The notion of Agent**
-1. **Decision Making Process of an Agent**
-1. **An Agent for the 421 games**
+  - The notion of Agent
+  - Class of problems
+  - Practice
 
 ---
+<!-- -------------------------------------------------- -->
 
-## Class of problems - Deterministic Planning
-
-Determining *a succession of actions* to drive a system from an initial state to a target state.
-
-![](../figs/color-domino.svg)
-
-**Deterministic case**:
-
-- the effects, by doing an action, from a specific state is certain.
-
----
-
-## Class of problems - Deterministic Planning
-
-Determining *a succession of actions* to drive a system from an initial state to a target state.
-
-![](../figs/color-domino-plan.svg)
-
-**Deterministic case**:
-
-- the effects, by doing an action, from a specific state is certain.
-
----
-
-## Class of problems - Determine a Plan
-
-Finding a *path* in a *graph* modeling all possible evolutions
-
-![](../figs/domino-graph.svg)
-
----
-
-## Class of problems - Plan Optimization
-
-Finding an *optimized* path in a *weighted* Graph
-
-![](../figs/domino-graph2.svg)
-
-
-- Tipically: _Finding the shortest path from `A` to `B`_
-
----
-
-## Class of problems - Stokastic Planning
-
-Build a *policy*:
-
-- Associate an *action* to perform *to each* reachable *state*
-
-![](../figs/color-domino-policy.svg)
-
----
-
-## Class of problems - Stokastic Planning
-
-Execute a *policy*:
-
-- Then, the effective succession of actions remains stochastic
-
-![](../figs/color-domino-policy2.svg)
-
----
-
-## Class of problems - Game Theory
-
-*Few entities* (players) control a system (with different goals)
-
-![](../figs/echec.svg)
-
-- Which actions for each entity ?
-- Which consequences ?
-
----
-
-## Class of problems - Game theory
-
-*Few entities* control the same system (with different goals)
-
-![](../figs/echec-graph.svg)
-
-- *Uncertainty*: At least on the actions of the other players.
-
----
-
-## Class of problems - Game theory
-
-Difficulty:
-
-- The _size_ of the system
-  * The number of variables describing the system
-- The branching possibilities 
-  * The number of both actions and outcomes possibilities
-  * Stochastic interactions
-- The observability
-  * Typically the goals and actions or possibility of actions of the opponents
-- The number of players
-
----
-
-## Class of problems - Control Complex systems
-
-The Grail : **Control Complex Systems**
-
-- A lot of entities in interactions
-
-![](../figs/prison-architect.svg)
-
-_An entity:_an autonomous sub-system with its own goals and capabilities (an agent)
-
----
-
-## Vocabulary
+## Notion of Agent - Simple definition
 
 <br />
 <br />
+
+**An agent:**
+
+#### An entity capable of perception and action<br /> evolving in an environment.
+
 <br />
 
-- **graph** composed of **node** and **edges**
-- **State Automata** composed of **state** and **action**
-- **planning**: finding a valid succession of **actions**
-- **policy**: An **action** response to ever reachable situation (**state**)
-- **determinist** versus **uncertain** / **stochastic**
-- **system**, **control** (automation science)
-- **Multi-Agent System**, **Decision Making** (AI)
+**Question:**
+
+#### How to choose appropriate action to perform<br /> considering the perception at a each time step ?
+
 
 ---
+<!-- -------------------------------------------------- -->
 
-## Notion of Agent
+## Notion of Agent - Not reserved to Artificial Intelligence
 
 <br />
 <br />
@@ -265,24 +166,9 @@ or the joy to be cause - Karl Groos (1901)
 
 <!-- Pour approfondir: : broucek francis « the sense of self » 1977 - Klein G. S. « the vital pleasures » 1976.-->
 
----
-
-## Notion of Agent - Simple definition
-
-<br />
-<br />
-
-**An agent:**
-
-#### An entity capable of perception and action<br /> evolving in an environment.
-
-<br />
-
-**Question:**
-
-#### How to choose appropriate action to perform<br /> considering the perception at a each time step ?
 
 ---
+<!-- -------------------------------------------------- -->
 
 ## Notion of Agent - Simple definition
 
@@ -291,6 +177,7 @@ or the joy to be cause - Karl Groos (1901)
 rarely determinist, mostly uncertain (even stochastic)
 
 ---
+<!-- -------------------------------------------------- -->
 
 ## Notion of Agent - Complementary Notions
 
@@ -305,31 +192,110 @@ rarely determinist, mostly uncertain (even stochastic)
 
 
 ---
+<!-- -------------------------------------------------- -->
 
 ## Notion of Agent - rational Agent
 
 ![](../figs/agent.svg)
 
-An Agent: is an entity 
+- Capable of **perception** and **action** *&* driven toward its **goals** (**Desire** in **BDI** model)
+- _I.E._ Somehow, a value function allows optimizing the course of actions.
 
-- capable of **perceiving** and **acting** in its environment
-- and driven toward its **goals**.
-
----
-
-## Course notion to acquire
-
-<br />
-
-### Decision-making under uncertainty
-
-- **Policy** as Script and Decision Tree
-- Theoretical basis: **Markov Decision Process**
-- The simplest algorithmic response: **Reinforcement Learning** 
-- **The curse of Dimentionallity**
-- Divide and Rule: **clustered** and **factored** model
 
 ---
+<!-- -------------------------------------------------- -->
+
+## Class of problems - Deterministic Planning
+
+Determining *a succession of actions* to drive a system from an initial state to a target state.
+
+![](../figs/color-domino.svg)
+
+**Deterministic case**:
+
+- the effects, by doing an action, from a specific state is certain.
+
+---
+<!-- -------------------------------------------------- -->
+
+## Class of problems - Deterministic Planning
+
+Determining *a succession of actions* to drive a system from an initial state to a target state.
+
+![](../figs/color-domino-plan.svg)
+
+**Deterministic case**:
+
+- the effects, by doing an action, from a specific state is certain.
+
+---
+<!-- -------------------------------------------------- -->
+
+## Class of problems - Determine a Plan
+
+Finding a *path* in a *graph* modeling all possible evolutions
+
+![](../figs/domino-graph.svg)
+
+---
+<!-- -------------------------------------------------- -->
+
+## Class of problems - Plan Optimization
+
+Finding an *optimized* path in a *weighted* Graph
+
+![](../figs/domino-graph2.svg)
+
+
+- Tipically: _Finding the shortest path from `A` to `B`_
+
+---
+<!-- -------------------------------------------------- -->
+
+## Class of problems - Stokastic Planning
+
+Build a *policy*:
+
+- Associate an *action* to perform *to each* reachable *state*
+
+![](../figs/color-domino-policy.svg)
+
+---
+<!-- -------------------------------------------------- -->
+
+## Class of problems - Stokastic Planning
+
+Execute a *policy*:
+
+- Then, the effective succession of actions remains stochastic
+
+![](../figs/color-domino-policy2.svg)
+
+---
+<!-- -------------------------------------------------- -->
+
+## Class of problems - Game Theory
+
+*Few entities* (players) control a system (with different goals)
+
+![](../figs/echec.svg)
+
+- Which actions for each entity ?
+- Which consequences ?
+
+---
+<!-- -------------------------------------------------- -->
+
+## Class of problems - Game theory
+
+*Few entities* control the same system (with different goals)
+
+![](../figs/echec-graph.svg)
+
+- *Uncertainty*: At least on the actions of the other players.
+
+---
+<!-- -------------------------------------------------- -->
 
 ## Game: 421
 
@@ -346,18 +312,19 @@ An Agent: is an entity
 - by choosing dices to roll again.
 
 ---
-
-<br />
-<br />
-<br />
-<br />
-<br />
----
+<!-- -------------------------------------------------- -->
 
 ## Game: 421
 
-1. Understand the game
-2. Implement your first AI
-3. Think with Decision-Tree
+<br />
+<br />
 
-#### Let's go....
+### Code:
+
+- On [replit.com](https://replit.com/teams/join/uwiarllynbhxlxftwgdkvfvwywrxrsvx-ChefProjetIA22) (for instance)
+
+### Expected:
+
+- Get the code philosophy
+- Model the game state 
+- Developpe a scripted AI
