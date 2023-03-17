@@ -22,13 +22,13 @@ Guillaume Lozenguez
 ## Last improvement in Artificial Intelligence
 
 - *Nov. 2007*, Carnegie-Mellon win the Darpa Urban Challenge ($2M\$$)
-- *Oct. 2015*, First release of Tesla Autopilot
+- *Oct. 2015*, 
+  * First release of Tesla Autopilot
+  * Victory of d'**AlphaGo** over professional player
 
-![](../figs/boss.svg)
+![](../figs/boss-alphago.svg) 
 
-- *Oct. 2015*, Victory of d'**AlphaGo** over professional player
-
-![](../figs/goban.svg)
+- *Nov. 2022*, Introducing **ChatGPT** (OpenIA) - genrative appoach for chatting AI
 
 ---
 <!-- -------------------------------------------------- -->
@@ -60,9 +60,18 @@ In France:
 ---
 <!-- -------------------------------------------------- -->
 
-## The notion of complexity (Go)
+## The notion of complexity (Go) - 1st the state space
 
-GO: $10^{170}$ positions, $10^{600}$ games (chess: $10^{120}$ games)
+GO: $10^{170}$ configurations $\quad$ *i.e.:* $19\times19$ variables $\in [0, 1, 2]$ (player stone) so: $3^{361}$
+
+![](../figs/jeugo.svg)
+
+---
+<!-- -------------------------------------------------- -->
+
+## The notion of complexity (Go) - then the exploration space
+
+GO: $10^{170}$ configurations $\rightarrow$ $10^{600}$ games $\quad$ (to compare to chess: $10^{120}$ games)
 
 ![](../figs/jeugo.svg)
 
