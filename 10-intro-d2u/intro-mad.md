@@ -328,12 +328,14 @@ Execute a *policy*:
 <br />
 <br />
 
-### Code:
+Cf. [MyLearningSpace](https://mylearningspace.imt-nord-europe.fr/course/view.php?id=269)
 
-- On [replit.com](https://replit.com/teams/join/uwiarllynbhxlxftwgdkvfvwywrxrsvx-ChefProjetIA22) (for instance)
+### Enplementation:
+
+- [HackaGames](https://bitbucket.org/imt-mobisyst/hackagames/src/master/)
 
 ### Expected:
 
 - Get the code philosophy
-- Model the game state 
+- Model the game state
 - Developpe a scripted AI
