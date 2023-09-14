@@ -312,6 +312,11 @@ Execute a *policy*:
 - Optimize the 2 re-roll possibility
 - by choosing dices to roll again.
 
+### Tools :
+
+- HackaGame:  [https://imt-mobisyst.bitbucket.io/hackagames](https://imt-mobisyst.bitbucket.io/hackagames)
+- Salon virtuel: [discord.gg/anGJR5RH](https://discord.gg/anGJR5RH)
+
 ---
 <!-- -------------------------------------------------- -->
 
