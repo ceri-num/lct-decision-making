@@ -31,7 +31,7 @@ Guillaume Lozenguez
 ![](../figs/goban.svg)
 
 ---
-<!-- -------------------------------------------------- -->
+<!-- -------------------------------------------------- - ->
 
 ## Last improvement in Artificial Intelligence
 
@@ -302,8 +302,6 @@ Execute a *policy*:
 
 ![bg right 60%](../figs/421_dice.jpg)
 
-<br />
-
 - Get the best combination
 - by rolling 3 dices
 
@@ -314,7 +312,8 @@ Execute a *policy*:
 
 ### Tools :
 
-- HackaGame:  [https://imt-mobisyst.bitbucket.io/hackagames](https://imt-mobisyst.bitbucket.io/hackagames)
+- HackaGame:  
+[imt-mobisyst.bitbucket.io](https://imt-mobisyst.bitbucket.io/hackagames)
 - Salon virtuel: [discord.gg/anGJR5RH](https://discord.gg/anGJR5RH)
 
 ---
@@ -332,5 +331,4 @@ Execute a *policy*:
 ### Expected:
 
 - Get the code philosophy
-- Model the game state 
 - Developpe a scripted AI.

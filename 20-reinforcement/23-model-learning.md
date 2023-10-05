@@ -5,7 +5,7 @@ paginate: true
 backgroundImage: url('../style/bg-imt.svg')
 ---
 
-# Learning 421 game 
+# AI and Games
 
 ### Model-Based Learning
 
@@ -14,152 +14,6 @@ Guillaume Lozenguez
 [@imt-nord-europe.fr](mailto:guillaume.lozenguez@imt-nord-europe.fr)
 
 ![bg](../style/bg-tittle.svg)
-
----
-
-![bg](../style/bg-toc.svg)
-
-<br/>
-
-1. **Back to Q-Learning on 421**
-2. **Model-Based Learning**
-3. **Let's play a more Complicated game**
-
----
-<!-- --------------------------------------------------------------- -->
-
-
-## Hypotesis: it's Markovian
-
-#### The system to control <br /> matches a Markov Decision Process
-
-**MDP:** $\langle S, A, T, R \rangle$:
-
-*S :* set of system's states
-*A :* set of possible actions
-*T :* S × A × S → [0, 1] : transitions
-*R :* S × A → R : cost/rewards
-
-![bg right 100%](../figs/MDP.svg)
-
-#### We do have _S_ and _A_ <br /> but not _t_ and _r_
-
----
-
-## Q-Learning: the basics
-
-<br >
-
-- Iterative update on (**state**, **action**) evaluation
-- Q-Value equation:
-
-$$Q(s^t, a) = (1-\alpha)Q(s^t,a) + \alpha \left(r + \gamma \max_{a'\in A} Q(s^{t+1}, a')\right)$$
-
-- Few parameters:<br /> *$\alpha$* learning rate ; *$\epsilon$* Exploration-Exploitation ratio and *$\gamma$* discount factor.  
-
----
-
-## Q-Learning: for instance
-<br >
-
-- Reaching *4-2-1* at *h-1* from *6-2-1* at *h-2* by doing *roll-keep-keep*.
-
-$$Q(\text{2-6-2-1},\ \text{r-k-k}) = (1-\alpha)Q(\text{2-6-2-1},\ \text{r-k-k}) + \alpha \left(r + \gamma \max_{a'\in A} Q(\text{1-4-2-1},\ a')\right)$$
-
-
-$$Q(\text{2-6-2-1},\ \text{r-k-k}) = (1-\alpha)\ 40.0 + \alpha \left( 0.0 + 80.0 \right) \quad (a' = \text{keep}^3)$$
-
-- With *$\alpha$* learning rate at _0.1_, $Q(\text{2-6-2-1},\ \text{r-k-k})$ is now equals to _44_
-
----
-
-## Q-Learning: the basics
-
-- With 500 steps of 500 games:
-
-![](../figs/q421-v1.svg)
-
-- *$\alpha$*: $0.1$ ; *$\epsilon$* : $0.1$ ; *$\gamma$* : $0.99$ ;
-
-
----
-
-## Drawing plot in Python: pyplot
-
-Codes: 
-
-```python
-import matplotlib.pyplot as plt
-
-...
-
-plt.plot( values )
-plt.ylabel( "mean of the y value" )
-plt.show()
-```
-
-<br />
-
-- Where `values` is a list of values in $\Reals$
-
----
-
-## Q-Learning: the basics
-
-- With 500 steps of 500 games:
-
-![](../figs/q421-vs-mdp.svg)
-
-- With optimal threshold
-
----
-
-## Q-Learning: the basics
-
-- With 500 steps of 500 games:
-
-![](../figs/q421-v2.svg)
-
-- *$\alpha$*: $0.01$ ; *$\epsilon$* : $0.1$ ; *$\gamma$* : $0.99$ ;
-
-
----
-
-## Q-Learning: the basics
-
-- With 500 steps of 500 games:
-
-![](../figs/q421-v3.svg)
-
-- *$\alpha$*: $0.01$ ; *$\epsilon$* : $0.6$ ; *$\gamma$* : $0.99$ ;
-
-
----
-
-## Playing with the parameters:
-
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-
-- Generate rapidly "good" policies
-- Converge on a maximal and stable Q-Values<br /> (an indicator for optimal policy)
-- Potentially: be reactive to system modification (recovery)
-
-#### Ideally: implement dynamic parameters
-
----
-
-![bg](../style/bg-toc.svg)
-
-<br/>
-
-1. Back to Q-Learning
-2. **Model-Based Learning**
-3. Let's play a more Complicated game
-
 
 ---
 
@@ -202,7 +56,7 @@ Recursive evaluation of states to compute expected gains.
 *S :* set of system's states
 *A :* set of possible actions
 *T :* S × A × S → [0, 1] : transitions
-*R :* S × A → R : cost/rewards
+*R :* S × A → R : average cost/rewards
 
 ![bg right 100%](../figs/MDP.svg)
 
@@ -212,25 +66,6 @@ $\pi$: a function returning the action to perform in each crossed states.
 
 $\pi^*$: the optimal policy maximizing the gains (expected cumulated rewards).
 
----
-
-<!-- --------------------------------------------------------------- -->
-
-## Choosing : building a policy of action
-
-### Example of policy in 421:
-
-$\pi^{421}$: Always target a 4-2-1 (keep only one **4**, one **2** and one **1**).
-
-$s$ | $\pi^{421}(s)$ | $\quad$ | $s$ | $\pi^{421}(s)$ |
-------------|------------------|-|-----------|-------------
-h-*1*-1-1   | *keep*-roll-roll   | | ...
-h-*2*-*1*-1 | *keep*-*keep*-roll | | h-*4*-*2*-*1* | *keep*-*keep*-*keep*
-h-3-*1*-1   | roll-*keep*-roll   | | ...
-h-*4*-*1*-1 | *keep*-*keep*-roll | | h-6-6-5 | roll-roll-roll
-... |                          | | h-6-6-6 | roll-roll-roll
-
-(Invariant over the horizon h)
 
 ---
 
@@ -255,10 +90,13 @@ $$\text{with :} \ a=\pi(s) \text{ and } \gamma \in [0, 1] \text{ the discount fa
 
 *Input:* an **MDP:** $\langle S, A, T, R \rangle$ ; precision error: *$\epsilon$* ; discount factor: *$\gamma$* ; initial **V(s)**
 
-1. Repeat until the **maximal delta *< $\epsilon$** <br /> For each state **$s \in S$**
+1. Repeat until: **maximal delta < $\epsilon$** <br /> For each state **$s \in S$**
    - Search the action **$a^*$** maximizing the Bellman Equation on **$s$**
-   - Update $\pi(s)$ and **V()** by considering action **$a^*$** 
-   - Compute the delta value between the previous and the new **V(S)**
+
+$$a^*= \arg\max_{a \in A}\left( R(s, a) + \gamma \sum_{s'\in S} T(s,a,s') \times V(s') \right)$$
+
+   - Update _$\pi(s)$_ and _$V(s)$_ by considering action **$a^*$** 
+   - Compute the delta value between the previous and the new _$V(s)$_
 
 *Output:* an optimal $\pi^*$ and associated V-values
 
@@ -408,14 +246,4 @@ $$|S|^2\times|A| \text{ values.}$$
 
 A simple game as **421** with **168** states and **8** actions <br />would requires **225 792** values.
 
-Luky for us, in application, most of the transitions are null (ie. imposible),<br /> and it is possible to take advandages from structures in the systems mechanism.
-
----
-
-![bg](../style/bg-toc.svg)
-
-<br/>
-
-1. Back to Q-Learning on 421
-2. Model-Based Learning
-3. **Let's learn the Solo421 model**
+Luky for us, in application, most of the transitions are null (ie. imposible).

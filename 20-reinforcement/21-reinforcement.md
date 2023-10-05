@@ -244,7 +244,7 @@ $$ Q : S \times A  \rightarrow \mathbb{R}, \qquad Q(s,\ a) \text{ is the value o
 
 and, a **Q-value** is updated iteratively from succession of: $\langle s,\ a,\ s',\ r\rangle$
 
-$$Q(s, a) = (1-\alpha)Q(s,a) + \alpha \left(r + \gamma \max_{a'\in A} Q(s', a')\right)$$
+$$Q(s, a) = (1-\alpha)Q(s,a) + \alpha \left(r + \gamma Q(s', a')\right)$$
 
 ---
 <!-- ************************************************************** -->
@@ -291,7 +291,9 @@ In agent-based programming:
 
 ### Update Q each time a tuple $\langle s^t, a, s^{t+1}, r \rangle$ is read
 
-$$\mathit{newQ}(s^t, a) = (1-\alpha)Q(s^t,a) + \alpha \left(r + \gamma \max_{a'\in A} Q(s^{t+1}, a')\right)$$
+$$\mathit{newQ}(s, a) = (1-\alpha)\mathit{Q}(s,a) + \alpha \left(\text{incomming-feedback}\right)$$
+
+$$\text{incomming-feedback}= r(s,a,s') + \gamma Q(s', a')$$
 
 - $Q : S\times A \rightarrow \mathbb{R}$ : the value function we build.
 - $\alpha$ : the learning rate, $\qquad \epsilon$ : the Exploration-Exploitation ratio
