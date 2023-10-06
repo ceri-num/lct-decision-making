@@ -168,7 +168,7 @@ plt.show()
 
 <br />
 
-$$Q(s, a) = (1-\alpha)Q(s,a) + \alpha \left(r + \gamma \max_{a'\in A} Q(s', a')\right)$$
+$$Q(s, a) = (1-\alpha)Q(s,a) + \alpha \left(r + \gamma Q(s', a')\right)$$
 
 - **ON:**
 
@@ -213,7 +213,6 @@ $$ a'= \max_{a'\in A} Q(s', a') \quad \left(\text{and} \quad \pi^*(s) = \arg\max
 ---
 
 ## Scale-Up:
-<br />
 
 ### Heuristic values
 
