@@ -2,8 +2,7 @@
 
 - Jeu: **MoveIt**
 
-
-sur une version fixe (**seed 22**)
+Sur une version fixe (**seed 22**)
 
 
 ## Description d'une situation de jeu :
@@ -29,7 +28,6 @@ Proposer d'autres variables utiles à des prises de décisions :
 6. 
 7. 
 8. 
-
 
 ## Q-Learning basée sur Arbre de Décision.
 

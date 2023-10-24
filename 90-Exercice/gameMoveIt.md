@@ -94,50 +94,6 @@ En deux trois phrases, décrire une IA purement heuristique.
 --- 
 
 
-## Apprentissage par renforcement
-
-Est-ce que vous identifier des variables prédominantes et d'autre inutile pour factoriser l'apprentissage des Q-Valeurs sur un arbre de décision ?
-
---- 
-
---- 
-
---- 
-
---- 
-
---- 
-
-
-## Apprentissage du modèle
-
-Est-ce qui manque quelque chose pour pouvoir inférer sur l'évolution du jeu ? et si oui quoi ?
-
---- 
-
---- 
-
---- 
-
---- 
-
---- 
-
-
-
-Du coup la fonction de transition vous semble-t-elle apprenable ?
-
---- 
-
---- 
-
---- 
-
---- 
-
---- 
-
-
 ## Optimization: 
 
 Proposer une fonction de réconpences $r(s, a, s')$ pour ce jeu.
