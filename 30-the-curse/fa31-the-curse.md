@@ -205,7 +205,7 @@ Python scikit-learn module: **sklearn.cluster.KMeans**
 1. The Curse of Dimensionality
 2. Geometric Reduction
 3. **State-Space Decomposition**
-   - Decision Tree (Again)
+   - Decision Tree
    - Example With 421
 4. Quid of the Action Space
 

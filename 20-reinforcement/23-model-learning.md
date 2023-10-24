@@ -86,19 +86,18 @@ $$\text{with :} \ a=\pi(s) \text{ and } \gamma \in [0, 1] \text{ the discount fa
 
 ## Solving MDP: Value Iteration
 
-<br />
-
 *Input:* an **MDP:** $\langle S, A, T, R \rangle$ ; precision error: *$\epsilon$* ; discount factor: *$\gamma$* ; initial **V(s)**
 
 1. Repeat until: **maximal delta < $\epsilon$** <br /> For each state **$s \in S$**
+
    - Search the action **$a^*$** maximizing the Bellman Equation on **$s$**
-
-$$a^*= \arg\max_{a \in A}\left( R(s, a) + \gamma \sum_{s'\in S} T(s,a,s') \times V(s') \right)$$
-
    - Update _$\pi(s)$_ and _$V(s)$_ by considering action **$a^*$** 
    - Compute the delta value between the previous and the new _$V(s)$_
 
 *Output:* an optimal $\pi^*$ and associated V-values
+
+**Bellman Equation:** 
+$$a^*= \arg\max_{a \in A}\left( R(s, a) + \gamma \sum_{s'\in S} T(s,a,s') \times V(s') \right)$$
 
 ---
 

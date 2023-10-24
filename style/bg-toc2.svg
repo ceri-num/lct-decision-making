@@ -2,20 +2,20 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="300mm"
    height="170mm"
    viewBox="0 0 300 170"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
-   sodipodi:docname="bg-toc2.svg">
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="bg-toc2.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <defs
      id="defs2">
     <inkscape:perspective
@@ -34,8 +34,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="727.23255"
-     inkscape:cy="281.83239"
+     inkscape:cx="727.85714"
+     inkscape:cy="282.14286"
      inkscape:document-units="mm"
      inkscape:current-layer="g941"
      showgrid="false"
@@ -43,11 +43,12 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="1920"
-     inkscape:window-height="1016"
+     inkscape:window-width="3840"
+     inkscape:window-height="2083"
      inkscape:window-x="1920"
-     inkscape:window-y="27"
-     inkscape:window-maximized="1" />
+     inkscape:window-y="40"
+     inkscape:window-maximized="1"
+     inkscape:pagecheckerboard="0" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -56,7 +57,6 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -76,23 +76,11 @@
          id="rect858"
          style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       <path
-         style="fill:#00b8de;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="m 162.5127,99.23258 v -60 l 90,-90 v 150 z"
-         id="path841"
-         inkscape:connector-curvature="0"
-         sodipodi:nodetypes="ccccc" />
-      <path
-         style="fill:#dcdcdc;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="m 192.5127,39.23258 v 60 h -60 z"
+         style="fill:#dcdcdc;fill-opacity:1;stroke:none;stroke-width:0.264584px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="M 252.5127,-40.767421 V 99.23258 h -140 z"
          id="path833"
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="cccc" />
-      <path
-         style="fill:#0c2340;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="M 252.5127,-20.767412 V -70.76742 h -60 v 110 z"
-         id="path835"
-         inkscape:connector-curvature="0"
-         sodipodi:nodetypes="ccccc" />
       <path
          style="fill:#f2a900;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          d="M -2.4872978,99.232573 H -47.487298 v -45 z"
@@ -100,8 +88,8 @@
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="cccc" />
       <path
-         style="fill:#f2a900;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="M 192.5127,39.232582 V 9.2325878 h 30 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="M 252.5127,54.232586 V 99.23258 h -45 z"
          id="path833-3-6"
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="cccc" />
