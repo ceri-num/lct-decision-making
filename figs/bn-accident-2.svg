@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="120.81928mm"
+   height="70.570656mm"
+   viewBox="0 0 120.81928 70.570656"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="bn-accident-2.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.5323524"
+     inkscape:cx="254.18435"
+     inkscape:cy="201.65074"
+     inkscape:window-width="1920"
+     inkscape:window-height="1055"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lend"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path12548" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lend-3"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path12548-6" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lend-6"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path12548-2" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-37.150756,-35.78663)">
+    <ellipse
+       style="fill:#abc837;stroke:#abc837;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:round"
+       id="path846"
+       cx="50.78072"
+       cy="48.834278"
+       rx="13.36538"
+       ry="12.783065" />
+    <ellipse
+       style="fill:#abc837;stroke:#abc837;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:round"
+       id="path848"
+       cx="90.213371"
+       cy="93.443275"
+       rx="14.259117"
+       ry="12.649429" />
+    <ellipse
+       style="fill:#abc837;stroke:#abc837;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:round"
+       id="path850"
+       cx="143.41353"
+       cy="74.771057"
+       rx="14.291929"
+       ry="12.305091" />
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:Cabin;-inkscape-font-specification:Cabin;stroke-width:0.264583"
+       x="44.173199"
+       y="51.268448"
+       id="text3186"><tspan
+         sodipodi:role="line"
+         id="tspan3184"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="44.173199"
+         y="51.268448">Rain</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:Cabin;-inkscape-font-specification:Cabin;text-align:center;text-anchor:middle;stroke-width:0.264583"
+       x="90.206314"
+       y="90.698662"
+       id="text3186-3"><tspan
+         sodipodi:role="line"
+         id="tspan3184-6"
+         style="font-size:7.05556px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="90.206314"
+         y="90.698662">Car</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:7.05556px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="90.206314"
+         y="99.518112"
+         id="tspan4856">velocity</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:Cabin;-inkscape-font-specification:Cabin;stroke-width:0.264583"
+       x="130.48779"
+       y="77.381615"
+       id="text3186-7"><tspan
+         sodipodi:role="line"
+         id="tspan3184-5"
+         style="font-size:7.05556px;stroke-width:0.264583"
+         x="130.48779"
+         y="77.381615">Accident</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="M 67.68296,52.051446 123.86031,69.31631"
+       id="path12265"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 106.44033,90.461581 21.84579,-8.726497"
+       id="path12265-3"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="M 61.020755,58.68517 80.697149,82.346567"
+       id="path12265-3-0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend-6)"
+       d="m 65.820082,86.772952 8.903986,3.186689"
+       id="path12265-3-6"
+       sodipodi:nodetypes="cc" />
+    <ellipse
+       style="fill:#abc837;stroke:#abc837;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:round"
+       id="path846-7"
+       cx="51.464836"
+       cy="82.573494"
+       rx="13.36538"
+       ry="12.783065" />
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:Cabin;-inkscape-font-specification:Cabin;text-align:center;text-anchor:middle;stroke-width:0.264583"
+       x="51.528332"
+       y="80.583824"
+       id="text3186-0"><tspan
+         sodipodi:role="line"
+         id="tspan3184-9"
+         style="font-size:7.05556px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="51.528332"
+         y="80.583824">Driver</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:7.05556px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="51.528332"
+         y="89.403275"
+         id="tspan36388">Group</tspan></text>
+  </g>
+</svg>
