@@ -119,3 +119,18 @@ def simulate(board, robotMoves):
    collisions= board.multiMoves...    
    return collisions, copiedBoard
 ```
+
+---
+
+## Horizon 1 decision making:
+
+**Input:** board, **possible-actions**, **simulate**, **evaluate**
+
+- foreach _action_ in **possible-actions**(board)
+   - scores[_action_]= 0
+   - for x sample :
+      collisions, copiedBoard= **simulate**(_action_, board) 
+      scores[_action_]+= **evaluate**(collisions, copiedBoard)
+   - scores[_action_]/= x
+
+**Output:** best _action_ in scores[]
