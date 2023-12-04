@@ -59,6 +59,30 @@ $$R(s^t,\ a,\ s^{t+1}) \text{ is the reward by reaching } s^{t+1} \text{ from do
 
 $$R : S \times A \rightarrow \mathbb{R}$$
 
+
+---
+<!-- --------------------------------------------------------------- -->
+
+## reward in 421-game
+
+<br />
+<br />
+
+Over the final combination when the horizon reaches _$0$_
+
+$\mathit{score}(\text{4-2-1}) \qquad = 800$
+$\mathit{score}(\text{1-1-1}) \qquad = 700$
+$\mathit{score}(\text{x-1-1}) \qquad = 400 + x$
+$\mathit{score}(\text{x-x-x}) \qquad = 300 + x$
+$\mathit{score}(\text{(x+2)-(x+1)-x}) = 202 + x$
+$\mathit{score}(\text{2-2-1}) \qquad = 0$
+$\mathit{score}(\text{x-x-y}) \qquad = 100 + x$
+$\mathit{score}(\text{y-x-x}) \qquad = 100 + y$
+
+<br />
+
+**Reward function:** : $r(s, a, s')=$ _$\mathit{score}(s')$_ $\quad \text{if} \quad h=0 \ ; \quad$ _$0$_ $\quad \text{else}$
+
 ---
 <!-- --------------------------------------------------------------- -->
 
@@ -73,22 +97,6 @@ $$\pi(s): \ \text{the action to perform is } s$$
 
 $$V^\pi(s)= R(s^t, a) + \gamma \sum_{s^{t+1}\in S} T(s^t,\ a,\ s^{t+1}) \times V^\pi(s^{t+1})$$
 $$\text{with :} \ a=\pi(s) \text{ and } \gamma \in [0, 1[ \text{ the discount factor (typically 0.99)}$$
-
----
-<!-- --------------------------------------------------------------- -->
-
-## reward in 421-game
-
-Over the final combination only with the action "*keep*-*keep*-*keep*" or when the horizon is $0$
-
-$\mathit{score}(\text{4-2-1}) \qquad = 800$
-$\mathit{score}(\text{1-1-1}) \qquad = 700$
-$\mathit{score}(\text{x-1-1}) \qquad = 400 + x$
-$\mathit{score}(\text{x-x-x}) \qquad = 300 + x$
-$\mathit{score}(\text{(x+2)-(x+1)-x}) = 202 + x$
-$\mathit{score}(\text{2-2-1}) \qquad = 0$
-$\mathit{score}(\text{x-x-y}) \qquad = 100 + x$
-$\mathit{score}(\text{y-x-x}) \qquad = 100 + y$
 
 ---
 <!-- --------------------------------------------------------------- -->

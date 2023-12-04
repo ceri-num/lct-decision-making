@@ -114,10 +114,12 @@ $$moves= [ [x1, y1, dir1], [x2, y2, dir2] ... ]$$
 
 ```python
 def simulate(board, robotMoves):
-   copiedBoard= copy(board)
+   copiedBoard= copy( board)
    humanMoves= generateHumanMove(board)
+   collisions= board.multiMoveHumans( humanMoves )
+   collisions+= board.multiMoveRobots( robotMoves )
    collisions= board.multiMoves...    
-   return collisions, copiedBoard
+   return copiedBoard, 
 ```
 
 ---
