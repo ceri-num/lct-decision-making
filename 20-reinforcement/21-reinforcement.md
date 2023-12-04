@@ -45,6 +45,24 @@ $$T(s^t,\ a,\ s^{t+1}) = P(s^{t+1} | s^t,  a)$$
 ---
 <!-- --------------------------------------------------------------- -->
 
+## Transition in 421-game
+
+- **For instance, doing _Keep-Kepp-Roll_ in _4-2-2 (2)_ :**
+  - _6-4-2 (1)_ = 1/6
+  - _5-4-2 (1)_ = 1/6
+  - _4-4-2 (1)_ = 1/6 $\quad$ Or $T \left( 422(2),\ \text{k-k-r},\ 442(1) \right) = 1/6$
+  - _4-3-2 (1)_ = 1/6
+  - _4-2-2 (1)_ = 1/6
+  - _4-2-1 (1)_ = 1/6
+
+<br />
+
+- **For instance, doing _Keep-Kepp-Kepp_ in _1-1-1 (2)_ :** $\quad$ _1-1-1 (0)_ = 1
+
+
+---
+<!-- --------------------------------------------------------------- -->
+
 ## Acting to optimize Gain
 
 Require to evaluate the interest of each action on the system evolution:
@@ -150,6 +168,9 @@ The policy $\pi^*$ maximizing Bellman
 
 ## Model-Free Approaches
 
+<br />
+<br />
+
 ### Concept
 
 - Learn without generating **transition** and **reward** models.
@@ -160,7 +181,7 @@ $$state,\ action,\ reward,\ state,\ action, \ \ldots $$
 
 ### Common approaches:
 
-- **Q-learning**: continuous computing of an expected gain (require rich feedback)
+- **Q-learning**: <br />continuous computing of an expected gain (require rich feedback)
 - **Monte-Carlo**: use random explorations until a 'finale' state (slow to converge).
 
 
@@ -185,6 +206,10 @@ The agent build an optimal behavior from trials and errors.
 <!-- --------------------------------------------------------------- -->
 
 ## Exploration–Exploitation Tradeoff Dilemma
+
+<br />
+<br />
+
 
 ### Examples:
 
@@ -260,6 +285,9 @@ $$Q(s, a) = (1-\alpha)Q(s,a) + \alpha \left(r + \gamma Q(s', a')\right)$$
 
 ## Q-learning : the algorithm
 
+<br />
+<br />
+
 *Input:* state and action spaces: *A* ; a step engine *Perform* ;
 exploration ratio: *$\epsilon$* ; learning rate: *$\alpha$* ; discount factor *$\gamma$*
 
@@ -277,35 +305,44 @@ exploration ratio: *$\epsilon$* ; learning rate: *$\alpha$* ; discount factor *$
 ---
 <!-- ************************************************************** -->
 
-
 ## Q-learning : the algorithm
+
+<br />
+<br />
 
 In agent-based programming:
 
 - As an initial step (**wakeUp**) : 
-   1. Initialize $Q$
-   2. Initialize state $s$ and action $a$ variables.
+   * Initialize $Q$
+   * Initialize state and action variables ($s,\ a$).
 - At each itereration (**perceive**):
-   1. Read the reached state $s'$ and the associated reward $r$
-   2. If necessary, add $s'$ to $Q$ (with value $0$ for any action $a$)
-   3. Update $Q(s,a)$ accordingly to *$\alpha$* and *$\gamma$*
-   4. reccord $s=\ s'$
-- taking decisions (**decide**):
-   1. At *$\epsilon$* random: get a random $a$ *or* $a$ maximizing $Q(s, a)$
+   * Read the reached state $s'$ and the associated reward $r$
+   * If necessary, add $s'$ to $Q$ (with value $0$ for any action $a$)
+   * Update $Q(s,a)$ accordingly to *$\alpha$* and *$\gamma$*
+   * reccord $s=\ s'$
+- Taking decisions (**decide**):
+   * At *$\epsilon$* random: get a random $a$ *or* $a$ maximizing $Q(s, a)$
 
 ---
 
 ## Q-learning : the main equation
 
+<br />
+
 ### Update Q each time a tuple $\langle s^t, a, s^{t+1}, r \rangle$ is read
+
+<br />
 
 $$\mathit{newQ}(s, a) = (1-\alpha)\mathit{Q}(s,a) + \alpha \left(\text{incomming-feedback}\right)$$
 
+<br />
+
 $$\text{incomming-feedback}= r(s,a,s') + \gamma Q(s', a')$$
 
-- $Q : S\times A \rightarrow \mathbb{R}$ : the value function we build.
-- $\alpha$ : the learning rate, $\qquad \epsilon$ : the Exploration-Exploitation ratio
-- $\gamma$ : the discount factor
+<br />
+
+- $\alpha$ : the learning rate   ($=0.1$)
+- $\gamma$ : the discount factor ($=0.999$)
 
 ### The known optimal policy:
 
@@ -392,11 +429,16 @@ $\mathit{max}\ Q$    |   $7.8$ |   $8.9$ |  $10$ |
 $\mathit{argmax}\ Q$ | $\downarrow$ | $\rightarrow$ | $\uparrow$ |
 
 ---
+<!-- --------------------------------------------------------------- -->
+
+## Exercice: Apply Q-Learning
+
+### Agent Version: 
+
+- On 421 game of [hackagame](https://imt-mobisyst.bitbucket.io/hackagames/)
 
 <br />
-<br />
-<br />
-<br />
-<br />
 
-#### Let's go on 421 game....
+### Classical version: 
+
+- On Lunar-Lander game of [farama::gymnasium](https://gymnasium.farama.org/)
