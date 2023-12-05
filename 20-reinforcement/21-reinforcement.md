@@ -23,6 +23,9 @@ Guillaume.Lozenguez
 
 1. **A teoritical framework: Markov Decision Process**
 2. **On the go, model free learning**
+    - **Compute QValues**
+    - **Choose an Action**
+3. **Exercice**
 
 ---
 
@@ -160,8 +163,11 @@ The policy $\pi^*$ maximizing Bellman
 
 <br/>
 
-1. **A teoritical framework: Markov Decision Process**
+1. A teoritical framework: Markov Decision Process
 2. **On the go, model free learning**
+    - **Compute QValues**
+    - Choose an Action
+3. Exercice
 
 ---
 <!-- --------------------------------------------------------------- -->
@@ -184,13 +190,103 @@ $$state,\ action,\ reward,\ state,\ action, \ \ldots $$
 - **Q-learning**: <br />continuous computing of an expected gain (require rich feedback)
 - **Monte-Carlo**: use random explorations until a 'finale' state (slow to converge).
 
+---
+<!-- --------------------------------------------------------------- -->
+
+## Q-learning
+
+One of the core discoveries in Reinforcement Learning (simple and efficient)
+
+- At each step, **Q-learning** updates the value attached <br />to a couple (state, action)
+- Updates are performed integrate expected future gains
+- The update is performed accordingly to a learning rate $\alpha \in ]0, 1[$
+    $\rightarrow \alpha$ : ratio between new vs old accumulated information.
+
+
+
+---
+<!-- --------------------------------------------------------------- -->
+
+## Q-learning based on a Q function
+
+Considering it is not possible to evaluate state without a policy yet
+
+$$V^\pi(s)= R(s, a) + \gamma \sum_{s'\in S} T(s,a,s') \times V^\pi(s')$$
+
+the **Q-values** evaluate each action performed from each state:
+
+$$ Q : S \times A  \rightarrow \mathbb{R}, \qquad Q(s,\ a) \text{ is the value of doing } a \text{ from } s $$
+
+and, a **Q-value** is updated iteratively from succession of: $\langle s,\ a,\ s',\ r\rangle$
+
+$$Q(s, a) = (1-\alpha)Q(s,a) + \alpha \left(r + \gamma Q(s', a')\right)$$
+
+---
+<!-- ************************************************************** -->
+
+
+## Q-learning : the algorithm
+
+<br />
+<br />
+
+*Input:* state and action spaces: *A* ; a step engine *Perform* ;
+exploration ratio: *$\epsilon$* ; learning rate: *$\alpha$* ; discount factor *$\gamma$*
+
+1. Read the initial state $s$
+2. Initialize $Q(s,a)$ to 0 for any action $a$
+3. Repeat until convergence
+   1. Select an action $a$ with random
+   2. *Perform* $a$ and read the reached state $s'$ and the associated reward $r$
+   3. If necessary, add $s'$ to $Q$ ( with value $0$ for any action $a$)
+   4. Update $Q(s,a)$ accordingly to *$\alpha$* and *$\gamma$*
+   5. Set $s=\ s'$
+
+*Output:* the **Q-values**.
+
+---
+
+## Q-learning : the main equation
+
+<br />
+
+### Update Q each time a tuple $\langle s^t, a, s^{t+1}, r \rangle$ is read
+
+<br />
+
+$$\mathit{newQ}(s, a) = (1-\alpha)\mathit{Q}(s,a) + \alpha \left(\text{incomming-feedback}\right)$$
+
+<br />
+
+$$\text{incomming-feedback}= r(s,a,s') + \gamma Q(s', a')$$
+
+<br />
+
+- $\alpha$ : the learning rate   ($=0.1$)
+- $\gamma$ : the discount factor ($=0.999$)
+
+### The known optimal policy:
+
+$$\pi^*(s) = \max_{a\in A} Q(s, a)$$
+
+---
+<!-- --------------------------------------------------------------- -->
+
+![bg](../style/bg-toc.svg)
+
+<br/>
+
+1. A teoritical framework: Markov Decision Process
+2. **On the go, model free learning**
+    - Compute QValues
+    - **Choose an Action**
+3. Exercice
 
 ---
 <!-- --------------------------------------------------------------- -->
 
 
 ## Exploration–Exploitation tradeoff dilemma
-
 
 The agent build an optimal behavior from trials and errors. 
 
@@ -245,43 +341,7 @@ A Simple heuristic for the Exploration–Exploitation Tradeoff Dilemma
 Then the challenge consists in varying $\epsilon$ depending of the knowledge the agent has of the area he is interacting in.
 
 ---
-<!-- --------------------------------------------------------------- -->
-
-## Q-learning
-
-<br />
-<br />
-<br />
-
-One of the most important discoveries in Reinforcement Learning (simple and efficient)
-
-- At each step, **Q-learning** updates the value attached to a couple (state, action)
-- Updates are performed integrate expected future gains
-- The update is performed accordingly to a learning rate $\alpha \in ]0, 1[$
-    $\rightarrow \alpha$ : ratio between new vs old accumulated information.
-
-
-
----
-<!-- --------------------------------------------------------------- -->
-
-## Q-learning based on a Q function
-
-Considering it is not possible to evaluate state without a policy yet
-
-$$V^\pi(s)= R(s, a) + \gamma \sum_{s'\in S} T(s,a,s') \times V^\pi(s')$$
-
-the **Q-values** evaluate each action performed from each state:
-
-$$ Q : S \times A  \rightarrow \mathbb{R}, \qquad Q(s,\ a) \text{ is the value of doing } a \text{ from } s $$
-
-and, a **Q-value** is updated iteratively from succession of: $\langle s,\ a,\ s',\ r\rangle$
-
-$$Q(s, a) = (1-\alpha)Q(s,a) + \alpha \left(r + \gamma Q(s', a')\right)$$
-
----
 <!-- ************************************************************** -->
-
 
 ## Q-learning : the algorithm
 
@@ -294,7 +354,7 @@ exploration ratio: *$\epsilon$* ; learning rate: *$\alpha$* ; discount factor *$
 1. Read the initial state $s$
 2. Initialize $Q(s,a)$ to 0 for any action $a$
 3. Repeat until convergence
-   1. At *$\epsilon$* random: get a random $a$ *or* $a$ maximizing $Q(s, a)$
+   1. **At *$\epsilon$* random: get a random $a$ *or* $a$ maximizing $Q(s, a)$**
    2. *Perform* $a$ and read the reached state $s'$ and the associated reward $r$
    3. If necessary, add $s'$ to $Q$ ( with value $0$ for any action $a$)
    4. Update $Q(s,a)$ accordingly to *$\alpha$* and *$\gamma$*
@@ -305,12 +365,10 @@ exploration ratio: *$\epsilon$* ; learning rate: *$\alpha$* ; discount factor *$
 ---
 <!-- ************************************************************** -->
 
-## Q-learning : the algorithm
+## Q-learning : In Agent-Based Architecture
 
 <br />
 <br />
-
-In agent-based programming:
 
 - As an initial step (**wakeUp**) : 
    * Initialize $Q$
@@ -324,39 +382,36 @@ In agent-based programming:
    * At *$\epsilon$* random: get a random $a$ *or* $a$ maximizing $Q(s, a)$
 
 ---
+<!-- --------------------------------------------------------------- -->
 
-## Q-learning : the main equation
+![bg](../style/bg-toc.svg)
 
-<br />
+<br/>
 
-### Update Q each time a tuple $\langle s^t, a, s^{t+1}, r \rangle$ is read
+1. A teoritical framework: Markov Decision Process
+2. **On the go, model free learning**
+    - Compute QValues
+    - **Choose an Action**
+3. Exercice
 
-<br />
+---
+<!-- --------------------------------------------------------------- -->
 
-$$\mathit{newQ}(s, a) = (1-\alpha)\mathit{Q}(s,a) + \alpha \left(\text{incomming-feedback}\right)$$
+## Exercice
 
-<br />
+#### Applying Q-Learning...
 
-$$\text{incomming-feedback}= r(s,a,s') + \gamma Q(s', a')$$
-
-<br />
-
-- $\alpha$ : the learning rate   ($=0.1$)
-- $\gamma$ : the discount factor ($=0.999$)
-
-### The known optimal policy:
-
-$$\pi^*(s) = \max_{a\in A} Q(s, a)$$
 
 ---
 <!-- --------------------------------------------------------------- -->
 
 ## Simple Example
 
-![bg right 50%](../figs/2x2.png)
+<br />
+<br />
 
-<br />
-<br />
+<div class="line">
+<div class="one2">
 
 - **States**: 4 positions
   $s_0$, $s_1$, $s_2$ and $s_3$
@@ -367,12 +422,28 @@ $$\pi^*(s) = \max_{a\in A} Q(s, a)$$
 
 ($\epsilon= 0.1$, $\alpha= 0.1$ and $\gamma=0.99$)
 
+
+</div>
+<div class="one2">
+
+![](../figs/2x2.png)
+
+($\alpha= 0.1$, $\epsilon= 0.1$ and $\gamma=0.99$)
+
+</div>
+</div>
+
 ---
 <!-- --------------------------------------------------------------- -->
 
 ## Simple Example
 
-![bg right 50%](../figs/2x2.png)
+<br />
+<br />
+
+<div class="line">
+<div class="one2">
+
 
 - From $s_0$ get action *left* (explore)
   reaches $s_0$ with $-1$
@@ -386,12 +457,27 @@ $$\pi^*(s) = \max_{a\in A} Q(s, a)$$
   updates $Q(s_2, \mathit{up}) = 1$
   **End Episode**
 
+
+</div>
+<div class="one2">
+
+![](../figs/2x2.png)
+
+($\alpha= 0.1$, $\epsilon= 0.1$ and $\gamma=0.99$)
+
+</div>
+</div>
+
 ---
 <!-- --------------------------------------------------------------- -->
 
 ## Simple Example
 
-![bg right 50%](../figs/2x2.png)
+<br />
+<br />
+
+<div class="line">
+<div class="one2">
 
 ($\alpha= 0.1$, $\epsilon= 0.1$ and $\gamma=0.99$)
 
@@ -409,17 +495,23 @@ $\mathit{max}\ Q$ | $-0.43$ |  $0.9$ | $1.9$ |
 
 ...
 
+</div>
+<div class="one2">
+
+![](../figs/2x2.png)
+
+($\alpha= 0.1$, $\epsilon= 0.1$ and $\gamma=0.99$)
+
+</div>
+</div>
+
 ---
 <!-- --------------------------------------------------------------- -->
 
 ## Simple Example
 
-![bg right 50%](../figs/2x2.png)
-
-($\alpha= 0.1$, $\epsilon= 0.1$ and $\gamma=0.99$)
-
-<br />
-<br />
+<div class="line">
+<div class="one2">
 
 - **Episode N**: ($3$-$4$ actions)
 
@@ -427,6 +519,16 @@ S           |  $s_0$  |  $s_1$  | $s_2$ |
 ------------|---------|---------|-------|
 $\mathit{max}\ Q$    |   $7.8$ |   $8.9$ |  $10$ |
 $\mathit{argmax}\ Q$ | $\downarrow$ | $\rightarrow$ | $\uparrow$ |
+
+</div>
+<div class="one2">
+
+![](../figs/2x2.png)
+
+($\alpha= 0.1$, $\epsilon= 0.1$ and $\gamma=0.99$)
+
+</div>
+</div>
 
 ---
 <!-- --------------------------------------------------------------- -->

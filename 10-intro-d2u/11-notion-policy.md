@@ -7,15 +7,16 @@ backgroundImage: url('../style/bg-imt.svg')
 
 <!-- link rel="stylesheet" href="../style/imt.css" -->
 
-# States, Actions,<br />and Policies
+# Decision Under<br />Uncertainty
 
-### Decision Under Uncertainty
+### States, Actions and Policies
 
-Guillaume Lozenguez
+<br />
 
-[@imt-lille-douai.fr](mailto:guillaume.lozenguez@imt-lille-douai.fr)
+**Guillaume.Lozenguez**
+[@imt-nord-europe.fr](mailto:guillaume.lozenguez@imt-nord-europe.fr)
 
-![bg](../style/bg-tittle.svg)
+![bg](../style/bg-tittle-lite.svg)
 
 ---
 
@@ -36,21 +37,23 @@ Rarely deterministic, Mostly uncertain
 
 ## Rational Agent 
 
+<br />
+<br />
+
 #### "I act, therefore I am."
 
-- My actions have an effect over the world **AND** I have the choice to act or not.
+<br />
 
+- My actions have an effect over the world **AND** I have the choice.
+- _AI_: Model the effect **AND** explore the choices
 
-cf. "BullShit Jobs" - David Graeber (2019) <!-- [ref. to Karl Groos (1901)] -->
-(p.132-133 in French version)
-
-<!-- Pour approfondir: : broucek francis « the sense of self » 1977 - Klein G. S. « the vital pleasures » 1976.-->
+<br />
 
 ### Deliberativ Architecture - BDI:
 
  - _Believe_: refers to the knowledge of the agent
- - _Desire_: The agent's goals (classically states to reach)
- - _Intention_: the succession of actions to perform oriented toward the goals
+ - _Desire_:  agent's goals (classically states to reach)
+ - _Intention_: succession of actions to perform oriented toward the goals
 
 ---
 <!-- --------------------------------------------------------------- -->
@@ -99,11 +102,11 @@ _ou_ l'état contient l'ensemble des informations nécessaires.-->
 ---
 <!-- --------------------------------------------------------------- -->
 
-## Multi-variable system
+## Multi-Variable Systems
 
 ### State and Action space:
 
-*>* Cartesian produc over  State and Action variables 
+*>* Cartesian product over  State and Action variables 
 
 ### Multi-variable Transition function:
 
@@ -154,14 +157,51 @@ By choosing to "roll-*keep*-roll" in state: "6-*4*-3 (2)" to expect a "4-2-1 (1)
 
 ## Model of 421: Transition function with 421-game
 
-<br />
-<br />
-<br />
-
 - **Transitions**: 
   - All reachable states by rolling some dice 
     with the probability to reach them.
 
+
+$$
+T\left( \left[\begin{array}{c}
+   d_1 \\
+   d_2 \\
+   d_3 \\
+   h \\
+\end{array}\right],\ 
+\left[\begin{array}{c}
+   a_1 \\
+   a_2 \\
+   a_3 \\
+\end{array}\right],
+\left[\begin{array}{c}
+   d'_1 \\
+   d'_2 \\
+   d'_3 \\
+   h'
+\end{array}\right]
+\right) \in [0, 1]
+\quad\text{example:}\  
+
+T\left( \left[\begin{array}{c}
+   6 \\
+   5 \\
+   1 \\
+   2 \\
+\end{array}\right],\ 
+\left[\begin{array}{c}
+   r \\
+   r \\
+   k \\
+\end{array}\right],
+\left[\begin{array}{c}
+   4 \\
+   4 \\
+   1 \\
+   1
+\end{array}\right]
+\right) = 1/36
+$$
 
 ---
 
@@ -193,16 +233,19 @@ P(...) | = | [0, 1] | $\quad$ | P(...) | = | [0, 1]
 <br />
 
 $$\pi : S \rightarrow A$$
+
+<br />
+
 $$\pi(s): \ \text{the action to perform in } s$$
 
 ---
 <!-- --------------------------------------------------------------- -->
 
-## Choosing : building a policy of action
+## Choosing : building a policy  of actions
 
 ### Example of policy :
 
-Always target a 4-2-1:  keeping only one **4**, one **2** and one **1**
+**"Always target a 4-2-1"**:  keeping only one **4**, one **2** and one **1**
 
 $s$ | $\pi^{421}(s)$ | $\quad$ | $s$ | $\pi^{421}(s)$ |
 ------------|------------------|-|-----------|-------------
@@ -217,45 +260,66 @@ $s$ | $\pi^{421}(s)$ | $\quad$ | $s$ | $\pi^{421}(s)$ |
 ---
 <!-- --------------------------------------------------------------- -->
 
+## Automatize Decision Making
 
-## Policy as decision tree
+**Choose an action in a given context (state):**
 
-**Nodes:** variables ; **Edges:** assignment ; **leaf:** Action to perform
+- Evaluate tuples $\langle s,\ a \rangle$
+- Selects the best action: 
 
-![](../figs/decision-tree.svg)
+<br />
 
----
-<!-- --------------------------------------------------------------- -->
-
-
-## Policy as decision tree
-
-![](../figs/decision-tree2.svg)
-
-- $\pi( 2, False, 42 )$ = **Action-4**
+$$ \pi^*(a) = \arg\max_{a \in A}\left(\ \mathit{Eval}(s, a)\ \right)$$
 
 ---
 <!-- --------------------------------------------------------------- -->
 
-## Choosing to optimize
+## Evaluation in Game Theory
 
-Require to evaluate the interest of each action on the system evolution:
+<br />
+<br />
+<br />
 
-- *Reward/Cost function* (R) :
+**Can be done a posteriori, with a lot of data :**
 
-$$R : S \times A \rightarrow \mathbb{R}$$
+<br />
 
-$R(s_t,\ a)$ is the reward by doing $a$ from $s_t$.
+- $\mathit{Eval}(s, a) =$ the probability of winning if doing _a_ in _s_.
 
-- *Objective* : Maximazing the gains (sum of percived rewards)
+<br />
+
+$$ \mathit{Eval}(s, a) = P( \mathit{win} \ |\  \pi(s)=a )$$
+
+<br />
+
+- But also depends on all the future actions...
+
+<br />
+
+**Can be done a posteriori, with a lot of _good_ data...**
+
+<br />
+
+(AlphaGo mars 2016 wins 4-1 the best professional player _Lee Sedol_)
 
 ---
-
 <!-- --------------------------------------------------------------- -->
 
-## reward in 421-game
+## Evaluation in _4-2-1_
 
-Over the final combination only with the action "*keep*-*keep*-*keep*" or when the horizon is $0$
+**What is the optimal choices ?**
+
+<br />
+
+
+- For example, from _6-1-1 (2)_: **roll-keep-keep** or **roll-roll-keep** ?
+
+---
+<!-- --------------------------------------------------------------- -->
+
+## Scores in 421-game
+
+**Over the final combination (horizon $= 0$):**
 
 $\mathit{score}(\text{4-2-1}) \qquad = 800$
 $\mathit{score}(\text{1-1-1}) \qquad = 700$
@@ -267,11 +331,47 @@ $\mathit{score}(\text{x-x-y}) \qquad = 100 + x$
 $\mathit{score}(\text{y-x-x}) \qquad = 100 + y$
 
 ---
+<!-- --------------------------------------------------------------- -->
+
+## Evaluation in _4-2-1_
+
+**What is the optimal choices ?**
+
+- For example, from _6-1-1 (2)_: **roll-keep-keep** or **roll-roll-keep** ?
+
+#### Requires to evaluate the possible final combinations <br /> after 2 roll-agains...
+
+<br />
+
+- **It clearly depends on the horizon:**
+With an infinite costless roll-agains
+it is always preferable to target the **4-2-1**
+
+---
+<!-- --------------------------------------------------------------- -->
+
+## Exercices, compute a policy
 
 <br />
 <br />
 <br />
-<br />
+
+**Basic learning process :**
+
+- Record a player experience (trace)
+- Compute average values for tuples $\langle s,\ a \rangle$
+- Use those values to select the actions.
+
+#### But depends on the initial player behavior...
+
 <br />
 
-#### Let's go....
+**Make it iterative :**
+
+- Use your new player to create new data _and_ learn again...
+
+<br />
+
+(AlphaGo Zero 2017 wins 100-0 AlphaGo Lee)
+
+
