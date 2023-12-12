@@ -1,5 +1,6 @@
 {
     "markdown.marp.themes": [
         "style/imt-slide.css"
-    ]
+    ],
+    "workbench.colorTheme": "Kimbie Dark"
 }
