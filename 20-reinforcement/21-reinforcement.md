@@ -125,6 +125,10 @@ $$\text{with :} \ a=\pi(s) \text{ and } \gamma \in [0, 1[ \text{ the discount fa
 
 ## Markov Decision Process
 
+
+<div class="line">
+<div class="one2">
+
 **MDP:** $\langle S, A, T, R \rangle$:
 
 *S :* set of system's states
@@ -132,11 +136,18 @@ $$\text{with :} \ a=\pi(s) \text{ and } \gamma \in [0, 1[ \text{ the discount fa
 *T :* S × A × S → [0, 1] : transitions
 *R :* S × A → R : cost/rewards
 
-![bg right 100%](../figs/MDP.svg)
-
 **Optimal policy:**
 
 The policy $\pi^*$ maximizing Bellman
+
+
+</div>
+<div class="one2">
+
+![](../figs/MDP.svg)
+
+</div>
+</div>
 
 ---
 <!-- --------------------------------------------------------------- -->
