@@ -86,6 +86,9 @@ $$\text{with :} \ a=\pi(s) \text{ and } \gamma \in [0, 1] \text{ the discount fa
 
 ## Solving MDP: Value Iteration
 
+<br />
+<br />
+
 *Input:* an **MDP:** $\langle S, A, T, R \rangle$ ; precision error: *$\epsilon$* ; discount factor: *$\gamma$* ; initial **V(s)**
 
 1. Repeat until: **maximal delta < $\epsilon$** <br /> For each state **$s \in S$**
