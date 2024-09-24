@@ -143,7 +143,7 @@ Potentially with intermediate varaibles.
 
 ## Factorized Transition Function: Dynamic Bayesian Network
 
-**Bayesian Network** with duplicated varaibles regarding their evolution in time.
+**Bayesian Network** with duplicated variables regarding their evolution in time.
 
 ![](../figs/dynamic-BN.svg)
 
