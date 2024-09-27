@@ -2,5 +2,5 @@
     "markdown.marp.themes": [
         "style/imt-slide.css"
     ],
-    "workbench.colorTheme": "Default Dark Modern"
+    "workbench.colorTheme": "Monokai"
 }

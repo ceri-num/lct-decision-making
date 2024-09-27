@@ -345,7 +345,7 @@ def state(self):
 
 ![](../figs/game421-DecTreeQ.svg)
 
-<!-- python code: [Decision Tree Q-Learning](https://bitbucket.org/imt-mobisyst/lecture-d2u/raw/master/resources/game421-playerQ.py) - [plotting](https://bitbucket.org/imt-mobisyst/lecture-d2u/raw/master/resources/plotstat.py) -->
+<!-- python code: [Decision Tree Q-Learning](https://github.com/ceri-num/lct-decision-uu/raw/master/resources/game421-playerQ.py) - [plotting](https://github.com/ceri-num/lct-decision-uu/raw/master/resources/plotstat.py) -->
 
 ---
 

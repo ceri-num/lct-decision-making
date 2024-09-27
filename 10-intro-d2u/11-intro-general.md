@@ -581,7 +581,7 @@ Worst case: with action "_roll-roll-roll_" $\rightarrow$ _56_ posibilities
 
 ## Game 421 - Implementation:
 
-[https://imt-mobisyst.bitbucket.io/hackagames](https://imt-mobisyst.bitbucket.io/hackagames)
+[https://ktorz-net.github.io/hackagames/](https://ktorz-net.github.io/hackagames/)
 
 <br />
 <br />

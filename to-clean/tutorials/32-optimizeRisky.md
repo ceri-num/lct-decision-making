@@ -9,7 +9,7 @@ The goal of this game is to take the control over a maximum of position, and to 
 
 The followed script provide a first implementation to use Q-Learning on Risky game.
 
-- [Risky 1st Learner](https://bitbucket.org/imt-mobisyst/lecture-d2u/raw/master/resources/gameRisky-playerQ.py)
+- [Risky 1st Learner](https://github.com/ceri-num/lct-decision-uu/raw/master/resources/gameRisky-playerQ.py)
 
 However, this basic implementation is slow to converge on an acceptable playing policy.
 
