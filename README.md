@@ -1,12 +1,13 @@
-# Distributed Decision Under Uncertainty
+# Decision-Making: Distributed & Under Uncertainty
 
-These pages serve as support for the lecture **D2-U2** apparing in differents module:
+These pages serve as support for the lecture of _Decision-Making DUU_ apparing in differents module:
 
 - UV Model Agent Decision - **uv-mad**
-- Artificial Intelligence and Combinatorial Optimization (Introcduction & Project) - **AICO**
+- Artificial Intelligence and Combinatorial Optimization (Introcduction & Project) - **P-AICO-I**
 - Introduction of RL for Health Science
+- Chef de Projet IA
 
-You will find there a presentation of the used notion, the tutorials and some resources to process them.
+You will find there mostly presentation of the core notions. The tutorials are mostly based on [HackaGames](https://ktorz-net.github.io/hackagames)
 
 @Autor: [Guillaume Lozenguez](mailto:guillaune.lozenguez@imt-lille-douai.fr)
 
