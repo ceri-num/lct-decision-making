@@ -17,6 +17,22 @@ Guillaume Lozenguez
 
 ---
 
+moi: Est-ce que tu es capable de jouer au Go ?
+
+ChatGPT : Oui, je peux expliquer les règles du Go, discuter des stratégies et répondre à des questions sur le jeu. Cependant, je ne peux pas jouer au Go en temps réel comme un joueur humain ou un logiciel dédié. Si vous avez des questions sur le jeu ou si vous souhaitez en savoir plus, n’hésitez pas à demander !
+
+--- 
+
+moi: non j'explore ta connaissance de tes propres limites
+
+ChatGPT: Je comprends mieux ! En effet, j'ai certaines limites. [...] je ne peux pas jouer de manière interactive ou réaliser des simulations de jeux [...].
+
+moi: Du coup, est-ce que tu es capable de jouer au Go ?
+
+ChatGPT: Non, [...]
+
+---
+
 ![bg](../style/bg-toc.svg)
 
 <br/>

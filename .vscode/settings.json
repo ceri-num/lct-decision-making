@@ -1,6 +1,3 @@
 {
-    "markdown.marp.themes": [
-        "style/imt-slide.css"
-    ],
-    "workbench.colorTheme": "Monokai"
+    "markdown.marp.html": "all"
 }

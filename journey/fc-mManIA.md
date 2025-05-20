@@ -2,13 +2,11 @@
 
 1. **Introduction** 
     - Notions: [Intro générale](https://github.com/ceri-num/lct-decision-uu/raw/master/pdf/10-intro.pdf)
-    - Tutorials: _Install_, _First Bot_
-    - Notions: [La politique](https://github.com/ceri-num/lct-decision-uu/raw/master/pdf/11-notion-policy.pdf)
-    - Tutorials: _Policy_
-2. **Apprentissage par renforcement**
+2. **Apprentissage par Renforcement**
     - Notions: [Q-Learning](https://github.com/ceri-num/lct-decision-uu/raw/master/pdf/21-reinforcement.pdf)
     - Tutorials: _Q Learning_
-    - Notions: [Jouer sur les paramètres](https://github.com/ceri-num/lct-decision-uu/raw/master/pdf/22-feedback-on-rl.pdf)
+    - Notions: [MDP](https://github.com/ceri-num/lct-decision-uu/raw/master/pdf/21-reinforcement.pdf)
+    - Tutorials: _Model Based_
 3. **Sclale-up**
     - Notions: [Réduction des espaces d'état et d'action](https://github.com/ceri-num/lct-decision-uu/raw/master/pdf/31-state-space.pdf)
     - Tutorials: Play with [scikit-learn tree](https://scikit-learn.org/stable/modules/tree.html)

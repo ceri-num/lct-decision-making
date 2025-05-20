@@ -575,16 +575,18 @@ Worst case: with action "_roll-roll-roll_" $\rightarrow$ _56_ posibilities
 - **Games ?** $\quad$ $56 \times 56 \times 56 =$ _175 616_
 
 
-
 ---
 <!-- --------------------------------------------------------------- -->
 
 ## Game 421 - Implementation:
 
-[https://ktorz-net.github.io/hackagames/](https://ktorz-net.github.io/hackagames/)
+### Hackable Games API:
+
+- [HackaGames](https://ktorz-net.github.io/hackagames/)
 
 <br />
-<br />
-<br />
 
-Web dev. environment: [https://replit.com](https://replit.com)
+### Integrated Dev. Environment (IDE):
+
+- Prefered solution: [VisualStudio code](https://code.visualstudio.com/)
+- Possible web solution: [https://replit.com](https://replit.com)
