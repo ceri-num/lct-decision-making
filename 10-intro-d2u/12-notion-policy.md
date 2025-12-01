@@ -292,7 +292,7 @@ $$ \mathit{Eval}(s, a) = P( \mathit{win} \ |\  \pi(s)=a )$$
 
 <br />
 
-- But also depends on all the future actions...
+- But: also depends on all the future actions...
 
 <br />
 
@@ -362,7 +362,7 @@ it is always preferable to target the **4-2-1**
 - Compute average values for tuples $\langle s,\ a \rangle$
 - Use those values to select the actions.
 
-#### But depends on the initial player behavior...
+#### But: depends on the initial player behavior...
 
 <br />
 

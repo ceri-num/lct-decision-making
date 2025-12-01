@@ -7,7 +7,7 @@
 <ul>
 <li><a href="https://github.com/ceri-num/lct-decision-uu/raw/master/pdf/11-intro-general.pdf">Introduction</a></li>
 <li><a href="https://github.com/ceri-num/lct-decision-uu/raw/master/pdf/12-notion-policy.pdf">Notion of policy</a></li>
-<li><a href="https://github.com/ceri-num/lct-decision-uu/raw/master/pdf/21-reinforcement.pdf">Reinforcement Learning</a></li>
+<li><a href="https://raw.githubusercontent.com/ceri-num/lct-decision-making/master/pdf/21-reinforcement.pdf">Reinforcement Learning</a></li>
 <li><a href="https://github.com/ceri-num/lct-decision-uu/raw/master/pdf/23-model-learning.pdf">About Model Based Learning</a></li>
 <li><a href="https://github.com/ceri-num/lct-decision-uu/raw/master/pdf/22-feedback-on-rl.pdf">Conclusiosns on 421 game</a></li>
 <li><a href="https://github.com/ceri-num/lct-decision-uu/raw/master/pdf/31-state-space.pdf">The Curse of Dimensionality</a></li>

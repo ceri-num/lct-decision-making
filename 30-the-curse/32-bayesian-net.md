@@ -160,7 +160,6 @@ it is possible to infers over the distribution of probabilities at time $t+N$
 
 ![](../figs/dynamic-BN-1.svg)
 
-
 ---
 
 ## Factorized Transition Function: 421 example
