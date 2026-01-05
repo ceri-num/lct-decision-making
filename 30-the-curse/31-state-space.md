@@ -13,23 +13,28 @@ Guillaume Lozenguez
 
 [@imt-nord-europe.fr](mailto:guillaume.lozenguez@imt-nord-europe.fr)
 
-![bg](../style/bg-tittle.svg)
+![bg](../style/bg-tittle-lite.svg)
 
 ---
 
-moi: Est-ce que tu es capable de jouer au Go ?
+## Discusion ChatGPT (GPT-4)
 
-ChatGPT : Oui, je peux expliquer les règles du Go, discuter des stratégies et répondre à des questions sur le jeu. Cependant, je ne peux pas jouer au Go en temps réel comme un joueur humain ou un logiciel dédié. Si vous avez des questions sur le jeu ou si vous souhaitez en savoir plus, n’hésitez pas à demander !
+_moi:_ Est-ce que tu es capable de jouer au Go ?
+
+_ChatGPT :_ Oui, je peux expliquer les règles du Go, discuter des stratégies et répondre à des questions sur le jeu. Cependant, je ne peux pas jouer au Go en temps réel comme un joueur humain ou un logiciel dédié. Si vous avez des questions sur le jeu ou si vous souhaitez en savoir plus, n’hésitez pas à demander !
 
 --- 
 
-moi: non j'explore ta connaissance de tes propres limites
 
-ChatGPT: Je comprends mieux ! En effet, j'ai certaines limites. [...] je ne peux pas jouer de manière interactive ou réaliser des simulations de jeux [...].
+## Discusion ChatGPT (GPT-4)
 
-moi: Du coup, est-ce que tu es capable de jouer au Go ?
+_moi:_ non j'explore ta connaissance de tes propres limites
 
-ChatGPT: Non, [...]
+_ChatGPT:_ Je comprends mieux ! En effet, j'ai certaines limites. [...] je ne peux pas jouer de manière interactive ou réaliser des simulations de jeux [...].
+
+_moi:_ Du coup, est-ce que tu es capable de jouer au Go ?
+
+_ChatGPT:_ Non, [...]
 
 ---
 
@@ -148,7 +153,7 @@ Probability to play 2 times the same distribution in a human life is very close 
 
 ### Project the states in a smallest space (dimension and size)
 
-![](../figs/qlearning-arch.svg)
+![width:1200px](../figs/qlearning-arch.svg)
 
 By mitigate the negative impact on the resulting built policy.
 
@@ -170,11 +175,13 @@ By mitigate the negative impact on the resulting built policy.
 
 ## Geometry Reduction
 
+<br />
+
 - Consider that **close** states are similar.
 - Based on the assumption that: _it is possible to define a **distance** between States_
 - By using regular discretization or adaptative clustering
 
-![](../figs/state-space-grid.svg)
+![width:1200px](../figs/state-space-grid.svg)
 
 
 ---
@@ -183,7 +190,7 @@ By mitigate the negative impact on the resulting built policy.
 
 #### Searching the hyper-plan that better separate the data, in a given dimension.
 
-![](../figs/state-space-pca.svg)
+![width:900px](../figs/state-space-pca.svg)
 
 [PCA on Wikipedia](https://en.wikipedia.org/wiki/Principal_component_analysis)
 
@@ -222,7 +229,7 @@ by subtracting the first k − 1 principal components from $X$.
 
 #### Regroup the states in coherent sets
 
-![](../figs/state-space-cluster.svg)
+![width:1200px](../figs/state-space-cluster.svg)
 
 **Attention:** the action will be the same for all states in a same group. 
 
@@ -248,6 +255,8 @@ Start k-means several times, with different random initialization.
 ---
 
 ## Clustering - Example on K-means
+
+<br />
 
 ![width:1000](../figs/k-means.svg)
 
@@ -313,7 +322,7 @@ Factorized method: Based on state variable prevalence
 
 - _Decision tree:_ **Nodes:** variables ; **Edges:** assignment ; **leaf:** group of states
 
-![](../figs/decision-tree-grp.svg)
+![width:1200px](../figs/decision-tree-grp.svg)
 
 ---
 
@@ -322,15 +331,15 @@ Factorized method: Based on state variable prevalence
  - Is a directed graph structure (with **Nodes**  and **Oriented Edges**),
  - Connected, with no loop  and a unique path from any 2 nodes.
  
-![](../figs/decision-tree-decision.svg)
+![width:1200px](../figs/decision-tree-decision.svg)
 
 ---
 
 ## Decision Tree On 421 Q-Learning
 
-<figure>
-<img height="460" src="../figs/decision-tree-421.svg" />
-<figure>
+<br />
+
+![width:600px](../figs/decision-tree-421.svg)
 
 ---
 
@@ -406,20 +415,19 @@ _H(X)-X-X-1_ : important proportion, huge variation
 
 ## ID3 Algorythm (Iterative Dichotomiser 3)
 
-*Input:* Examples $X$, Attributes $A$, Labels $[+, -]$ | *Output:* Decision Tree (local optimal)
+<br />
 
-- **If** All Examples positive : **return** $\mathit{leaf}(+)$
-**If** All Examples negative : **return** $\mathit{leaf}(-)$
+*Input:* Examples $X$, Attributes $A$, Labels $[+, -]$ | *Output:* Decision Tree
+
+**If** All Examples positive : **return** $\mathit{leaf}(+)$ **|** negative : **return** $\mathit{leaf}(-)$
 **If** $A$ is empty : **return** $\mathit{leaf}(\cdot)$, $\cdot$ most common + or - in Examples
-- **Otherwise** :
+**Otherwise** :
    1. define $\mathit{tree}(a)$, with $a$, the attribute in $A$ that best classifies examples
    2. for each possible value $vi$ of $a$
       - add $\mathit{branch}(vi)$ to $\mathit{tree}(a)$
-      - **If** $X(vi)$ is empty ( the subset of $X$ with $A= vi$):
-      $\mathit{branch}(vi)= \mathit{leaf}(\cdot)$
+      - **If** $X(vi)$ is empty ( the subset of $X$ with $A= vi$): $\mathit{branch}(vi)= \mathit{leaf}(\cdot)$
       - **Otherwise** : $\mathit{branch}(vi)= \mathit{ID3}( X(vi),\ A\backslash a )$
-   3. return $\mathit{tree}(a)$
-
+   3. **return** $\mathit{tree}(a)$
 
 ---
 
@@ -440,6 +448,8 @@ Computed from the proportion of _positive/negative_ examples.
 ---
 
 ## ID3 Algorythm - properties
+
+<br />
 
 - _Local optimal_ - no possibility to remove one of the nodes.
 - _Greedy strategy_ - not guarantee an optimal solution.
@@ -474,6 +484,8 @@ Computed from the proportion of _positive/negative_ examples.
 ---
 
 ## Decision Tree: Conclusion
+
+<br />
 
 #### It is all about defining the appropriate variable prevalence (Decision Tree Structure)
 
