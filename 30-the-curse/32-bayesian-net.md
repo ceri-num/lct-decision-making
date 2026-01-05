@@ -13,7 +13,7 @@ Guillaume Lozenguez
 
 [@imt-nord-europe.fr](mailto:guillaume.lozenguez@imt-nord-europe.fr)
 
-![bg](../style/bg-tittle.svg)
+![bg](../style/bg-tittle-lite.svg)
 
 ---
 

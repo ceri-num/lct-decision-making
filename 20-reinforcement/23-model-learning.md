@@ -13,7 +13,28 @@ Guillaume Lozenguez
 
 [@imt-nord-europe.fr](mailto:guillaume.lozenguez@imt-nord-europe.fr)
 
-![bg](../style/bg-tittle.svg)
+![bg](../style/bg-tittle-lite.svg)
+
+
+---
+## Discusion ChatGPT (GPT-4)
+
+_moi:_ Est-ce que tu es capable de jouer au Go ?
+
+_ChatGPT :_ Oui, je peux expliquer les règles du Go, discuter des stratégies et répondre à des questions sur le jeu. Cependant, je ne peux pas jouer au Go en temps réel comme un joueur humain ou un logiciel dédié. Si vous avez des questions sur le jeu ou si vous souhaitez en savoir plus, n’hésitez pas à demander !
+
+--- 
+
+
+## Discusion ChatGPT (GPT-4)
+
+_moi:_ non j'explore ta connaissance de tes propres limites
+
+_ChatGPT:_ Je comprends mieux ! En effet, j'ai certaines limites. [...] je ne peux pas jouer de manière interactive ou réaliser des simulations de jeux [...].
+
+_moi:_ Du coup, est-ce que tu es capable de jouer au Go ?
+
+_ChatGPT:_ Non, [...]
 
 ---
 
@@ -49,23 +70,35 @@ Recursive evaluation of states to compute expected gains.
 
 ---
 
-## Markov Decision Process
+## Markov Decision Process (MDP) 
+
+<br />
+
+<div class="line">
+<div class="one2">
 
 **MDP:** $\langle S, A, T, R \rangle$:
 
-*S :* set of system's states
-*A :* set of possible actions
-*T :* S × A × S → [0, 1] : transitions
-*R :* S × A → R : average cost/rewards
-
-![bg right 100%](../figs/MDP.svg)
+- *S:* set of system's states
+- *A:* set of possible actions
+- *T:* S × A × S → [0, 1] : transitions
+- *R:* S × A → R : average cost/rewards
 
 **Optimal policy:**
 
-$\pi$: a function returning the action to perform in each crossed states.
+*$\pi$:* S → A : a policy function
+returning the action to perform.
 
-$\pi^*$: the optimal policy maximizing the gains (expected cumulated rewards).
+*$\pi^*$:* the optimal policy.
 
+</div>
+<div class="one2">
+
+![](../figs/MDP.svg)
+
+
+</div>
+</div>
 
 ---
 
@@ -86,7 +119,6 @@ $$\text{with :} \ a=\pi(s) \text{ and } \gamma \in [0, 1] \text{ the discount fa
 
 ## Solving MDP: Value Iteration
 
-<br />
 <br />
 
 *Input:* an **MDP:** $\langle S, A, T, R \rangle$ ; precision error: *$\epsilon$* ; discount factor: *$\gamma$* ; initial **V(s)**
