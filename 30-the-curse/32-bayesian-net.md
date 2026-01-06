@@ -17,31 +17,27 @@ Guillaume Lozenguez
 
 ---
 
+## Before to go...
+
+<br />
+
+### Optimal decision-making  requires a model.
+
+![width:800px](../figs/model-based-arch.svg)
+
+### Basic Dynamic Model: 
+
+- a **Transition** function : $\quad T(s, a, s') \rightarrow [0, 1]$
+  A potentially very huge object...
+
+---
+
 ![bg](../style/bg-toc.svg)
 
 <br/>
 
 1. **Bayesian Network**
 2. **Factorized Transition Function**
-
----
-
-## Before to go...
-
-### Q-Learning over reduced state-space (and actions...) <br /> nessearly generate averaged decisions...
-
-![](../figs/qlearning-arch.svg)
-
-### Need a model to refine decision making from simulations
-
----
-
-![bg](../style/bg-toc.svg)
-
-<br/>
-
-1. **Bayesian Network**
-2. Factorized Transition Function
 
 ---
 
@@ -109,6 +105,7 @@ Graphical model: _Node:_ variable, _Orriented Edge_, dependancy
 - In python - numerous implementations
    - [pomegranate](https://pomegranate.readthedocs.io/en/latest/) - define compute inferences and more.
    - [bnlearn](https://pomegranate.readthedocs.io/en/latest/) - Learning the bayesian structure (ie. detect the dependencies)
+- Profesionals: [bayesia](https://www.bayesia.com/)
 
 ---
 
@@ -125,8 +122,23 @@ Graphical model: _Node:_ variable, _Orriented Edge_, dependancy
 
 #### Classically a multi-varibles probabilistic evolution problem
 
+
+<div class="line">
+<div class="one2">
+
 ![](../figs/transition.svg)
 
+</div>
+<div class="one2">
+
+$$T(s, a, s') \rightarrow [0, 1]$$
+
+So, it is about 
+_$\mathit{Domain}(Var)^{|Var_S|\times2\times |Var_A|}$_
+values
+
+</div>
+</div>
 
 ---
 
@@ -213,12 +225,11 @@ Learning transitions $\rightarrow$ computing $3 \times 12$ probabilities _vs_ ( 
 
 ---
 
-![bg](../style/bg-toc.svg)
+## Conclusion on Bayesian-network based transitions
 
-<br/>
-
-1. Bayesian Network
-2. Factorized Transition Function
-
-
-<!-- Coin flipping -->
+- Bayesian Network allows for **efficient factorized transition** definition
+- **Learning process:** (very hard)
+  - Quid of network structure ? (correlation is not causality)
+  ([recent survey](https://link.springer.com/article/10.1007/s10462-022-10351-w#auth-Neville_Kenneth-Kitson-Aff1))
+  - And with hidden variables ?
+- Going futher: [distribution models](https://en.wikipedia.org/wiki/Probability_distribution)...
