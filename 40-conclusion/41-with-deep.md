@@ -145,6 +145,6 @@ Livre: _Quand la machine Apprend_
 
 #### Both policy and value estimation, but in Reinforcement Learning approach 
 
-![](./deep-decision-arch2.svg)
+![](./deep-learning-arch.svg)
 
 Classical _Actor-Critic architecture_ (see [PPO](https://en.wikipedia.org/wiki/Proximal_policy_optimization) algorithm for example).
