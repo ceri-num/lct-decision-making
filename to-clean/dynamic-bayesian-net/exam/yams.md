@@ -95,7 +95,7 @@ Let consider only one of the **5** dice (*die-1*). The evolution of the face of 
 In this scenario the player is waiting a *5* or a *6*.
 
 - **Question 7.a**: Propose a *dynamic Bayesian network* modeling the evolution of *die-1* with all the condition tables.
-- **Question 7.b**: At the begining, the player get a *one*. What is the distributions of probabilities over each of the variables modeled on the *dynamic Bayesian network*, for the time step *0* and the time step *1*.
+- **Question 7.b**: At the beginning, the player get a *one*. What is the distribution of probabilities over each of the variables modeled on the *dynamic Bayesian network*, for the time step *0* and the time step *1*.
 
 ### Question 8
 

@@ -145,8 +145,8 @@ _A.N. Gomez, Ł. Kaiser, I. Polosukhin_ (92k citations)
 
 ### Distributed Artificial Intelligence
 
-- **Intelligence** - Simpelly referencing natural intelligence
-- **Artifical** - But not natural (based on computing technic)
+- **Intelligence** - Simply referencing natural intelligence
+- **Artificial** - But not natural (based on computing technique)
 
 #### AI: The models and algorithms coping natural intelligence
 
@@ -187,7 +187,7 @@ _A.N. Gomez, Ł. Kaiser, I. Polosukhin_ (92k citations)
 
 **Question:**
 
-#### How to choose appropriate action to perform<br /> considering the perception at a each time step ?
+#### How to choose appropriate action to perform<br /> considering the perception at each time step ?
 
 
 ---
@@ -237,7 +237,7 @@ Rarely determinist, mostly uncertain (even stochastic)
 
 ### Agent:
 
-- Defining by a perception-state, goals and a policy to achieve its goals<br />(*BDI* model: Belief - Desire - Intention)
+- Defined by a perception-state, goals and a policy to achieve its goals<br />(*BDI* model: Belief - Desire - Intention)
 - with different positions in social structure<br />(*AGR* model: Agent - Group - Role )
 - Capable of communication
 - Capable of adaptation (learning)
@@ -249,9 +249,6 @@ Rarely determinist, mostly uncertain (even stochastic)
 <!-- --------------------------------------------------------------- -->
 
 ## Rational Agent 
-
-<br />
-<br />
 
 ![](../figs/agent.svg)
 
@@ -266,7 +263,6 @@ Rarely determinist, mostly uncertain (even stochastic)
 
 ## Deterministic Planning
 
-<br />
 <br />
 
 Determining *a succession of actions* to drive a system from an initial state to a target state.
@@ -283,7 +279,6 @@ Determining *a succession of actions* to drive a system from an initial state to
 ## Deterministic Planning
 
 <br />
-<br />
 
 Determining *a succession of actions* to drive a system from an initial state to a target state.
 
@@ -298,9 +293,6 @@ Determining *a succession of actions* to drive a system from an initial state to
 
 ## Determine a Plan
 
-<br />
-<br />
-
 Finding a *path* in a *graph* modeling all possible evolutions
 
 ![width:800pt](../figs/domino-graph.svg)
@@ -311,21 +303,19 @@ Finding a *path* in a *graph* modeling all possible evolutions
 ## Plan Optimization
 
 <br />
-<br />
 
 Finding an *optimized* path in a *weighted* Graph
 
 ![width:800pt](../figs/domino-graph2.svg)
 
 
-- Tipically: _Finding the shortest path from `A` to `B`_
+- Typically: _Finding the shortest path from `A` to `B`_
 
 ---
 <!-- --------------------------------------------------------------- -->
 
-## Stokastic Planning
+## Stochastic Planning
 
-<br />
 <br />
 
 Build a *policy*:
@@ -337,9 +327,8 @@ Build a *policy*:
 ---
 <!-- --------------------------------------------------------------- -->
 
-## Stokastic Planning
+## Stochastic Planning
 
-<br />
 <br />
 
 Execute a *policy*:
@@ -353,9 +342,6 @@ Execute a *policy*:
 
 ## Game Theory
 
-<br />
-<br />
-
 *Few entities* (players) control a system (with different goals)
 
 ![](../figs/echec.svg)
@@ -367,9 +353,6 @@ Execute a *policy*:
 <!-- --------------------------------------------------------------- -->
 
 ## Class of problems - Game theory
-
-<br />
-<br />
 
 *Few entities* control the same system (with different goals)
 
@@ -404,7 +387,7 @@ Execute a *policy*:
 ## The notion of complexity (example of Go)
 
 <br />
-<br />
+
 
 **_GO:_** $19\times19$ positions $\rightarrow$ $10^{170}$ configurations $\rightarrow$ $10^{600}$ games
 
@@ -418,7 +401,6 @@ Execute a *policy*:
 
 ## The notion of complexity (example of Go)
 
-<br />
 
 **A classical $3$ GHz computer:** $3\times10^9$ op. per second
 $\rightarrow$ $~ 2.6 \times 10^{14}$ op. a day $\rightarrow$ $~ 10^{17}$ op. a year
@@ -430,14 +412,13 @@ $\rightarrow$ requires decomposed model and statistics...
 
 <br />
 
-**Sun life:** arround _$10^{30}$ years_
+**Sun life:** around _$10^{30}$ years_
 
 ---
 <!-- --------------------------------------------------------------- -->
 
 ## Decision Making Problem
 
-<br />
 
 #### How to compute ~~optimal~~ appropriate responses<br />to control dynamic systems ?
 
@@ -463,22 +444,22 @@ $\rightarrow$ requires decomposed model and statistics...
 
 ## Game: 421
 
-<br />
-
 <div class="line">
 <div class="one2">
 
 **Reaching the best combination**
-**by rolling 3 dices**
+**by rolling 3 dice**
 
 ### Goal :
 
 - Optimize the 2 re-roll possibility
-- By choosing dices to roll again.
+- By choosing dice to roll again.
 - The best ever is _$4-2-1$_
 
 </div>
 <div class="one2">
+
+<br />
 
 ![](../figs/421_dice.jpg)
 
@@ -512,11 +493,11 @@ $$ 6 \times 6 \times 6 \times 3 = 648$$
 
 ## Game 421 - The Quiz...
 
-- **Number of States ?**  In facts, the order do not mater.
+- **Number of States ?**  In fact, the order does not matter.
 
 <br />
 
-(Mathematiques area: [Combinatorics](https://en.wikipedia.org/wiki/Combinatorics))
+(Mathematics area: [Combinatorics](https://en.wikipedia.org/wiki/Combinatorics))
 
 <br />
 <br />
@@ -564,7 +545,7 @@ $$ 2 \times 2 \times 2 = 2^3 = 8$$
 
 <br />
 
-Worst case: with action "_roll-roll-roll_" $\rightarrow$ _56_ posibilities
+Worst case: with action "_roll-roll-roll_" $\rightarrow$ _56_ possibilities
 
 <br />
 
@@ -588,5 +569,5 @@ Worst case: with action "_roll-roll-roll_" $\rightarrow$ _56_ posibilities
 
 ### Integrated Dev. Environment (IDE):
 
-- Prefered solution: [VisualStudio code](https://code.visualstudio.com/)
+- Preferred solution: [VS codium](https://vscodium.com/)
 - Possible web solution: [https://replit.com](https://replit.com)

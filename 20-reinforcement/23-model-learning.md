@@ -17,7 +17,7 @@ Guillaume Lozenguez
 
 
 ---
-## Discusion ChatGPT (GPT-4)
+## Discussion ChatGPT (GPT-4)
 
 _moi:_ Est-ce que tu es capable de jouer au Go ?
 
@@ -26,7 +26,7 @@ _ChatGPT :_ Oui, je peux expliquer les règles du Go, discuter des stratégies e
 --- 
 
 
-## Discusion ChatGPT (GPT-4)
+## Discussion ChatGPT (GPT-4)
 
 _moi:_ non j'explore ta connaissance de tes propres limites
 

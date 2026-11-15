@@ -74,7 +74,7 @@ $$T(s_t,\ s_{t+1}) = P(s_{t+1} | s_t)$$
 
 <br />
 
-_Vocabulary Parrenthesis_: Hidden Markov Chain
+_Vocabulary Parenthesis_: Hidden Markov Chain
 $\quad$_>_ The system state is not directly observable.
 
 ---
@@ -243,6 +243,8 @@ $$\pi(s): \ \text{the action to perform in } s$$
 
 ## Choosing : building a policy  of actions
 
+<br />
+
 ### Example of policy :
 
 **"Always target a 4-2-1"**:  keeping only one **4**, one **2** and one **1**
@@ -352,8 +354,6 @@ it is always preferable to target the **4-2-1**
 
 ## Exercices, compute a policy
 
-<br />
-<br />
 <br />
 
 **Basic learning process :**

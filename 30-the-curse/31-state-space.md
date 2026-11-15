@@ -158,7 +158,7 @@ By mitigate the negative impact on the resulting built policy.
 
 - Consider that **close** states are similar.
 - Based on the assumption that: _it is possible to define a **distance** between States_
-- By using regular discretization or adaptative clustering
+- By using regular discretization or adaptive clustering
 
 ![width:1200px](../figs/state-space-grid.svg)
 
@@ -267,7 +267,7 @@ Python scikit-learn module: **sklearn.cluster.KMeans**
 <br />
 
 - The notion of distances
-   - Several definitions: Euclidean, Manathan, ...
+   - Several definitions: Euclidean, Manhattan, ...
    - Normalization.
    - Large dimension systems.
 - The evaluation of the number of PCA, clusters, ...
@@ -392,7 +392,7 @@ _H(X)-X-X-1_ : important proportion, huge variation
 
 ---
 
-## ID3 Algorythm (Iterative Dichotomiser 3)
+## ID3 Algorithm (Iterative Dichotomiser 3)
 
 <br />
 
@@ -410,7 +410,7 @@ _H(X)-X-X-1_ : important proportion, huge variation
 
 ---
 
-## ID3 Algorythm - best classifier
+## ID3 Algorithm - best classifier
 
 ### Select the attribute with the maximal **Information Gain (IG)**:
 
@@ -426,7 +426,7 @@ Computed from the proportion of _positive/negative_ examples.
 
 ---
 
-## ID3 Algorythm - properties
+## ID3 Algorithm - properties
 
 <br />
 
@@ -471,7 +471,7 @@ Computed from the proportion of _positive/negative_ examples.
 ### Appreciate solution
 
 - Quite simple
-- Good compromise between : Efficienty / Explicability
+- Good compromise between : Efficiency / Explicability
 
 ### But...
 

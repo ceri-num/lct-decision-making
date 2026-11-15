@@ -145,7 +145,7 @@ By mitigate the negative impact on the resulting built policy.
 
 - Consider that **close** states are similar.
 - Based on the assumption that: _it is possible to define a distance between States_
-- By using regular discretization or adaptative clustering
+- By using regular discretization or adaptive clustering
 
 ![](../figs/state-space-grid.svg)
 

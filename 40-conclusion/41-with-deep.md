@@ -5,8 +5,8 @@ paginate: true
 backgroundImage: url('../style/bg-imt.svg')
 ---
 
-# Reinforment with <br /> Deep Learning
-### a Discution
+# Reinforcement with <br /> Deep Learning
+### a Discussion
 
 <br />
 <br />
@@ -136,7 +136,7 @@ Livre: _Quand la machine Apprend_
 ![](./deep-decision-arch2.svg)
 
 1. Iterative process: (Play phase // Analysis phase)
-2. Suppose a model of the systems (game)
+2. Suppose a model of the system (game)
 
 ---
 <!-- --------------------------------------------------------------- -->

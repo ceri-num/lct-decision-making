@@ -56,7 +56,7 @@ The state is sufficient to determine the best action to perform, no need to look
 
 ## Scripted policy
 
-A succession of `if`, `them`, `else` statement:
+A succession of `if`, `then`, `else` statement:
 
 ```python
 state= { "D1": self.dices[0], "D2": self.dices[1],

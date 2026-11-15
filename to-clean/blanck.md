@@ -7,7 +7,7 @@ backgroundImage: url('../style/bg-imt.svg')
 
 # Decision Under<br />Uncertainty
 
-### My betifull session tittle
+### My beautiful session title
 
 Guillaume Lozenguez
 

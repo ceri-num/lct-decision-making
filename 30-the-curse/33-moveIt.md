@@ -5,7 +5,7 @@ paginate: true
 backgroundImage: url('../style/bg-imt.svg')
 ---
 
-# MovitIt
+# MoveIt
 
 ### An HackaGames game.
 
@@ -48,7 +48,7 @@ Guillaume Lozenguez
 
 - Robot goal direction ($6$), distance ($16$)
 - Distance-1 Cells: obstacle?  ($2^6$)
-- Humans' position-diretion ($6$), position-distance ($16$), movement-direction ($6$)
+- Humans' position-direction ($6$), position-distance ($16$), movement-direction ($6$)
 
 <br />
 
@@ -70,7 +70,7 @@ However: not covering -> no guarantee
 
 ## QLearning based on Relative State Representation
 
-#### Qlerning Relative-basic **versus**   Relative-limited
+#### QLearning Relative-basic **versus**   Relative-limited
 
 ![](./qlearning-moveit.svg)
 

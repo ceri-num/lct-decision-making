@@ -21,7 +21,7 @@ Guillaume.Lozenguez
 
 <br/>
 
-1. **A teoritical framework: Markov Decision Process**
+1. **A theoretical framework: Markov Decision Process**
 2. **On the go, model free learning**
     - **Compute QValues**
     - **Choose an Action**
@@ -50,7 +50,7 @@ $$T(s^t,\ a,\ s^{t+1}) = P(s^{t+1} | s^t,  a)$$
 
 ## Transition in 421-game
 
-- **For instance, doing _Keep-Kepp-Roll_ in _4-2-2 (2)_ :**
+- **For instance, doing _Keep-Keep-Roll_ in _4-2-2 (2)_ :**
   - _6-4-2 (1)_ = 1/6
   - _5-4-2 (1)_ = 1/6
   - _4-4-2 (1)_ = 1/6 $\quad$ Or $T \left( 422(2),\ \text{k-k-r},\ 442(1) \right) = 1/6$
@@ -60,7 +60,7 @@ $$T(s^t,\ a,\ s^{t+1}) = P(s^{t+1} | s^t,  a)$$
 
 <br />
 
-- **For instance, doing _Keep-Kepp-Kepp_ in _1-1-1 (2)_ :** $\quad$ _1-1-1 (0)_ = 1
+- **For instance, doing _Keep-Keep-Keep_ in _1-1-1 (2)_ :** $\quad$ _1-1-1 (0)_ = 1
 
 
 ---
@@ -174,7 +174,7 @@ The policy $\pi^*$ maximizing Bellman
 
 <br/>
 
-1. A teoritical framework: Markov Decision Process
+1. A theoretical framework: Markov Decision Process
 2. **On the go, model free learning**
     - **Compute QValues**
     - Choose an Action
@@ -265,11 +265,11 @@ exploration ratio: *$\epsilon$* ; learning rate: *$\alpha$* ; discount factor *$
 
 <br />
 
-$$\mathit{newQ}(s, a) = (1-\alpha)\mathit{Q}(s,a) + \alpha \left(\text{incomming-feedback}\right)$$
+$$\mathit{newQ}(s, a) = (1-\alpha)\mathit{Q}(s,a) + \alpha \left(\text{incoming-feedback}\right)$$
 
 <br />
 
-$$\text{incomming-feedback}= r(s,a,s') + \gamma Q(s', a')$$
+$$\text{incoming-feedback}= r(s,a,s') + \gamma Q(s', a')$$
 
 <br />
 
@@ -287,7 +287,7 @@ $$\pi^*(s) = \max_{a\in A} Q(s, a)$$
 
 <br/>
 
-1. A teoritical framework: Markov Decision Process
+1. A theoretical framework: Markov Decision Process
 2. **On the go, model free learning**
     - Compute QValues
     - **Choose an Action**
@@ -329,7 +329,7 @@ The agent build an optimal behavior from trials and errors.
   Problems:
   - Determine that "a strategy doesn't work" ?
   - Determine that "a new policy is well defined" (exploration end) ?
-- Continuously Explore and Exploite with a fixed ratio.
+- Continuously Explore and Exploit with a fixed ratio.
   - (take wrong decision periodically)
 
 <!--  ******************************************** -->
@@ -384,11 +384,11 @@ exploration ratio: *$\epsilon$* ; learning rate: *$\alpha$* ; discount factor *$
 - As an initial step (**wakeUp**) : 
    * Initialize $Q$
    * Initialize state and action variables ($s,\ a$).
-- At each itereration (**perceive**):
+- At each iteration (**perceive**):
    * Read the reached state $s'$ and the associated reward $r$
    * If necessary, add $s'$ to $Q$ (with value $0$ for any action $a$)
    * Update $Q(s,a)$ accordingly to *$\alpha$* and *$\gamma$*
-   * reccord $s=\ s'$
+   * record $s=\ s'$
 - Taking decisions (**decide**):
    * At *$\epsilon$* random: get a random $a$ *or* $a$ maximizing $Q(s, a)$
 
@@ -399,7 +399,7 @@ exploration ratio: *$\epsilon$* ; learning rate: *$\alpha$* ; discount factor *$
 
 <br/>
 
-1. A teoritical framework: Markov Decision Process
+1. A theoretical framework: Markov Decision Process
 2. **On the go, model free learning**
     - Compute QValues
     - **Choose an Action**
@@ -427,7 +427,7 @@ exploration ratio: *$\epsilon$* ; learning rate: *$\alpha$* ; discount factor *$
 - **States**: 4 positions
   $s_0$, $s_1$, $s_2$ and $s_3$
 - **Actions**: left, right, up, down
-- **Transitions**: determinist
+- **Transitions**: deterministic
 - **Rewards**:
   10 for reaching $s_3$, -1 else
 

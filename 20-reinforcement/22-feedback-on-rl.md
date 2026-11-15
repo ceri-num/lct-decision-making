@@ -159,7 +159,7 @@ plt.show()
 - **ON** the _Q-values_ and the in-use policy _$\pi$_ are aligned.
 <br />
 - **OFF** the learning _Q-values_ model something else.
-   * Generally _$\pi$_ is $\epsilon$-greedy and _Q-values_ optimals 
+   * Generally _$\pi$_ is $\epsilon$-greedy and _Q-values_ optimal
 
 
 ---

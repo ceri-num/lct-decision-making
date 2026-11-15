@@ -43,7 +43,7 @@ Guillaume Lozenguez
 
 ## Bayesian Network: General idea
 
-#### Variables are not necessarly correlated over all the others.
+#### Variables are not necessarily correlated over all the others.
 
 **Example:**
 
@@ -59,7 +59,7 @@ Guillaume Lozenguez
 
 ## Bayesian Network: Car accident Example
 
-Graphical model: _Node:_ variable, _Orriented Edge_, dependancy
+Graphical model: _Node:_ variable, _Oriented Edge_, dependency
 
 ![width:600](../figs/bn-accident.svg)
 
@@ -71,7 +71,7 @@ Graphical model: _Node:_ variable, _Orriented Edge_, dependancy
 
 ## Bayesian Network: Node's Probability Table
 
-#### Propbality dependencies are defined node by node.
+#### Probability dependencies are defined node by node.
 
 ![width:600](../figs/bn-accident-table.svg)
 
@@ -79,7 +79,7 @@ Graphical model: _Node:_ variable, _Orriented Edge_, dependancy
 
 ## Bayesian Network: Inference
 
-#### Resulting propbality is computed recursivelly
+#### Resulting probability is computed recursively
 
 ![width:800](../figs/bn-accident-infer.svg)
 
@@ -87,7 +87,7 @@ Graphical model: _Node:_ variable, _Orriented Edge_, dependancy
 
 ## Bayesian Network: Level-up
 
-#### Growing the graph $\rightarrow$ no consequencies over existing nodes
+#### Growing the graph $\rightarrow$ no consequences over existing nodes
 
 ![width:600](../figs/bn-accident-2.svg)
 
@@ -105,7 +105,7 @@ Graphical model: _Node:_ variable, _Orriented Edge_, dependancy
 - In python - numerous implementations
    - [pomegranate](https://pomegranate.readthedocs.io/en/latest/) - define compute inferences and more.
    - [bnlearn](https://pomegranate.readthedocs.io/en/latest/) - Learning the bayesian structure (ie. detect the dependencies)
-- Profesionals: [bayesia](https://www.bayesia.com/)
+- Professionals: [bayesia](https://www.bayesia.com/)
 
 ---
 
@@ -120,7 +120,7 @@ Graphical model: _Node:_ variable, _Orriented Edge_, dependancy
 
 ## Factorized Transition Function: Problem
 
-#### Classically a multi-varibles probabilistic evolution problem
+#### Classically a multi-variables probabilistic evolution problem
 
 
 <div class="line">
@@ -147,8 +147,8 @@ values
 ![](../figs/dist-BN-trans.svg)
 
 
-Each varaible evolution is dependant from few parents
-Potentially with intermediate varaibles.
+Each variable evolution is dependent from few parents
+Potentially with intermediate variables.
 
 
 ---
@@ -197,7 +197,7 @@ Learning transitions $\rightarrow$ computing $3 \times 12$ probabilities _vs_ ( 
 
 ## Factorized Transition Function: Zombie Dice Exemple
 
-#### Naturrally the complexity of the networks<br />grow linearly with the complexity of the game
+#### Naturally the complexity of the networks<br />grow linearly with the complexity of the game
 
 ![width:800](../figs/zombie_dice.svg)
 
@@ -232,4 +232,4 @@ Learning transitions $\rightarrow$ computing $3 \times 12$ probabilities _vs_ ( 
   - Quid of network structure ? (correlation is not causality)
   ([recent survey](https://link.springer.com/article/10.1007/s10462-022-10351-w#auth-Neville_Kenneth-Kitson-Aff1))
   - And with hidden variables ?
-- Going futher: [distribution models](https://en.wikipedia.org/wiki/Probability_distribution)...
+- Going further: [distribution models](https://en.wikipedia.org/wiki/Probability_distribution)...
