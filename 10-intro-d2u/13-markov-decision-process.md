@@ -7,7 +7,7 @@ backgroundImage: url('../style/bg-imt.svg')
 
 # AI and Games
 
-### Model-Based Learning
+### Markov Decision Process
 
 Guillaume Lozenguez
 

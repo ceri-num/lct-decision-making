@@ -9,7 +9,7 @@ backgroundImage: url('../style/bg-imt.svg')
 
 # Decision Under<br />Uncertainty
 
-### LLM Based AI
+### LLM Based AI Agent
 
 <br />
 
